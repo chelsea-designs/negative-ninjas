@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/80f956ebd0.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+        <title>Negative Ninjas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+<body>
+<div class="game-intro">
+    <div class="header row">
+        <div class="col-3">
+            <!-- Help Modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#helpModal">
+                <i class="fas fa-question"></i>
+            </button>
+    
+            <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">How to Play</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Help Modal
+
+                            How quickly can you defeat the baddy and progress to the next belt.
+                            
+                            Correct answers +2 (Knocks 2 health points off the baddy)
+                            Incorrect answers -1 (Knocks 1 health point off ninja)
+                            
+                            White: x2, x10
+                            Yellow: /2, /10
+                            Orange: x2, /2, x10, /10
+                            Green: x2, x4, x5, x10
+                            Purple: /2, /4, /5, /10
+                            Blue: x2, /2, x4, /4, x5, /5, x10, /10
+                            Brown: x ALL
+                            Red: / ALL
+                            Black: x/ ALL
+                            
+                            Once you've reached black belt, how quickly can you defeat the baddy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-6 text-center">
+            <h1> Negative Ninjas </h1>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-primary float-end" id="switch-lang"><i class="fas fa-language"></i></button>
+        </div>
+    </div>
+    <div class="row">
+        <h2 class="text-center"><span class="cy">Lefel/Belt</span><span class="en">Level/Belt</span></h2>
+    </div>
+    <div class="game-settings row">
+        <div class="btn-group col-10 mx-auto" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="multiply" checked>
+            <label class="btn btn-outline-primary btn-start" for="btnradio1"><span class="cy">Gwyn</span><span class="en">White</span></label>
+            
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="division">
+            <label class="btn btn-outline-primary btn-start" for="btnradio2"><span class="cy">Melyn</span><span class="en">Yellow</span></label>
+        
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="mixture">
+            <label class="btn btn-outline-primary btn-start" for="btnradio3"><span class="cy">Oren</span><span class="en">Orange</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="multiply">
+            <label class="btn btn-outline-primary btn-start" for="btnradio4"><span class="cy">Gwyrdd</span><span class="en">Green</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="division">
+            <label class="btn btn-outline-primary btn-start" for="btnradio5"><span class="cy">Piws</span><span class="en">Purple</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="mixture">
+            <label class="btn btn-outline-primary btn-start" for="btnradio6"><span class="cy">Glas</span><span class="en">Blue</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" value="multiply">
+            <label class="btn btn-outline-primary btn-start" for="btnradio7"><span class="cy">Brown</span><span class="en">Brown</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off" value="division">
+            <label class="btn btn-outline-primary btn-start" for="btnradio8"><span class="cy">Coch</span><span class="en">Red</span></label>
+    
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off" value="mixture">
+            <label class="btn btn-outline-primary btn-start" for="btnradio9"><span class="cy">Du</span><span class="en">Black</span></label>
+        </div>
+    </div>
+</div>
+<div class="game-area">
+    <span id="operand1">0</span>
+    <span id="operator">x</span>
+    <span id="operand2">0</span>
+    <span>=</span>
+    <input id="answer-box" type="number">
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
