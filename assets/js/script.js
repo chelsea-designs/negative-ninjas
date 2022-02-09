@@ -8,24 +8,44 @@ $('#switch-lang').click(function() {
 
 
 // Multipliers
-const difficulty = {White:[-2,2,-10,10], Yellow:[-2,2,-10,10], Orange:[-2,2,-10,10], Green:[-2,2,-4,4,-5,5,-10,10], Purple:[-2,2,-4,4,-5,5,-10,10],Blue:[-2,2,-4,4,-5,5,-10,10],Brown:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],Red:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],Black:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12]};
+const difficulty=[
+    {timesTables:[-2,2,-10,10],gameOperator:"multiply"},
+    {timesTables:[-2,2,-10,10],gameOperator:"division"},
+    {timesTables:[-2,2,-10,10],gameOperator:"mixture"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"multiply"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"division"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"mixture"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"multiply"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture"}
+];
 
 // Run Game
-
+var buttonNumber;
 $(".btn-start").click(function(){
-    let gameType = this.value;
-    let levelSelector=this.innerText;
-    console.log(levelSelector);
+    let radios = document.getElementsByName('btnradio')
+    console.log(radios);
+    for (let radio of radios)
+    {
+        if (radio.checked) {
+            buttonNumber = parseInt(radio.value);
+            console.log(buttonNumber);
+        }
+    }
+    let multipliers = difficulty[buttonNumber].timesTables; 
+    $('#number-setting').innerText = multipliers
+    let gameType = difficulty[buttonNumber].gameOperator;
+    console.log(multipliers);
     console.log(gameType);
-    //runGame(gameType);
+    runGame(gameType,multipliers);
 });
-/*
-function runGame(gameType,difficulty){
+
+function runGame(gameType,multipliers){
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
 
-    let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1);
-    let num2 = difficulty[Math.floor(Math.random() * level.length)]; //if 1st btn is pressed, choose random number from 1st array in difficulty variable.
+    let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
+    let num2 = multipliers[Math.floor(Math.random() * multipliers.length)]; // Generate random number from the array associated with game type i.e. if 1st btn is pressed, choose random number from index 0 - change this 0.
 
     if (gameType === "multiply") {
         displayMultiplyQuestion(num1, num2);
@@ -38,7 +58,7 @@ function runGame(gameType,difficulty){
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 };
-
+/*
 // Submit Answer
 ${'#btn-submit').click(function(){
     checkAnswer();
@@ -61,7 +81,7 @@ function checkAnswer() {
         incrementIncorrect();
     }
 
-    runGame(calculatedAnswer[1]);
+    runGame(calculatedAnswer[1],multiplier);
 
 }
 
@@ -95,7 +115,7 @@ function incrementIncorrect(){
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
 };
-
+*/
 // Display Questions
 function displayMultiplyQuestion(operand1, operand2) {
 
@@ -123,5 +143,3 @@ function displayMixtureQuestion(operand1, operand2) {
 	document.getElementById("operator").textContent = "DIVIDE";
     }
 }
-
-*/

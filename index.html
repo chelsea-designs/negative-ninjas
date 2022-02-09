@@ -66,41 +66,43 @@
     </div>
     <div class="game-settings row">
         <div class="btn-group col-10 mx-auto" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="multiply" checked>
-            <label class="btn btn-outline-primary btn-start" for="btnradio1"><span class="cy">Gwyn</span><span class="en">White</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="0">
+            <label class="btn btn-outline-primary btn-start" for="btnradio1" id="whiteBelt"><span class="cy">Gwyn</span><span class="en">White</span></label>
             
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="division">
-            <label class="btn btn-outline-primary btn-start" for="btnradio2"><span class="cy">Melyn</span><span class="en">Yellow</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="1">
+            <label class="btn btn-outline-primary btn-start" for="btnradio2" id="whiteBelt"><span class="cy">Melyn</span><span class="en">Yellow</span></label>
         
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="mixture">
-            <label class="btn btn-outline-primary btn-start" for="btnradio3"><span class="cy">Oren</span><span class="en">Orange</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="2">
+            <label class="btn btn-outline-primary btn-start" for="btnradio3" id="whiteBelt"><span class="cy">Oren</span><span class="en">Orange</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="multiply">
-            <label class="btn btn-outline-primary btn-start" for="btnradio4"><span class="cy">Gwyrdd</span><span class="en">Green</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="3">
+            <label class="btn btn-outline-primary btn-start" for="btnradio4" id="whiteBelt"><span class="cy">Gwyrdd</span><span class="en">Green</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="division">
-            <label class="btn btn-outline-primary btn-start" for="btnradio5"><span class="cy">Piws</span><span class="en">Purple</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="4">
+            <label class="btn btn-outline-primary btn-start" for="btnradio5" id="whiteBelt"><span class="cy">Piws</span><span class="en">Purple</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="mixture">
-            <label class="btn btn-outline-primary btn-start" for="btnradio6"><span class="cy">Glas</span><span class="en">Blue</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="5">
+            <label class="btn btn-outline-primary btn-start" for="btnradio6" id="whiteBelt"><span class="cy">Glas</span><span class="en">Blue</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" value="multiply">
-            <label class="btn btn-outline-primary btn-start" for="btnradio7"><span class="cy">Brown</span><span class="en">Brown</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" value="6">
+            <label class="btn btn-outline-primary btn-start" for="btnradio7" id="whiteBelt"><span class="cy">Brown</span><span class="en">Brown</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off" value="division">
-            <label class="btn btn-outline-primary btn-start" for="btnradio8"><span class="cy">Coch</span><span class="en">Red</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off" value="7">
+            <label class="btn btn-outline-primary btn-start" for="btnradio8" id="whiteBelt"><span class="cy">Coch</span><span class="en">Red</span></label>
     
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off" value="mixture">
-            <label class="btn btn-outline-primary btn-start" for="btnradio9"><span class="cy">Du</span><span class="en">Black</span></label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off" value="8">
+            <label class="btn btn-outline-primary btn-start" for="btnradio9" id="whiteBelt"><span class="cy">Du</span><span class="en">Black</span></label>
         </div>
     </div>
 </div>
 <div class="game-area">
+    <div id="numbers-setting"></div><div id="correct"></div><div id="incorrect"></div>
     <span id="operand1">0</span>
     <span id="operator">x</span>
     <span id="operand2">0</span>
     <span>=</span>
     <input id="answer-box" type="number">
+    <button data-type="submit" class="btn-submit btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/js/script.js"></script>
