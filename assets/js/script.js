@@ -21,22 +21,11 @@ const difficulty=[
 ];
 
 // Run Game
-var buttonNumber;
+
 $(".btn-start").click(function(){
-    let radios = document.getElementsByName('btnradio')
-    console.log(radios);
-    for (let radio of radios)
-    {
-        if (radio.checked) {
-            buttonNumber = parseInt(radio.value);
-            console.log(buttonNumber);
-        }
-    }
-    let multipliers = difficulty[buttonNumber].timesTables; 
-    $('#number-setting').innerText = multipliers
+    let buttonNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    let multipliers = difficulty[buttonNumber].timesTables; // retrieves multipliers for chosen difficulty
     let gameType = difficulty[buttonNumber].gameOperator;
-    console.log(multipliers);
-    console.log(gameType);
     runGame(gameType,multipliers);
 });
 
