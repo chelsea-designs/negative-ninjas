@@ -25,7 +25,9 @@ const difficulty=[
 $(".btn-start").click(function(){
     let buttonNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
     let multipliers = difficulty[buttonNumber].timesTables; // retrieves multipliers for chosen difficulty
-    let gameType = difficulty[buttonNumber].gameOperator;
+    let gameType = difficulty[buttonNumber].gameOperator; // retrieves operator for chosen difficulty level
+    let currentBelt = this.innerText;
+    document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text
     runGame(gameType,multipliers);
 });
 
