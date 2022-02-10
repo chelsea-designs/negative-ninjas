@@ -54,14 +54,17 @@ function runGame(gameType,multipliers){
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 };
-/*
+
 // Submit Answer
-${'#btn-submit').click(function(){
+$('#btn-submit').click(function(){
     checkAnswer();
+    console.log("check answer");
 });
+
 document.getElementById("answer-box").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         checkAnswer();
+        console.log("check answer");
     }
 });
 
@@ -69,15 +72,16 @@ function checkAnswer() {
 
     let userAnswer = parseInt(document.getElementById("answer-box").value);
     let calculatedAnswer = calculateCorrectAnswer();
-    let isCorrect = userAnswer === calculatedAnswer[0];
+    let isCorrect = userAnswer === calculatedAnswer;
     
     if (isCorrect) {
         incrementCorrect();
+        console.log("correct");
     } else {
         incrementIncorrect();
+        console.log("incorrect");
     }
-
-    runGame(calculatedAnswer[1],multiplier);
+    //runGame(difficulty[buttonNumber].gameOperator,multiplier); NOT WORKING - buttonNumber not defined here
 
 }
 
@@ -87,13 +91,9 @@ function calculateCorrectAnswer(){
     let operator = document.getElementById("operator").innerText;
 
     if (operator === "x") {
-        return [operand1 * operand2, "multiply"];
+        return operand1 * operand2;
     } else if (operator === "/") {
-        return [operand1 / operand2, "division"];
-    } else if (operator ==="MULTIPLY"){
-        return [operand1 * operand2, "mixture"];
-    } else if (operator ==="DIVIDE"){
-        return [operand1 / operand2, "mixture"];
+        return operand1 / operand2;
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -104,14 +104,22 @@ function incrementCorrect(){
     let oldCorrect = parseInt(document.getElementById("correct").innerText);
     document.getElementById("correct").innerText = ++oldCorrect;
     $('#answer-box').css("background-color","green");
+    let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
+    baddyHealth -= 20;
+    console.log(baddyHealth);
+    document.getElementById("baddy-progress").style.width=baddyHealth+"%";
 };
 
 function incrementIncorrect(){
     let oldIncorrect = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
+    let ninjaHealth = parseInt(document.getElementById("baddy-progress").style.width);
+    ninjaHealth -= 20;
+    console.log(ninjaHealth);
+    document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
 };
-*/
+
 // Display Questions
 function displayMultiplyQuestion(operand1, operand2) {
 

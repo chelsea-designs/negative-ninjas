@@ -79,9 +79,9 @@
 </div>
 <div class="game-area text-center p-5">
     <div class="game-header row">
-        <div class="col-4"></div>
+        <div class="col-4">Correct: <span id="correct">0</span></div>
         <div class="col-4"><span class="en">Defeat the baddy to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> Belt</span></div>
-        <div class="col-4"></div>
+        <div class="col-4">Incorrect: <span id="incorrect">0</span></div>
     </div>
     <div class="question-area col-6"></div>
         <div id="correct"></div><div id="incorrect"></div>
@@ -90,12 +90,12 @@
         <span id="operand2">0</span>
         <span>=</span>
         <input id="answer-box" type="number">
-        <button data-type="submit" class="btn-submit btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
+        <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
     </div>
     <div class="fight-scene row">
         <div class="ninja col-2">
             <div class="row progress">
-                <div id="ninja-progress" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="ninja-progress" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="row">
                 <img id="ninja-img" src="assets/images/ninja.png">
@@ -104,7 +104,7 @@
         <div class="ninja-star col-8"></div>
         <div class="baddy col-2">
             <div class="row progress">
-                <div id="progress-baddy" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="baddy-progress" class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="row">
                 <img id="baddy-img" src="assets/images/baddy.jpg">
