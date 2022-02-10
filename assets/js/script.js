@@ -28,6 +28,7 @@ $(".btn-start").click(function(){
     let gameType = difficulty[buttonNumber].gameOperator; // retrieves operator for chosen difficulty level
     let currentBelt = this.innerText;
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text
+    document.getElementById('belt-number').innerHTML = buttonNumber; 
     runGame(gameType,multipliers);
 });
 
@@ -58,13 +59,11 @@ function runGame(gameType,multipliers){
 // Submit Answer
 $('#btn-submit').click(function(){
     checkAnswer();
-    console.log("check answer");
 });
 
 document.getElementById("answer-box").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         checkAnswer();
-        console.log("check answer");
     }
 });
 
@@ -81,8 +80,6 @@ function checkAnswer() {
         incrementIncorrect();
         console.log("incorrect");
     }
-    //runGame(difficulty[buttonNumber].gameOperator,multiplier); NOT WORKING - buttonNumber not defined here
-
 }
 
 function calculateCorrectAnswer(){
@@ -108,16 +105,19 @@ function incrementCorrect(){
     baddyHealth -= 20;
     console.log(baddyHealth);
     document.getElementById("baddy-progress").style.width=baddyHealth+"%";
+    console.log(difficulty[document.getElementById('belt-number').innerHTML].gameOperator);
+    runGame(difficulty[document.getElementById('belt-number').innerHTML].gameOperator,difficulty[document.getElementById('belt-number').innerHTML].timesTables); 
 };
 
 function incrementIncorrect(){
     let oldIncorrect = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
-    let ninjaHealth = parseInt(document.getElementById("baddy-progress").style.width);
+    let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
     ninjaHealth -= 20;
-    console.log(ninjaHealth);
     document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+    console.log(difficulty[document.getElementById('belt-number').innerHTML].gameOperator);
+    runGame(difficulty[document.getElementById('belt-number').innerHTML].gameOperator,difficulty[document.getElementById('belt-number').innerHTML].timesTables); 
 };
 
 // Display Questions
