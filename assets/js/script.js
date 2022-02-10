@@ -43,7 +43,12 @@ function runGame(gameType,multipliers){
     } else if (gameType === "division") {
         displayDivisionQuestion(num1, num2);
     } else if (gameType === "mixture" ) {
-        displayMixtureQuestion(num1, num2)
+        let chosenOperator=Math.random();
+        if (chosenOperator<0.5){
+            displayMultiplyQuestion(num1, num2);
+        } else {
+            displayDivisionQuestion(num1, num2);
+        }
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -121,16 +126,4 @@ function displayDivisionQuestion(operand1, operand2) {
     document.getElementById("operand2").textContent = operand2;
 	document.getElementById("operator").textContent = "/";
 
-}
-function displayMixtureQuestion(operand1, operand2) {
-    let chosenOperator=Math.random();
-    if (chosenOperator<0.5){
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "MULTIPLY";
-    } else {
-    document.getElementById("operand1").textContent = operand2 * Math.floor(Math.random() * 25 -12);
-    document.getElementById("operand2").textContent = operand2;
-	document.getElementById("operator").textContent = "DIVIDE";
-    }
 }
