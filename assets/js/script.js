@@ -54,6 +54,7 @@ function runGame(gameType,multipliers){
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
+    $(".game-intro").hide();
 };
 
 // Submit Answer
@@ -75,10 +76,8 @@ function checkAnswer() {
     
     if (isCorrect) {
         incrementCorrect();
-        console.log("correct");
     } else {
         incrementIncorrect();
-        console.log("incorrect");
     }
 }
 
@@ -102,11 +101,15 @@ function incrementCorrect(){
     document.getElementById("correct").innerText = ++oldCorrect;
     $('#answer-box').css("background-color","green");
     let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
-    baddyHealth -= 20;
-    console.log(baddyHealth);
-    document.getElementById("baddy-progress").style.width=baddyHealth+"%";
-    console.log(difficulty[document.getElementById('belt-number').innerHTML].gameOperator);
-    runGame(difficulty[document.getElementById('belt-number').innerHTML].gameOperator,difficulty[document.getElementById('belt-number').innerHTML].timesTables); 
+    if(baddyHealth>10){
+        baddyHealth -= 10;
+        document.getElementById("baddy-progress").style.width=baddyHealth+"%";
+        runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
+    } else {
+        alert(`Level Complete! You earned your ${document.getElementById('current-belt').innerHTML} belt`);
+        $(".game-intro").show();
+        runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables); 
+    }
 };
 
 function incrementIncorrect(){
@@ -114,10 +117,14 @@ function incrementIncorrect(){
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
-    ninjaHealth -= 20;
-    document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-    console.log(difficulty[document.getElementById('belt-number').innerHTML].gameOperator);
-    runGame(difficulty[document.getElementById('belt-number').innerHTML].gameOperator,difficulty[document.getElementById('belt-number').innerHTML].timesTables); 
+    if(ninjaHealth>10){
+        ninjaHealth -= 10;
+        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+        runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
+    } else {
+        alert("Game Over you lost!");
+        $(".game-intro").show();
+    }
 };
 
 // Display Questions
@@ -135,3 +142,5 @@ function displayDivisionQuestion(operand1, operand2) {
 	document.getElementById("operator").textContent = "/";
 
 }
+
+//issues: When level complete, questions from next type play correctly but dom is not updated (because button isn't pressed!)
