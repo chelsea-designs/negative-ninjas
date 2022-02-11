@@ -16,6 +16,7 @@ let currentBelt;
 
 $(".game-area").hide();
 $("#ninja-star").hide();
+$("#fire-ball").hide();
 
 // Language Switcher
 $(".cy").hide();
@@ -35,7 +36,7 @@ $(".btn-start").click(function(){
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text; 
     runGame(gameType,multipliers);
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
-    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").addClass("bg-success");
 });
 
 function runGame(gameType,multipliers){
@@ -46,6 +47,7 @@ function runGame(gameType,multipliers){
 
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
+    $("#dragon-img").attr('src', `assets/images/dragon${beltNumber}.png`);
 
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
@@ -67,6 +69,7 @@ function runGame(gameType,multipliers){
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
     $(".game-intro").hide();
+    $("h1").hide();
 };
 
 // Submit Answer
@@ -116,11 +119,11 @@ function incrementCorrect(){
         $('#answer-box').css("background-color","white");
   }, 250);
     ninjaShoots();
-    let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
-    if(baddyHealth!=0){
-        $('#baddy-progress').removeClass("bg-success").addClass("bg-warning");
-        baddyHealth -= 10;
-        document.getElementById("baddy-progress").style.width=baddyHealth+"%";
+    let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
+    if(dragonHealth!=0){
+        $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
+        dragonHealth -= 10;
+        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
         runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         beltNumber==maxBeltNumber ? alert("You win!") : nextLevel();
@@ -135,7 +138,7 @@ function incrementIncorrect(){
         $('#answer-box').css("background-color","white");
   }, 500);
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
-    baddyShoots();
+    dragonShoots();
     if(ninjaHealth!=0){
         $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
@@ -150,10 +153,10 @@ function incrementIncorrect(){
 function replayLevel(){
     alert("Game Over you lost!");
     $(".game-intro").show();
-    document.getElementById("baddy-progress").style.width=100+"%";
+    document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
-    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
@@ -162,16 +165,16 @@ function replayLevel(){
 // Next Level
 function nextLevel(){
     alert(`Level Complete! You earned your ${currentBelt} belt`);
-    // click next button How??
     //reset
-    document.getElementById("baddy-progress").style.width=100+"%";
+    document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%"; 
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
-    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
     beltNumber++;
     currentBelt = difficulty[beltNumber].colour;
+    document.getElementById('current-belt').innerHTML = currentBelt;
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables);
 }
 
@@ -192,8 +195,8 @@ function displayDivisionQuestion(operand1, operand2) {
 }
 
 // Animation
-function baddyShoots() {
-    $('#ninja-star').show().css({ 'right': '0px', 'left': '' }).animate({
+function dragonShoots() {
+    $('#fire-ball').show().css({ 'right': '0px', 'left': '' }).animate({
         'right' : '110%'    
     });                    
 };
@@ -215,3 +218,5 @@ function ninjaShoots() {
 //alert text on win
 // current belt (words) not updating in dom and alerts
 // currentbelt variable not welsh
+// changge dragon img to same dimensions as ninja
+// change background image on mobile
