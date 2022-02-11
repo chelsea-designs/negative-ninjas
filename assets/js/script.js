@@ -1,3 +1,5 @@
+$(".game-area").hide();
+
 // Language Switcher
 $(".cy").hide();
 
@@ -34,11 +36,12 @@ $(".btn-start").click(function(){
 
 function runGame(gameType,multipliers){
     //reset
+    $(".game-area").show();
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
     $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
-    
+
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${document.getElementById('belt-number').innerHTML}.png`);
     //generate questions
