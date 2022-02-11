@@ -1,5 +1,18 @@
+const difficulty=[
+    {timesTables:[-2,2,-10,10],gameOperator:"multiply",colour:"white",lliw:"gwyn"},
+    {timesTables:[-2,2,-10,10],gameOperator:"division",colour:"yellow",lliw:"melyn"},
+    {timesTables:[-2,2,-10,10],gameOperator:"mixture",colour:"orange",lliw:"oren"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"multiply",colour:"green",lliw:"gwyrdd"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"division",colour:"purple",lliw:"piws"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"mixture",colour:"blue",lliw:"glas"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"multiply",colour:"brown",lliw:"brown"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division",colour:"red",lliw:"coch"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture",colour:"black",lliw:"du"}
+];
+
 let beltNumber=0;
 const maxBeltNumber=8;
+let currentBelt;
 
 $(".game-area").hide();
 $("#ninja-star").hide();
@@ -12,27 +25,13 @@ $('#switch-lang').click(function() {
     $(".en").toggle();
 });
 
-
-// Multipliers
-const difficulty=[
-    {timesTables:[-2,2,-10,10],gameOperator:"multiply",colour:"white"},
-    {timesTables:[-2,2,-10,10],gameOperator:"division",colour:"yellow"},
-    {timesTables:[-2,2,-10,10],gameOperator:"mixture",colour:"orange"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"multiply",colour:"green"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"division",colour:"purple"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"mixture",colour:"blue"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"multiply",colour:"brown"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division",colour:"red"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture",colour:"black"}
-];
-
 // Run Game
 
 $(".btn-start").click(function(){
     beltNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    currentBelt = difficulty[beltNumber].colour;
     let multipliers = difficulty[beltNumber].timesTables; // retrieves multipliers for chosen difficulty
     let gameType = difficulty[beltNumber].gameOperator; // retrieves operator for chosen difficulty level
-    let currentBelt = this.innerText;
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text; 
     runGame(gameType,multipliers);
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
@@ -153,6 +152,8 @@ function replayLevel(){
     $(".game-intro").show();
     document.getElementById("baddy-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
+    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
@@ -160,17 +161,17 @@ function replayLevel(){
 
 // Next Level
 function nextLevel(){
-    alert(`Level Complete! You earned your ${document.getElementById('current-belt').innerHTML} belt`);
+    alert(`Level Complete! You earned your ${currentBelt} belt`);
     // click next button How??
     //reset
     document.getElementById("baddy-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%"; 
+    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
-    beltNumber++
-    console.log(difficulty[beltNumber].gameOperator);
-    console.log(difficulty[beltNumber].timesTables);
-    console.log(difficulty[beltNumber].colour);
+    beltNumber++;
+    currentBelt = difficulty[beltNumber].colour;
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables);
 }
 
@@ -203,11 +204,14 @@ function ninjaShoots() {
     });                    
 };
 
-// issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
 // font size on model
 // translate modal
 // clear instruction to play on front page
 // back arrow to select button
 // pop up on win round with ninja img 
 // pop up on lose round with ninja img 
-// background image not loading
+// health last hit isn't right
+//health bar colour
+//alert text on win
+// current belt (words) not updating in dom and alerts
+// currentbelt variable not welsh
