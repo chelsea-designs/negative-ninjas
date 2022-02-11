@@ -1,4 +1,5 @@
 $(".game-area").hide();
+$("#ninja-star").hide();
 
 // Language Switcher
 $(".cy").hide();
@@ -179,13 +180,13 @@ function displayDivisionQuestion(operand1, operand2) {
 
 // Animation
 function baddyShoots() {
-    $('#ninja-star').css({ 'right': '0px', 'left': '' }).animate({
+    $('#ninja-star').show().css({ 'right': '0px', 'left': '' }).animate({
         'right' : '110%'    
     });                    
 };
 
 function ninjaShoots() {
-    $('#ninja-star').css({ 'right': '', 'left': '0px' }).animate({
+    $('#ninja-star').show().css({ 'right': '', 'left': '0px' }).animate({
         'left' : '110%'
     });                    
 };

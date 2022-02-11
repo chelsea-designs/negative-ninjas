@@ -10,113 +10,116 @@
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
         <title>Negative Ninjas</title>
     </head>
 <body>
-    <div class="header row p-3">
-        <div class="col-3">
-            <!-- Help Modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#helpModal">
-                <i class="fas fa-question"></i>
-            </button>
-    
-            <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">How to Play</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>How quickly can you defeat the baddy and progress to the next belt.</p>
-                            <p>Correct answers knock 1 health point off the baddy
-                            <br>Incorrect answers knocks 1 health point off ninja</p>
-                            <p>
-                            <ul>
-                                <li>White: x2, x10</li>
-                                <li>Yellow: /2, /10</li>
-                                <li>Orange: x2, /2, x10, /10</li>
-                                <li>Green: x2, x4, x5, x10</li>
-                                <li>Purple: /2, /4, /5, /10</li>
-                                <li>Blue: x2, /2, x4, /4, x5, /5, x10, /10</li>
-                                <li>Brown: x ALL</li>
-                                <li>Red: / ALL</li>
-                                <li>Black: x/ ALL</li>
-                            </ul>
-                            
-                            Once you've reached black belt, how <strong>quickly</strong> can you defeat the baddy?
-                            </p>
+    <div id="container">
+        <div class="header row p-3">
+            <div class="col-3">
+                <!-- Help Modal -->
+                <button type="button" class="btn btn-header float-start" data-bs-toggle="modal" data-bs-target="#helpModal">
+                    <i class="fas fa-question"></i>
+                </button>
+        
+                <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">How to Play</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>How quickly can you defeat the baddy and progress to the next belt.</p>
+                                <p>Correct answers knock 1 health point off the baddy
+                                <br>Incorrect answers knocks 1 health point off ninja</p>
+                                <p>
+                                <ul>
+                                    <li>White: x2, x10</li>
+                                    <li>Yellow: /2, /10</li>
+                                    <li>Orange: x2, /2, x10, /10</li>
+                                    <li>Green: x2, x4, x5, x10</li>
+                                    <li>Purple: /2, /4, /5, /10</li>
+                                    <li>Blue: x2, /2, x4, /4, x5, /5, x10, /10</li>
+                                    <li>Brown: x ALL</li>
+                                    <li>Red: / ALL</li>
+                                    <li>Black: x/ ALL</li>
+                                </ul>
+                                
+                                Once you've reached black belt, how <strong>quickly</strong> can you defeat the baddy?
+                                </p>
+                            </div>
                         </div>
                     </div>
+                </div> 
+            </div>
+            <div class="col-6 text-center">
+                <h1><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary btn-header float-end" id="switch-lang"><i class="fas fa-language"></i></button>
+            </div>
+        </div>
+        <div class="game-intro">
+            <div class="row">
+                <h2 class="text-center"><span class="cy">Lefel/Belt</span><span class="en">Level/Belt</span></h2>
+            </div>
+            <div class="game-settings row">
+                <div class="btn-group col-10 mx-auto flex-wrap" role="group" aria-label="Basic radio toggle button group">
+                    <button type="button" class="btn btn--white btn-start" data-value="0"><span class="cy">Gwyn</span><span class="en">White</span></button>
+                    <button type="button" class="btn btn--yellow btn-start" data-value="1"><span class="cy">Melyn</span><span class="en">Yellow</span></button>
+                    <button type="button" class="btn btn--orange btn-start" data-value="2"><span class="cy">Oren</span><span class="en">Orange</span></button>
+                    <button type="button" class="btn btn--green btn-start" data-value="3"><span class="cy">Gwyrdd</span><span class="en">Green</span></button>
+                    <button type="button" class="btn btn--purple btn-start" data-value="4"><span class="cy">Piws</span><span class="en">Purple</span></button>
+                    <button type="button" class="btn btn--blue btn-start" data-value="5"><span class="cy">Glas</span><span class="en">Blue</span></button>
+                    <button type="button" class="btn btn--brown btn-start" data-value="6"><span class="cy">Brown</span><span class="en">Brown</span></button>
+                    <button type="button" class="btn btn--red btn-start" data-value="7"><span class="cy">Coch</span><span class="en">Red</span></button>
+                    <button type="button" class="btn btn--black btn-start" data-value="8"><span class="cy">Du</span><span class="en">Black</span></button>
                 </div>
-            </div> 
-        </div>
-        <div class="col-6 text-center">
-            <h1><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
-        </div>
-        <div class="col-3">
-            <button type="button" class="btn btn-primary float-end" id="switch-lang"><i class="fas fa-language"></i></button>
-        </div>
+            </div>
     </div>
-    <div class="game-intro">
-        <div class="row">
-            <h2 class="text-center"><span class="cy">Lefel/Belt</span><span class="en">Level/Belt</span></h2>
+    <div class="game-area text-center p-5">
+        <div class="game-area game-header row">
+            <div class="col-2"><span class="cy">Cywir</span><span class="en">Correct</span>: <span id="correct">0</span></div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col"><span class="en">Defeat the baddy to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> Belt</span></div>
+                </div>
+                <div class="row">
+                    <span id="belt-number">BLANK</span>
+                </div>
+            </div>
+            <div class="col-2"><span class="cy">Anghywir</span><span class="en">Incorrect</span>: <span id="incorrect">0</span></div>
         </div>
-        <div class="game-settings row">
-            <div class="btn-group col-10 mx-auto" role="group" aria-label="Basic radio toggle button group">
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="0"><span class="cy">Gwyn</span><span class="en">White</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="1"><span class="cy">Melyn</span><span class="en">Yellow</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="2"><span class="cy">Oren</span><span class="en">Orange</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="3"><span class="cy">Gwyrdd</span><span class="en">Green</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="4"><span class="cy">Piws</span><span class="en">Purple</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="5"><span class="cy">Glas</span><span class="en">Blue</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="6"><span class="cy">Brown</span><span class="en">Brown</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="7"><span class="cy">Coch</span><span class="en">Red</span></button>
-                <button type="button" class="btn btn-outline-primary btn-start" data-value="8"><span class="cy">Du</span><span class="en">Black</span></button>
-            </div>
+        <div class="question-area col-6"></div>
+            <div id="correct"></div><div id="incorrect"></div>
+            <span id="operand1">0</span>
+            <span id="operator">x</span>
+            <span id="operand2">0</span>
+            <span>=</span>
+            <input id="answer-box" type="number">
+            <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
         </div>
-</div>
-<div class="game-area text-center p-5">
-    <div class="game-area game-header row">
-        <div class="col-2"><span class="cy">Cywir</span><span class="en">Correct</span>: <span id="correct">0</span></div>
-        <div class="col-8">
-            <div class="row">
-                <div class="col"><span class="en">Defeat the baddy to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> Belt</span></div>
+        <div class="game-area fight-scene row p-5">
+            <div class="ninja col-2">
+                <div class="row progress">
+                    <div id="ninja-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="row">
+                    <img id="ninja-img" src="assets/images/ninja0.png">
+                </div>
             </div>
-            <div class="row">
-                <span id="belt-number">BLANK</span>
+            <div class="col-8 fight-container my-auto">
+                <img id="ninja-star" src="assets/images/ninja-star.png">
             </div>
-        </div>
-        <div class="col-2"><span class="cy">Anghywir</span><span class="en">Incorrect</span>: <span id="incorrect">0</span></div>
-    </div>
-    <div class="question-area col-6"></div>
-        <div id="correct"></div><div id="incorrect"></div>
-        <span id="operand1">0</span>
-        <span id="operator">x</span>
-        <span id="operand2">0</span>
-        <span>=</span>
-        <input id="answer-box" type="number">
-        <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
-    </div>
-    <div class="game-area fight-scene row p-5">
-        <div class="ninja col-2">
-            <div class="row progress">
-                <div id="ninja-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <div class="row">
-                <img id="ninja-img" src="assets/images/ninja0.png">
-            </div>
-        </div>
-        <div class="col-8 fight-container my-auto">
-            <img id="ninja-star" src="assets/images/ninja-star.png">
-        </div>
-        <div class="baddy col-2">
-            <div class="row progress">
-                <div id="baddy-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <div class="row">
-                <img id="baddy-img" src="assets/images/baddy.jpg">
+            <div class="baddy col-2">
+                <div class="row progress">
+                    <div id="baddy-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="row">
+                    <img id="baddy-img" src="assets/images/baddy.jpg">
+                </div>
             </div>
         </div>
     </div>
