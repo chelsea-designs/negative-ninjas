@@ -36,7 +36,8 @@ function runGame(gameType,multipliers){
     //reset
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
-
+    // change image
+    $("#ninja-img").attr('src', `assets/images/ninja${document.getElementById('belt-number').innerHTML}.png`);
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
     let num2 = multipliers[Math.floor(Math.random() * multipliers.length)]; // Generate random number from the array associated with game type i.e. if 1st btn is pressed, choose random number from index 0 - change this 0.
@@ -142,10 +143,8 @@ function replayGame(){
 // Next Level
 function nextLevel(){
     alert(`Level Complete! You earned your ${document.getElementById('current-belt').innerHTML} belt`);
-    $(".game-intro").show();
     // click next button How??
-    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator);
-    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
+    //reset
     document.getElementById("baddy-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%"; 
     document.getElementById("correct").innerHTML = 0;
@@ -182,4 +181,5 @@ function ninjaShoots() {
     });                    
 };
 
+//hide ninja star before throw
 //issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
