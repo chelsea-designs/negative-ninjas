@@ -9,33 +9,35 @@ $('#switch-lang').click(function() {
 
 // Multipliers
 const difficulty=[
-    {timesTables:[-2,2,-10,10],gameOperator:"multiply"},
-    {timesTables:[-2,2,-10,10],gameOperator:"division"},
-    {timesTables:[-2,2,-10,10],gameOperator:"mixture"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"multiply"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"division"},
-    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"mixture"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"multiply"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division"},
-    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture"}
+    {timesTables:[-2,2,-10,10],gameOperator:"multiply",colour:"white"},
+    {timesTables:[-2,2,-10,10],gameOperator:"division",colour:"yellow"},
+    {timesTables:[-2,2,-10,10],gameOperator:"mixture",colour:"orange"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"multiply",colour:"green"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"division",colour:"purple"},
+    {timesTables:[-2,2,-4,4,-5,5,-10,10],gameOperator:"mixture",colour:"blue"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"multiply",colour:"brown"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division",colour:"red"},
+    {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture",colour:"black"}
 ];
 
 // Run Game
 
 $(".btn-start").click(function(){
-    let buttonNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
-    let multipliers = difficulty[buttonNumber].timesTables; // retrieves multipliers for chosen difficulty
-    let gameType = difficulty[buttonNumber].gameOperator; // retrieves operator for chosen difficulty level
+    let buttonIndex = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    let multipliers = difficulty[buttonIndex].timesTables; // retrieves multipliers for chosen difficulty
+    let gameType = difficulty[buttonIndex].gameOperator; // retrieves operator for chosen difficulty level
     let currentBelt = this.innerText;
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text
-    document.getElementById('belt-number').innerHTML = buttonNumber; 
+    document.getElementById('belt-number').innerHTML = buttonIndex; 
     runGame(gameType,multipliers);
 });
 
 function runGame(gameType,multipliers){
+    //reset
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
 
+    //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
     let num2 = multipliers[Math.floor(Math.random() * multipliers.length)]; // Generate random number from the array associated with game type i.e. if 1st btn is pressed, choose random number from index 0 - change this 0.
 
@@ -100,15 +102,14 @@ function incrementCorrect(){
     let oldCorrect = parseInt(document.getElementById("correct").innerText);
     document.getElementById("correct").innerText = ++oldCorrect;
     $('#answer-box').css("background-color","green");
+    ninjaShoots();
     let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
     if(baddyHealth>10){
         baddyHealth -= 10;
         document.getElementById("baddy-progress").style.width=baddyHealth+"%";
         runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
     } else {
-        alert(`Level Complete! You earned your ${document.getElementById('current-belt').innerHTML} belt`);
-        $(".game-intro").show();
-        runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables); 
+        nextLevel();
     }
 };
 
@@ -117,15 +118,40 @@ function incrementIncorrect(){
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
+    baddyShoots();
     if(ninjaHealth>10){
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
         runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
     } else {
-        alert("Game Over you lost!");
-        $(".game-intro").show();
+        replayGame();
     }
 };
+
+// Replay
+function replayGame(){
+    alert("Game Over you lost!");
+    $(".game-intro").show();
+    document.getElementById("baddy-progress").style.width=100+"%";
+    document.getElementById("ninja-progress").style.width=100+"%";
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("incorrect").innerHTML = 0;
+    runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))].timesTables); 
+};
+
+// Next Level
+function nextLevel(){
+    alert(`Level Complete! You earned your ${document.getElementById('current-belt').innerHTML} belt`);
+    $(".game-intro").show();
+    // click next button How??
+    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator);
+    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
+    document.getElementById("baddy-progress").style.width=100+"%";
+    document.getElementById("ninja-progress").style.width=100+"%"; 
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("incorrect").innerHTML = 0;
+    runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
+}
 
 // Display Questions
 function displayMultiplyQuestion(operand1, operand2) {
@@ -143,4 +169,17 @@ function displayDivisionQuestion(operand1, operand2) {
 
 }
 
-//issues: When level complete, questions from next type play correctly but dom is not updated (because button isn't pressed!)
+// Animation
+function baddyShoots() {
+    $('#ninja-star').css({ 'right': '0px', 'left': '' }).animate({
+        'right' : '110%'    
+    });                    
+};
+
+function ninjaShoots() {
+    $('#ninja-star').css({ 'right': '', 'left': '0px' }).animate({
+        'left' : '110%'
+    });                    
+};
+
+//issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)

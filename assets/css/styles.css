@@ -11,3 +11,15 @@
 #belt-number{
     color:transparent;
 }
+
+.fight-container {
+    height: 50px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+#ninja-star {
+    width: auto;
+    height: 100%;
+    position: absolute;
+  }
