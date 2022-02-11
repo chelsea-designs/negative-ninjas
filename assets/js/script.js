@@ -141,12 +141,12 @@ function incrementIncorrect(){
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
         runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
     } else {
-        replayGame();
+        replayLevel();
     }
 };
 
 // Replay
-function replayGame(){
+function replayLevel(){
     alert("Game Over you lost!");
     $(".game-intro").show();
     document.getElementById("baddy-progress").style.width=100+"%";
@@ -165,6 +165,8 @@ function nextLevel(){
     document.getElementById("ninja-progress").style.width=100+"%"; 
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
+    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator);
+    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
     runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
 }
 
@@ -197,11 +199,9 @@ function ninjaShoots() {
     });                    
 };
 
-//hide ninja star before throw
-//answer box bg flash not stay
-//issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
+// issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
 // font size on model
-//translate modal
+// translate modal
 // clear instruction to play on front page
 // back arrow to select button
 // pop up on win round with ninja img 
