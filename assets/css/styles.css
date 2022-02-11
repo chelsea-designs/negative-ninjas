@@ -24,6 +24,14 @@ h1{
         1px 1px 0 white;;
 }
 
+.incorrect-container{
+    color: red;
+}
+
+.correct-container{
+    color: green;
+}
+
 #ninja-img{
     height: auto;
     width:100%;

@@ -99,7 +99,7 @@ function calculateCorrectAnswer(){
 
     if (operator === "x") {
         return operand1 * operand2;
-    } else if (operator === "/") {
+    } else if (operator === "\u00F7") {
         return operand1 / operand2;
     } else {
         alert(`Unimplemented operator ${operator}`);
@@ -113,7 +113,7 @@ function incrementCorrect(){
     $('#answer-box').css("background-color","green");
     setTimeout(function() {
         $('#answer-box').css("background-color","white");
-  }, 500);
+  }, 250);
     ninjaShoots();
     let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
     if(baddyHealth!=0){
@@ -180,7 +180,7 @@ function displayDivisionQuestion(operand1, operand2) {
 
     document.getElementById("operand1").textContent = operand2 * Math.floor(Math.random() * 25 -12);
     document.getElementById("operand2").textContent = operand2;
-	document.getElementById("operator").textContent = "/";
+	document.getElementById("operator").textContent = "\u00F7";
 
 }
 
@@ -200,3 +200,10 @@ function ninjaShoots() {
 //hide ninja star before throw
 //answer box bg flash not stay
 //issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
+// font size on model
+//translate modal
+// clear instruction to play on front page
+// back arrow to select button
+// pop up on win round with ninja img 
+// pop up on lose round with ninja img 
+// background image not loading
