@@ -111,6 +111,9 @@ function incrementCorrect(){
     let oldCorrect = parseInt(document.getElementById("correct").innerText);
     document.getElementById("correct").innerText = ++oldCorrect;
     $('#answer-box').css("background-color","green");
+    setTimeout(function() {
+        $('#answer-box').css("background-color","white");
+  }, 500);
     ninjaShoots();
     let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
     if(baddyHealth!=0){
@@ -127,6 +130,9 @@ function incrementIncorrect(){
     let oldIncorrect = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldIncorrect;
     $('#answer-box').css("background-color","red");
+    setTimeout(function() {
+        $('#answer-box').css("background-color","white");
+  }, 500);
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
     baddyShoots();
     if(ninjaHealth!=0){
