@@ -32,6 +32,8 @@ $(".btn-start").click(function(){
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text
     document.getElementById('belt-number').innerHTML = buttonIndex; 
     runGame(gameType,multipliers);
+    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
 });
 
 function runGame(gameType,multipliers){
@@ -39,11 +41,10 @@ function runGame(gameType,multipliers){
     $(".game-area").show();
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
-    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
-    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
 
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${document.getElementById('belt-number').innerHTML}.png`);
+
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
     let num2 = multipliers[Math.floor(Math.random() * multipliers.length)]; // Generate random number from the array associated with game type i.e. if 1st btn is pressed, choose random number from index 0 - change this 0.
