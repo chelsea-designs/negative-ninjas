@@ -36,6 +36,9 @@ function runGame(gameType,multipliers){
     //reset
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
+    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
+    
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${document.getElementById('belt-number').innerHTML}.png`);
     //generate questions
@@ -105,7 +108,8 @@ function incrementCorrect(){
     $('#answer-box').css("background-color","green");
     ninjaShoots();
     let baddyHealth = parseInt(document.getElementById("baddy-progress").style.width);
-    if(baddyHealth>10){
+    if(baddyHealth!=0){
+        $('#baddy-progress').removeClass("bg-success").addClass("bg-warning");
         baddyHealth -= 10;
         document.getElementById("baddy-progress").style.width=baddyHealth+"%";
         runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
@@ -120,7 +124,8 @@ function incrementIncorrect(){
     $('#answer-box').css("background-color","red");
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
     baddyShoots();
-    if(ninjaHealth>10){
+    if(ninjaHealth!=0){
+        $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
         runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
@@ -182,4 +187,5 @@ function ninjaShoots() {
 };
 
 //hide ninja star before throw
+//answer box bg flash not stay
 //issues: When level complete, questions from next type play wrong game Type and dom is not updated (because button isn't pressed?)
