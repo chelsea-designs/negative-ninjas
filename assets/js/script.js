@@ -1,3 +1,6 @@
+let beltNumber=0;
+const maxBeltNumber=8;
+
 $(".game-area").hide();
 $("#ninja-star").hide();
 
@@ -26,12 +29,11 @@ const difficulty=[
 // Run Game
 
 $(".btn-start").click(function(){
-    let buttonIndex = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
-    let multipliers = difficulty[buttonIndex].timesTables; // retrieves multipliers for chosen difficulty
-    let gameType = difficulty[buttonIndex].gameOperator; // retrieves operator for chosen difficulty level
+    beltNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    let multipliers = difficulty[beltNumber].timesTables; // retrieves multipliers for chosen difficulty
+    let gameType = difficulty[beltNumber].gameOperator; // retrieves operator for chosen difficulty level
     let currentBelt = this.innerText;
-    document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text
-    document.getElementById('belt-number').innerHTML = buttonIndex; 
+    document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text; 
     runGame(gameType,multipliers);
     $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
     $('#baddy-progress').removeClass("bg-warning").addClass("bg-success");
@@ -44,7 +46,7 @@ function runGame(gameType,multipliers){
     document.getElementById("answer-box").focus();
 
     // change image
-    $("#ninja-img").attr('src', `assets/images/ninja${document.getElementById('belt-number').innerHTML}.png`);
+    $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
 
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
@@ -120,9 +122,9 @@ function incrementCorrect(){
         $('#baddy-progress').removeClass("bg-success").addClass("bg-warning");
         baddyHealth -= 10;
         document.getElementById("baddy-progress").style.width=baddyHealth+"%";
-        runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
+        runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
-        nextLevel();
+        beltNumber==maxBeltNumber ? alert("You win!") : nextLevel();
     }
 };
 
@@ -139,7 +141,7 @@ function incrementIncorrect(){
         $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-        runGame(difficulty[parseInt(document.getElementById('belt-number').innerHTML)].gameOperator,difficulty[parseInt(document.getElementById('belt-number').innerHTML)].timesTables); 
+        runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         replayLevel();
     }
@@ -153,7 +155,7 @@ function replayLevel(){
     document.getElementById("ninja-progress").style.width=100+"%";
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
-    runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))].timesTables); 
+    runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
 };
 
 // Next Level
@@ -165,9 +167,11 @@ function nextLevel(){
     document.getElementById("ninja-progress").style.width=100+"%"; 
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
-    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator);
-    console.log(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
-    runGame(difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].gameOperator,difficulty[(parseInt(document.getElementById('belt-number').innerHTML))+1].timesTables);
+    beltNumber++
+    console.log(difficulty[beltNumber].gameOperator);
+    console.log(difficulty[beltNumber].timesTables);
+    console.log(difficulty[beltNumber].colour);
+    runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables);
 }
 
 // Display Questions
