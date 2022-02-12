@@ -13,10 +13,17 @@ const difficulty=[
 let beltNumber=0;
 const maxBeltNumber=8;
 let currentBelt;
+let ninjaNoise = new Audio("assets/audio/ninja-noise.wav");
+let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 
 $(".game-area").hide();
 $("#ninja-star").hide();
 $("#fire-ball").hide();
+
+//Theme Song
+let themeSong = new Audio("assets/audio/theme-song.wav");
+$("#container").mouseover(function(){
+    themeSong.play()});
 
 // Language Switcher
 $(".cy").hide();
@@ -198,13 +205,15 @@ function displayDivisionQuestion(operand1, operand2) {
 function dragonShoots() {
     $('#fire-ball').show().css({ 'right': '0px', 'left': '' }).animate({
         'right' : '110%'    
-    });                    
+    });
+    dragonNoise.play();                      
 };
 
 function ninjaShoots() {
     $('#ninja-star').show().css({ 'right': '', 'left': '0px' }).animate({
         'left' : '110%'
-    });                    
+    });        
+    ninjaNoise.play();          
 };
 
 // font size on model
@@ -218,5 +227,5 @@ function ninjaShoots() {
 //alert text on win
 // current belt (words) not updating in dom and alerts
 // currentbelt variable not welsh
-// changge dragon img to same dimensions as ninja
 // change background image on mobile
+//theme song not playing on start
