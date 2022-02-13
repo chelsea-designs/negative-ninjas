@@ -122,6 +122,30 @@ h1{
     border: black 1px solid;
 }
 
+#btn-sound{
+    display: none;
+
+}
+#btn-sound-label{
+    height: 50px;
+    width: 50px;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+}
+#btn-sound-label i{
+    padding-top: 15px;
+}
+
+#btn-sound-label:hover{
+    background-color: white;
+    color: black;
+    border: black 1px solid;
+    cursor: pointer;
+}
+
 #btn-submit{
     height: 50px;
     width: auto;

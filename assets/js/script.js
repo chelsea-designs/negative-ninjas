@@ -217,28 +217,46 @@ function dragonShoots() {
     $('#fire-ball').show().css({ 'right': '0px', 'left': '' }).animate({
         'right' : '110%'    
     });
-    dragonNoise.play();                      
+        if ($('#btn-sound').is(':checked')){
+    }else{
+        dragonNoise.play();
+    }                     
 };
 
 function ninjaShoots() {
     $('#ninja-star').show().css({ 'right': '', 'left': '0px' }).animate({
         'left' : '110%'
     });        
-    ninjaNoise.play();          
+    if ($('#btn-sound').is(':checked')){
+    }else{
+        ninjaNoise.play();
+    }         
 };
 
 // Win
 function win(){
-    // modal
-    $('#winModal').modal('toggle');
-    let themeSong = new Audio("assets/audio/theme-song.wav");
-    themeSong.play();
+    if ($('#btn-sound').is(':checked')){
+        $('#winModal').modal('toggle');
+    }else{
+        $('#winModal').modal('toggle');
+        let themeSong = new Audio("assets/audio/theme-song.wav");
+        themeSong.play();
+    }
 };
+
+// Mute button icon
+$("#btn-sound").click(function(){
+    if ($('#btn-sound').is(':checked')){
+        document.getElementById("btn-sound-label").innerHTML="<i class='fas fa-volume-up'></i>";
+    } else{
+        document.getElementById("btn-sound-label").innerHTML="<i class='fas fa-volume-mute'></i>";
+    }
+});
 
 
 // back arrow to return to select level
 // health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
-// change background image on mobile
 // and belt colour to modal
 // win modal button to go back to level select or maybe a certificate?
+// mute button
