@@ -19,11 +19,19 @@ let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 $(".game-area").hide();
 $("#ninja-star").hide();
 $("#fire-ball").hide();
+$("#btn-help").hide();
+$("#btn-return").hide();
+
+//Initialise tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 
 // Language Switcher
 $(".cy").hide();
 
-$('#switch-lang').click(function() {
+$('#btn-lang').click(function() {
     $(".cy").toggle();
     $(".en").toggle();
 });
@@ -44,6 +52,8 @@ $(".btn-start").click(function(){
 function runGame(gameType,multipliers){
     //reset
     $(".game-area").show();
+    $("#btn-help").show();
+    $("#btn-return").show();
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
 
@@ -227,10 +237,9 @@ function win(){
 
 
 // back arrow to return to select level
-// health last hit isn't right
+// health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
 // change background image on mobile
 // translate modals
 // and belt colour to modal
 // win modal button to go back to level select or maybe a certificate?
-// one hit left health bar to turn red

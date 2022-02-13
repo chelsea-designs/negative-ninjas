@@ -18,8 +18,11 @@
     <div id="container">
         <div class="header row p-3">
             <div class="col-1">
+                <button id="btn-lang" type="button" class="btn btn-primary btn-header float-end"><i class="fas fa-language"></i></button>
+            </div>
+            <div class="col-1">
                 <!-- Help Modal -->
-                <button type="button" class="btn btn-header float-start" data-bs-toggle="modal" data-bs-target="#helpModal">
+                <button id="btn-help" type="button" class="btn btn-header float-start" data-bs-toggle="modal" data-bs-target="#helpModal">
                     <i class="fas fa-question"></i>
                 </button>
         
@@ -32,7 +35,7 @@
                             </div>
                             <div class="modal-body">
                                 <span class="cy">
-                                    <p>Pa mor gyflym allwch chi drechu'r ddraig a symud ymlaen i'r gwregys nesaf..</p>
+                                    <p>Pa mor gyflym allwch chi drechu'r ddraig a symud ymlaen i'r gwregys nesaf?</p>
                                     <p>Mae atebion cywir yn tynnu 1 pwynt iechyd oddi ar y ddraig.
                                     <br>Mae atebion anghywir yn tynnu 1 pwynt iechyd oddi ar ninja.</p>
                                     <p>
@@ -48,11 +51,11 @@
                                         <li>Du: x/ ALL</li>
                                     </ul>
                                     
-                                    Unwaith y byddwch wedi cyrraedd gwregys du, pa mor <strong>gyflym</strong> allwch chi drechu'r ddraig?
+                                    Fedrwch chi ennill gwregys du?
                                     </p>
                                 </span>
                                 <span class="en">
-                                    <p>How quickly can you defeat the dragon and progress to the next belt.</p>
+                                    <p>How quickly can you defeat the dragon and progress to the next belt?</p>
                                 <p>Correct answers knock 1 health point off the dragon
                                 <br>Incorrect answers knocks 1 health point off ninja</p>
                                 <p>
@@ -68,7 +71,7 @@
                                     <li>Black: x/ ALL</li>
                                 </ul>
                                 
-                                Once you've reached black belt, how <strong>quickly</strong> can you defeat the dragon?
+                                Can you reach black belt?
                                 </p>
                                 </span>
                             </div>
@@ -76,21 +79,18 @@
                     </div>
                 </div> 
             </div>
-            <div class="col-1">
-                <button type="button" class="btn btn-header btn--exit float-start">
-                    <i class='fas fa-sign-out-alt'></i>
-                </button>
-            </div>
             <div class="col-8 p-0">
                 <h1 class="text-center text-nowrap"><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
             </div>
             <div class="col-1">
-                <button type="button" class="btn btn-header float-start">
-                    <i class="fas fa-volume-mute"></i></i>
+                <button id="btn-return" type="button" class="btn btn-header btn--exit float-start">
+                    <i class='fas fa-sign-out-alt'></i>
                 </button>
             </div>
             <div class="col-1">
-                <button type="button" class="btn btn-primary btn-header float-end" id="switch-lang"><i class="fas fa-language"></i></button>
+                <button id="btn-sound" type="button" class="btn btn-header float-start">
+                    <i class="fas fa-volume-mute"></i></i>
+                </button>
             </div>
         </div>
         <div class="game-intro">
@@ -100,104 +100,127 @@
             </div>
             <div class="game-settings row">
                 <div class="btn-group col-10 mx-auto flex-wrap" role="group" aria-label="Basic radio toggle button group">
-                    <button type="button" class="btn btn--white btn-start" data-value="0"><span class="cy">Gwyn</span><span class="en">White</span></button>
-                    <button type="button" class="btn btn--yellow btn-start" data-value="1"><span class="cy">Melyn</span><span class="en">Yellow</span></button>
-                    <button type="button" class="btn btn--orange btn-start" data-value="2"><span class="cy">Oren</span><span class="en">Orange</span></button>
-                    <button type="button" class="btn btn--green btn-start" data-value="3"><span class="cy">Gwyrdd</span><span class="en">Green</span></button>
-                    <button type="button" class="btn btn--purple btn-start" data-value="4"><span class="cy">Piws</span><span class="en">Purple</span></button>
-                    <button type="button" class="btn btn--blue btn-start" data-value="5"><span class="cy">Glas</span><span class="en">Blue</span></button>
-                    <button type="button" class="btn btn--brown btn-start" data-value="6"><span class="cy">Brown</span><span class="en">Brown</span></button>
-                    <button type="button" class="btn btn--red btn-start" data-value="7"><span class="cy">Coch</span><span class="en">Red</span></button>
-                    <button type="button" class="btn btn--black btn-start" data-value="8"><span class="cy">Du</span><span class="en">Black</span></button>
+                    <button type="button" class="btn btn--white btn-start" data-value="0" data-bs-toggle="tooltip" data-bs-placement="top" title="x 2,5"><span class="cy">Gwyn</span><span class="en">White</span></button>
+                    <button type="button" class="btn btn--yellow btn-start" data-value="1" data-bs-toggle="tooltip" data-bs-placement="top" title="&divide 2,5"><span class="cy">Melyn</span><span class="en">Yellow</span></button>
+                    <button type="button" class="btn btn--orange btn-start" data-value="2" data-bs-toggle="tooltip" data-bs-placement="top" title="x/&divide 2,5"><span class="cy">Oren</span><span class="en">Orange</span></button>
+                    <button type="button" class="btn btn--green btn-start" data-value="3" data-bs-toggle="tooltip" data-bs-placement="top" title="x 2,4,5,10"><span class="cy">Gwyrdd</span><span class="en">Green</span></button>
+                    <button type="button" class="btn btn--purple btn-start" data-value="4" data-bs-toggle="tooltip" data-bs-placement="top" title="&divide 2,4,5,10"><span class="cy">Piws</span><span class="en">Purple</span></button>
+                    <button type="button" class="btn btn--blue btn-start" data-value="5" data-bs-toggle="tooltip" data-bs-placement="top" title="x/&divide 2,4,5,10"><span class="cy">Glas</span><span class="en">Blue</span></button>
+                    <button type="button" class="btn btn--brown btn-start" data-value="6" data-bs-toggle="tooltip" data-bs-placement="top" title="x ALL"><span class="cy">Brown</span><span class="en">Brown</span></button>
+                    <button type="button" class="btn btn--red btn-start" data-value="7" data-bs-toggle="tooltip" data-bs-placement="top" title="&divide ALL"><span class="cy">Coch</span><span class="en">Red</span></button>
+                    <button type="button" class="btn btn--black btn-start" data-value="8" data-bs-toggle="tooltip" data-bs-placement="top" title="x/&divide ALL"><span class="cy">Du</span><span class="en">Black</span></button>
                 </div>
             </div>
+            <div class="home-info text-center smaller col-8 mx-auto pt-5">
+                <span class="cy">
+                    <p>Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i drechu'r ddreigiau. 
+                        <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></p>
+                </span>
+                <span class="en">
+                    <p>Answer times tables quesitons including negative numbers to defeat the dragons. 
+                        <br><strong>Can you become a black belt negative ninja?</strong></p>
+                </span>
+            </div>
+        </div>
+        <div class="game-area text-center p-5">
+            <div class="modal fade" id="nextModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys!</span><span class="en">You defeated the dragon and earned your belt!</span>
+                            <img class="ninja-img-modal" src="assets/images/ninja0.png">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="modal fade" id="replayModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <span class="cy">
+                                <p>Oh no!</p>
+                                <p>The dragon beat you.</p>
+                                <p>Try again!</p>
+                            </span>
+                            <span class="en">
+                                <p>Dratia!</p>
+                                <p>Mae'r draig wedi ennill.</p>
+                                <p>Rhoi gynnig arall arni!</p>
+                            </span>
+                            <img id="ninja-sad" src="assets/images/ninja-sad.png">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Replay Level</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="modal fade" id="winModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <span class="cy">
+                                <p>Rydych wedi trechu'r draig ac rydych chi wedi ennill gwregys du!</p>
+                                <p>Chi yw'r Ninja Negyddol Gorau yn y Byd!</p>
+                            </span>
+                            <span class="en">
+                                <p>You defeated the dragon and earned your black belt!</p>
+                                <p>You are the Ultimate Negative Ninja!</p>
+                            </span>
+                            <img class="ninja-win-modal" src="assets/images/ninja10.png">
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="game-area game-header row">
+                <div class="col-2 correct-container"><i class="fas fa-check"></i> <span id="correct">0</span></div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col"><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> belt</span></div>
+                    </div>
+                </div>
+                <div class="col-2 incorrect-container"><i class="fas fa-times"></i> <span id="incorrect">0</span></div>
+            </div>
+            <div class="question-area col-6"></div>
+                <span id="operand1">0</span>
+                <span id="operator">x</span>
+                <span id="operand2">0</span>
+                <span>=</span>
+                <input class="col-2" id="answer-box" type="number">
+                <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
+            </div>
+            <div class="game-area fight-scene row p-5">
+                <div class="ninja col-md-3 col-4">
+                    <div class="row progress">
+                        <div id="ninja-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="row">
+                        <img id="ninja-img" src="assets/images/ninja0.png">
+                    </div>
+                </div>
+                <div class="col-md-6 col-4 fight-container my-auto">
+                    <img id="ninja-star" src="assets/images/ninja-star.png">
+                    <img id="fire-ball" src="assets/images/fire-ball.png">
+                </div>
+                <div class="dragon col-md-3 col-4">
+                    <div class="row progress">
+                        <div id="dragon-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="row">
+                        <img id="dragon-img" src="assets/images/dragon0.png">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="game-area text-center p-5">
-        <div class="modal fade" id="nextModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p>You defeated the dragon and earned your belt!</p>
-                        <img class="ninja-img-modal" src="assets/images/ninja0.png">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <div class="modal fade" id="replayModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h5 class="modal-title" id="exampleModalLabel">Oh no!</h5>
-                        <p>The dragon beat you.</p>
-                        <p>Try again</p>
-                        <img id="ninja-sad" src="assets/images/ninja-sad.png">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Replay Level</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <div class="modal fade" id="winModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <p>You defeated the dragon and earned your black belt!</p>
-                        <p>You are the ultimate negative ninja!</p>
-                        <img class="ninja-win-modal" src="assets/images/ninja10.png">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <div class="game-area game-header row">
-            <div class="col-2 correct-container"><i class="fas fa-check"></i> <span id="correct">0</span></div>
-            <div class="col-8">
-                <div class="row">
-                    <div class="col"><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> belt</span></div>
-                </div>
-            </div>
-            <div class="col-2 incorrect-container"><i class="fas fa-times"></i> <span id="incorrect">0</span></div>
-        </div>
-        <div class="question-area col-6"></div>
-            <span id="operand1">0</span>
-            <span id="operator">x</span>
-            <span id="operand2">0</span>
-            <span>=</span>
-            <input class="col-2" id="answer-box" type="number">
-            <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
-        </div>
-        <div class="game-area fight-scene row p-5">
-            <div class="ninja col-md-3 col-4">
-                <div class="row progress">
-                    <div id="ninja-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="row">
-                    <img id="ninja-img" src="assets/images/ninja0.png">
-                </div>
-            </div>
-            <div class="col-md-6 col-4 fight-container my-auto">
-                <img id="ninja-star" src="assets/images/ninja-star.png">
-                <img id="fire-ball" src="assets/images/fire-ball.png">
-            </div>
-            <div class="dragon col-md-3 col-4">
-                <div class="row progress">
-                    <div id="dragon-progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <div class="row">
-                    <img id="dragon-img" src="assets/images/dragon0.png">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="assets/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
