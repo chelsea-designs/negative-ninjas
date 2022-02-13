@@ -240,6 +240,5 @@ function win(){
 // health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
 // change background image on mobile
-// translate modals
 // and belt colour to modal
 // win modal button to go back to level select or maybe a certificate?
