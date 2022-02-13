@@ -258,11 +258,16 @@ $(".btn-home").click(function(){
     $(".game-intro").show();
     $("#btn-help").hide();
     $(".btn-home").hide();
+    document.getElementById("dragon-progress").style.width=100+"%";
+    document.getElementById("ninja-progress").style.width=100+"%";
+    $('#ninja-progress').removeClass("bg-warning").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").addClass("bg-success");
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("incorrect").innerHTML = 0;
 });
 
 
-// back arrow to return to select level
 // health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
 // and belt colour to modal
-// win modal button to go back to level select or maybe a certificate?
+//tooltips not hidden
