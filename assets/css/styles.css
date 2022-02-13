@@ -14,15 +14,19 @@ body{
 
 h1{
     font-family: 'Bangers', cursive;
-    font-size: 5rem;
-    color: orange;
-    -webkit-text-stroke: 2px black;
+    font-size: 9vw;
+    color: black;
+    -webkit-text-stroke: 2px white;
     text-shadow:
-        3px 3px 0 white,
-        -1px -1px 0 white,  
-        1px -1px 0 white,
-        -1px 1px 0 white,
-        1px 1px 0 white;;
+        3px 3px 0 black,
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;;
+}
+
+#helpModal{
+    font-size:1.2rem;
 }
 
 .incorrect-container{
@@ -36,6 +40,21 @@ h1{
 #ninja-img{
     height: auto;
     width:100%;
+}
+
+.ninja-img-modal{
+    height: auto;
+    width:75%;
+}
+
+.ninja-win-modal{
+    height: auto;
+    width:75%;
+}
+
+#ninja-sad{
+    height: auto;
+    width:75%;
 }
 
 #dragon-img{

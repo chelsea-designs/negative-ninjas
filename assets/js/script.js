@@ -20,11 +20,6 @@ $(".game-area").hide();
 $("#ninja-star").hide();
 $("#fire-ball").hide();
 
-//Theme Song
-let themeSong = new Audio("assets/audio/theme-song.wav");
-$("#container").mouseover(function(){
-    themeSong.play()});
-
 // Language Switcher
 $(".cy").hide();
 
@@ -133,7 +128,7 @@ function incrementCorrect(){
         document.getElementById("dragon-progress").style.width=dragonHealth+"%";
         runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
-        beltNumber==maxBeltNumber ? alert("You win!") : nextLevel();
+        beltNumber==maxBeltNumber ? win() : nextLevel();
     }
 };
 
@@ -158,7 +153,7 @@ function incrementIncorrect(){
 
 // Replay
 function replayLevel(){
-    alert("Game Over you lost!");
+    //reset
     $(".game-intro").show();
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
@@ -166,12 +161,14 @@ function replayLevel(){
     $('#dragon-progress').removeClass("bg-warning").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
+    // modal
+    $('#replayModal').modal('toggle');
+    // run game
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
 };
 
 // Next Level
 function nextLevel(){
-    alert(`Level Complete! You earned your ${currentBelt} belt`);
     //reset
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%"; 
@@ -182,6 +179,10 @@ function nextLevel(){
     beltNumber++;
     currentBelt = difficulty[beltNumber].colour;
     document.getElementById('current-belt').innerHTML = currentBelt;
+    // modal
+    $('#nextModal').modal('toggle');
+    $(".ninja-img-modal").attr('src', `assets/images/ninja${beltNumber}.png`);
+    // next
     runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables);
 }
 
@@ -216,16 +217,20 @@ function ninjaShoots() {
     ninjaNoise.play();          
 };
 
-// font size on model
-// translate modal
-// clear instruction to play on front page
-// back arrow to select button
-// pop up on win round with ninja img 
-// pop up on lose round with ninja img 
+// Win
+function win(){
+    // modal
+    $('#winModal').modal('toggle');
+    let themeSong = new Audio("assets/audio/theme-song.wav");
+    themeSong.play();
+};
+
+
+// back arrow to return to select level
 // health last hit isn't right
-//health bar colour
-//alert text on win
-// current belt (words) not updating in dom and alerts
 // currentbelt variable not welsh
 // change background image on mobile
-//theme song not playing on start
+// translate modals
+// and belt colour to modal
+// win modal button to go back to level select or maybe a certificate?
+// one hit left health bar to turn red
