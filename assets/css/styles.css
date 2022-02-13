@@ -4,12 +4,12 @@ body{
 }
 
 .game-area{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 /* Backgroun Img */
 @media (min-width: 1025px) {
-    #container{
+    #game-container{
         background: white url('../images/background-light.jpg') no-repeat center top;
         background-size: cover;
         display: block;
@@ -19,7 +19,7 @@ body{
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
-    #container{
+    #game-container{
         background: white url('../images/background-light.jpg') no-repeat center top;
         background-size: cover;
         display: block;
@@ -29,7 +29,7 @@ body{
 }
 
 @media screen and (max-width: 480px) {
-    #container{
+    #game-container{
         background: white url('../images/background-mobile.jpg') no-repeat center top;
         background-size: cover;
         display: block;

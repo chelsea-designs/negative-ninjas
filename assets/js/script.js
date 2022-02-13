@@ -20,7 +20,7 @@ $(".game-area").hide();
 $("#ninja-star").hide();
 $("#fire-ball").hide();
 $("#btn-help").hide();
-$("#btn-return").hide();
+$(".btn-home").hide();
 
 //Initialise tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -53,7 +53,7 @@ function runGame(gameType,multipliers){
     //reset
     $(".game-area").show();
     $("#btn-help").show();
-    $("#btn-return").show();
+    $(".btn-home").show();
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
 
@@ -253,10 +253,16 @@ $("#btn-sound").click(function(){
     }
 });
 
+$(".btn-home").click(function(){
+    $(".game-area").hide();
+    $(".game-intro").show();
+    $("#btn-help").hide();
+    $(".btn-home").hide();
+});
+
 
 // back arrow to return to select level
 // health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
 // and belt colour to modal
 // win modal button to go back to level select or maybe a certificate?
-// mute button

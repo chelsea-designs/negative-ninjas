@@ -15,14 +15,13 @@
         <title>Negative Ninjas</title>
     </head>
 <body>
-    <div id="container">
-        <div class="header row p-3">
-            <div class="col-1">
-                <button id="btn-lang" type="button" class="btn btn-primary btn-header float-end"><i class="fas fa-language"></i></button>
-            </div>
-            <div class="col-1">
+    <div id="game-container" class="container-fluid p-2">
+        <div class="header row">
+            <div class="col-2 p-0 text-center">
+                <button id="btn-lang" type="button" class="btn btn-primary btn-header"><i class="fas fa-language"></i></button>
+
                 <!-- Help Modal -->
-                <button id="btn-help" type="button" class="btn btn-header float-start" data-bs-toggle="modal" data-bs-target="#helpModal">
+                <button id="btn-help" type="button" class="btn btn-header" data-bs-toggle="modal" data-bs-target="#helpModal">
                     <i class="fas fa-question"></i>
                 </button>
         
@@ -82,18 +81,16 @@
             <div class="col-8 p-0">
                 <h1 class="text-center text-nowrap"><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
             </div>
-            <div class="col-1">
-                <button id="btn-return" type="button" class="btn btn-header btn--exit float-start">
-                    <i class='fas fa-sign-out-alt'></i>
+            <div class="col-2 p-0 text-center">
+                <button type="button" class="btn btn-header btn-home">
+                    <i class='fas fa-home'></i>
                 </button>
-            </div>
-            <div class="col-1 text-center">
                 <input type="checkbox" id="btn-sound">
-                <label class="my-auto" id="btn-sound-label" for="btn-sound"><i class="fas fa-volume-mute"></i></label>
+                <label class="my-auto text-center" id="btn-sound-label" for="btn-sound"><i class="fas fa-volume-mute"></i></label>
                 
             </div>
         </div>
-        <div class="game-intro">
+        <div class="game-intro container">
             <div class="row">
                 <h2 class="text-center"><span class="cy">
                     Dewiswch eich lefel i ennill eich gwregys:</span><span class="en">Choose your level to earn your belt:</span></h2>
@@ -117,7 +114,7 @@
                         <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></p>
                 </span>
                 <span class="en">
-                    <p>Answer times tables quesitons including negative numbers to defeat the dragons. 
+                    <p>Answer times tables questions including negative numbers to defeat the dragons. 
                         <br><strong>Can you become a black belt negative ninja?</strong></p>
                 </span>
             </div>
@@ -131,7 +128,7 @@
                             <img class="ninja-img-modal" src="assets/images/ninja0.png">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
+                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close"><span class="cy">Lefel Nesaf</span><span class="en">Next Level</span></button>
                         </div>
                     </div>
                 </div>
@@ -153,7 +150,7 @@
                             <img id="ninja-sad" src="assets/images/ninja-sad.png">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Replay Level</button>
+                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close"><span class="cy">Trio'r lefel eto</span><span class="en">Replay Level</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +170,7 @@
                             <img class="ninja-win-modal" src="assets/images/ninja10.png">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary mx-auto" type="button" data-bs-dismiss="modal" aria-label="Close">Next Level</button>
+                            <button class="btn btn-primary mx-auto btn-home" type="button" data-bs-dismiss="modal" aria-label="Close"><span class="cy">Cartref</span><span class="en">Home</span></button>
                         </div>
                     </div>
                 </div>
