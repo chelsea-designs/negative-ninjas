@@ -295,9 +295,4 @@ $("#btn-end").click(function(){
     document.getElementById("incorrect").innerHTML = 0;
 });
 
-
-// health last hit isn't right also one hit left health bar to turn red
-// currentbelt variable not welsh
-// and belt colour to modal
-//tooltips not hidden
-// home on win modal not working
+//home button on black belt modal not working
