@@ -214,3 +214,12 @@ h1{
     background-color: black;
     border-color: black;
 }
+
+/* Progress Bar */
+#dragon-progress{
+    width: 0;
+}
+
+#ninja-progress{
+    width: 0;
+}

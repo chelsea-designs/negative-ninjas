@@ -135,12 +135,14 @@ function incrementCorrect(){
   }, 250);
     ninjaShoots();
     let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
-    if(dragonHealth!=0){
+    if(dragonHealth>10){
         $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
         dragonHealth -= 10;
         document.getElementById("dragon-progress").style.width=dragonHealth+"%";
         runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
+        dragonHealth -= 10;
+        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
         $('#dragon-progress').removeClass("bg-warning").addClass("bg-danger");
         beltNumber==maxBeltNumber ? setTimeout(win(), 1000) : setTimeout(nextLevel, 1000);
     }
@@ -155,12 +157,14 @@ function incrementIncorrect(){
   }, 500);
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
     dragonShoots();
-    if(ninjaHealth!=0){
+    if(ninjaHealth>10){
         $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
         runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
+        ninjaHealth -= 10;
+        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
         $('#ninja-progress').removeClass("bg-warning").addClass("bg-danger");
         setTimeout(replayLevel, 1000);
     }
@@ -277,8 +281,23 @@ $("#btn-home").click(function(){
     document.getElementById("incorrect").innerHTML = 0;
 });
 
+$("#btn-end").click(function(){
+    $('#winModal').modal('toggle');
+    $(".game-area").hide();
+    $(".game-intro").show();
+    $("#btn-help").hide();
+    $("#btn-home").hide();
+    document.getElementById("dragon-progress").style.width=100+"%";
+    document.getElementById("ninja-progress").style.width=100+"%";
+    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("incorrect").innerHTML = 0;
+});
+
 
 // health last hit isn't right also one hit left health bar to turn red
 // currentbelt variable not welsh
 // and belt colour to modal
 //tooltips not hidden
+// home on win modal not working
