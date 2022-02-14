@@ -113,7 +113,7 @@ h1{
     font-size: 1rem;
     background-color: black;
     color: white;
-    border: none;
+    border: transparent 1px solid;
 }
 
 .btn-header:hover{
@@ -132,7 +132,7 @@ h1{
     font-size: 1rem;
     background-color: black;
     color: white;
-    border: none;
+    border: transparent 1px solid;
     border-radius: 0.25rem;
 }
 #btn-sound-label i{
@@ -152,7 +152,7 @@ h1{
     font-size: 1rem;
     background-color: black;
     color: white;
-    border: none;
+    border: transparent 1px solid;
 }
 
 #btn-submit:hover{
