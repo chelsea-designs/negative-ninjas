@@ -82,11 +82,11 @@
                 <h1 class="text-center text-nowrap"><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
             </div>
             <div class="col-2 p-0 text-center">
-                <button type="button" class="btn btn-header btn-home">
+                <button type="button" class="btn btn-header" id="btn-home">
                     <i class='fas fa-home'></i>
                 </button>
-                <input type="checkbox" id="btn-sound">
-                <label class="my-auto text-center" id="btn-sound-label" for="btn-sound"><i class="fas fa-volume-mute"></i></label>
+                <input type="checkbox" id="btn-sound" checked>
+                <label class="my-auto text-center" id="btn-sound-label" for="btn-sound"><i class="fas fa-volume-up"></i></label>
                 
             </div>
         </div>
@@ -124,7 +124,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys!</span><span class="en">You defeated the dragon and earned your belt!</span>
+                            <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys <span id="gwregys-modal">BLANK</span>!</span><span class="en">You defeated the dragon and earned your <span id="belt-modal">BLANK</span> belt!</span>
                             <img class="ninja-img-modal" src="assets/images/ninja0.png">
                         </div>
                         <div class="modal-footer">
@@ -170,7 +170,7 @@
                             <img class="ninja-win-modal" src="assets/images/ninja10.png">
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary mx-auto btn-home" type="button" data-bs-dismiss="modal" aria-label="Close"><span class="cy">Cartref</span><span class="en">Home</span></button>
+                            <button class="btn btn-primary mx-auto btn-end" type="button" data-bs-dismiss="modal" aria-label="Close"><span class="cy">Cartref</span><span class="en">Home</span></button>
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                 <div class="col-2 correct-container"><i class="fas fa-check"></i> <span id="correct">0</span></div>
                 <div class="col-8">
                     <div class="row">
-                        <div class="col"><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich Gwregys </span><span id="current-belt">Blank</span><span class="en"> belt</span></div>
+                        <div class="col"><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span class="en"><span id="current-belt">Blank</span> belt</span></div>
                     </div>
                 </div>
                 <div class="col-2 incorrect-container"><i class="fas fa-times"></i> <span id="incorrect">0</span></div>
