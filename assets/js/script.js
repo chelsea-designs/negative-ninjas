@@ -92,11 +92,15 @@ $('#btn-submit').click(function(){
     checkAnswer();
 });
 
-document.getElementById("answer-box").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
+$("#answer-box").keydown(function(event) {
+    if (event.key === "Enter" && $(this).val().length !=0) {
+        $('#btn-submit').attr('disabled', false);  
         checkAnswer();
+    }else{
+        $('#btn-submit').attr('disabled', false);  
     }
 });
+
 
 function checkAnswer() {
 
@@ -295,4 +299,15 @@ $("#btn-end").click(function(){
     document.getElementById("incorrect").innerHTML = 0;
 });
 
-//home button on black belt modal not working
+/* Empty Input */
+$(document).ready(function(){
+    $('#btn-submit').attr('disabled',true);
+    $('#answer-box').keyup(function(){
+        if($(this).val().length !=0)
+            $('#btn-submit').attr('disabled', false);            
+        else
+            $('#btn-submit').attr('disabled',true);
+    });
+});
+
+// Issues
