@@ -16,8 +16,8 @@
     </head>
 <body>
     <div id="game-container" class="container-fluid p-2">
-        <div class="header row">
-            <div class="col-2 p-0 text-center">
+        <div class="header row mx-2 my-5">
+            <div class="col-2 p-0 text-center my-auto">
                 <button id="btn-lang" type="button" class="btn btn-primary btn-header"><i class="fas fa-language"></i></button>
 
                 <!-- Help Modal -->
@@ -78,16 +78,15 @@
                     </div>
                 </div> 
             </div>
-            <div class="col-8 p-0">
-                <h1 class="text-center text-nowrap"><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
+            <div class="col-8 p-0 my-auto">
+                <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negyddol</span><span class="en">Negative Ninjas</span></h1>
             </div>
-            <div class="col-2 p-0 text-center">
+            <div class="col-2 p-0 text-center my-auto">
                 <button type="button" class="btn btn-header" id="btn-home">
                     <i class='fas fa-home'></i>
                 </button>
                 <input type="checkbox" id="btn-sound" checked>
                 <label class="my-auto text-center align-middle" id="btn-sound-label" for="btn-sound"><i class="fas fa-volume-up"></i></label>
-                
             </div>
         </div>
         <div class="game-intro container">
@@ -108,18 +107,18 @@
                     <button type="button" class="btn btn--black btn-start" data-value="8" data-bs-toggle="tooltip" data-bs-placement="top" title="x/&divide ALL"><span class="cy">Du</span><span class="en">Black</span></button>
                 </div>
             </div>
-            <div class="home-info text-center smaller col-8 mx-auto pt-5">
+            <div class="home-info text-center smaller col-10 mx-auto my-5 p-2">
                 <span class="cy">
                     <p>Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i drechu'r ddreigiau. 
                         <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></p>
                 </span>
-                <span class="en">
+                <span class="en lead">
                     <p>Answer times tables questions including negative numbers to defeat the dragons. 
                         <br><strong>Can you become a black belt negative ninja?</strong></p>
                 </span>
             </div>
         </div>
-        <div class="game-area text-center p-5">
+        <div class="game-area text-center my-2">
             <div class="modal fade" id="nextModal" tabindex="-1" aria-labelledby="nextLevelModal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -179,20 +178,20 @@
                 <div class="col-2 correct-container"><i class="fas fa-check"></i> <span id="correct">0</span></div>
                 <div class="col-8">
                     <div class="row">
-                        <div class="col"><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span class="en"><span id="current-belt">Blank</span> belt</span></div>
+                        <h2><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r dihiryn i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span class="en"><span id="current-belt">Blank</span> belt</span></h2>
                     </div>
                 </div>
                 <div class="col-2 incorrect-container"><i class="fas fa-times"></i> <span id="incorrect">0</span></div>
             </div>
-            <div class="question-area col-6"></div>
-                <span id="operand1">0</span>
-                <span id="operator">x</span>
-                <span id="operand2">0</span>
-                <span>=</span>
-                <input class="col-2" id="answer-box" type="number" autofocus required>
-                <button id="btn-submit" class="btn btn-primary mx-auto"><span class="cy">Danfon</span><span class="en">Submit</span></button>
+            <div class="question-area container my-auto">
+                <span class="col-2 display-4" id="operand1">0</span> 
+                <span class="col-2 display-4" id="operator">x</span> 
+                <span class="col-2 display-4" id="operand2">0</span> 
+                <span class="col-2 display-4">=</span> 
+                <input class="col-2 display-4" id="answer-box" type="number" autofocus required>
+                <button id="btn-submit" class="btn btn-primary display-4"><i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="game-area fight-scene row p-5">
+            <div class="game-area fight-scene row mx-2 my-5">
                 <div class="ninja col-md-3 col-4">
                     <div class="row p-0 progress">
                         <div id="ninja-progress" class="progress-bar progress-bar-striped bg-success p-0" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>

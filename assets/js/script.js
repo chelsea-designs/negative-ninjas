@@ -277,6 +277,7 @@ $("#btn-home").click(function(){
     $(".game-intro").show();
     $("#btn-help").hide();
     $("#btn-home").hide();
+    $("h1").show();
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
     $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
@@ -311,3 +312,5 @@ $(document).ready(function(){
 });
 
 // Issues
+//If answering very quickly audio doesn't play twice
+//rescale and reposition on devices

@@ -1,13 +1,8 @@
-body{
+body {
     font-family: 'Indie Flower', cursive;
-    font-size: 1.4rem;
 }
 
-.game-area{
-    font-size: 2rem;
-}
-
-/* Backgroun Img */
+/* Background Img */
 @media (min-width: 1025px) {
     #game-container{
         background: white url('../images/background-light.jpg') no-repeat center top;
@@ -55,12 +50,20 @@ h1{
     font-size:1.2rem;
 }
 
+#nextModal{
+    height: auto;
+    width:75%;
+    font-size:1.2rem;
+}
+
 .incorrect-container{
     color: red;
+    font-size: 4vw;
 }
 
 .correct-container{
     color: green;
+    font-size: 4vw;
 }
 
 #ninja-img{
@@ -76,6 +79,7 @@ h1{
 .ninja-win-modal{
     height: auto;
     width:75%;
+    font-size:1.2rem;
 }
 
 #ninja-sad{
@@ -147,9 +151,8 @@ h1{
 }
 
 #btn-submit{
-    height: 50px;
-    width: auto;
-    font-size: 1rem;
+    height: 100%;
+    width: 50px;
     background-color: black;
     color: white;
     border: transparent 1px solid;
@@ -225,6 +228,7 @@ h1{
 }
 
 /* Answer Box */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
