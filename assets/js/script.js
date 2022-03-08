@@ -59,6 +59,8 @@ function runGame(gameType,multipliers){
     $("#btn-home").show();
     document.getElementById("answer-box").value = "";
     document.getElementById("answer-box").focus();
+    $(".game-intro").hide();
+    $("h1").hide();
 
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
@@ -68,23 +70,25 @@ function runGame(gameType,multipliers){
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
     let num2 = multipliers[Math.floor(Math.random() * multipliers.length)]; // Generate random number from the array associated with game type i.e. if 1st btn is pressed, choose random number from index 0 - change this 0.
 
-    if (gameType === "multiply") {
-        displayMultiplyQuestion(num1, num2);
-    } else if (gameType === "division") {
-        displayDivisionQuestion(num1, num2);
-    } else if (gameType === "mixture" ) {
-        let chosenOperator=Math.random();
-        if (chosenOperator<0.5){
-            displayMultiplyQuestion(num1, num2);
-        } else {
-            displayDivisionQuestion(num1, num2);
-        }
-    } else {
-        alert(`Unknown game type: ${gameType}`);
-        throw `Unknown game type: ${gameType}. Aborting!`;
+    switch (gameType){
+        case "multiply":
+            displayMultiplyQuestion(num1,num2);
+            break;
+        case "division":
+            displayDivisionQuestion(num1,num2);
+            break;
+        case "mixture":
+            let chosenOperator=Math.random();
+            if (chosenOperator<0.5){
+                displayMultiplyQuestion(num1, num2);
+            } else {
+                displayDivisionQuestion(num1, num2);
+            }
+            break;
+        default:
+            alert(`Unknown game type: ${gameType}`);
+            throw `Unknown game type: ${gameType}. Aborting!`;
     }
-    $(".game-intro").hide();
-    $("h1").hide();
 };
 
 // Submit Answer
@@ -120,13 +124,16 @@ function calculateCorrectAnswer(){
     let operand2 = parseInt(document.getElementById('operand2').innerText);
     let operator = document.getElementById("operator").innerText;
 
-    if (operator === "x") {
-        return operand1 * operand2;
-    } else if (operator === "\u00F7") {
-        return operand1 / operand2;
-    } else {
-        alert(`Unimplemented operator ${operator}`);
-        throw `Unimplemented operator ${operator}. Aborting!`;
+    switch (operator){
+        case "x":
+            return operand1 * operand2;
+            break;
+        case "\u00F7":
+            return operand1 / operand2;
+            break;
+        default:
+            alert(`Unimplemented operator ${operator}`);
+            throw `Unimplemented operator ${operator}. Aborting!`;
     }
 };
 
