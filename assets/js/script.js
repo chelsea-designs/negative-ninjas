@@ -9,7 +9,6 @@ const difficulty=[
     {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"division",colour:"red",lliw:"coch"},
     {timesTables:[-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8,8,-9,9,-10,10,-11,11,-12,12],gameOperator:"mixture",colour:"black",lliw:"du"}
 ];
-
 let beltNumber=0;
 const maxBeltNumber=8;
 let currentBelt;
@@ -29,42 +28,58 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
+//Run tour
+$("#btn-help").click(function(){
+    introJs().start();
+});
+
 // Language Switcher
 $(".cy").hide();
-
 $('#btn-lang').click(function() {
     $(".cy").toggle();
     $(".en").toggle();
 });
 
-// Run Game
+function resetGame(){
+    document.getElementById("dragon-progress").style.width=100+"%";
+    document.getElementById("ninja-progress").style.width=100+"%";
+    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    document.getElementById("correct").innerHTML = 0;
+    document.getElementById("incorrect").innerHTML = 0;
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
+};
 
+// Run Game
 $(".btn-start").click(function(){
     beltNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    startGame();
+});
+    
+function startGame(){
     currentBelt = difficulty[beltNumber].colour;
     gwregysPresennol = difficulty[beltNumber].lliw;
     let multipliers = difficulty[beltNumber].timesTables; // retrieves multipliers for chosen difficulty
     let gameType = difficulty[beltNumber].gameOperator; // retrieves operator for chosen difficulty level
     document.getElementById('current-belt').innerHTML = currentBelt; // updates the dom with chosen level from button text; 
     document.getElementById('gwregys-presennol').innerHTML = gwregysPresennol;
-    runGame(gameType,multipliers);
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-});
-
-function runGame(gameType,multipliers){
-    //reset
     $(".game-area").show();
     $("#btn-help").show();
     $("#btn-home").show();
-    document.getElementById("answer-box").value = "";
-    document.getElementById("answer-box").focus();
     $(".game-intro").hide();
     $("h1").hide();
-
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
     $("#dragon-img").attr('src', `assets/images/dragon${beltNumber}.png`);
+    resetGame();
+    newQuestion(gameType,multipliers);
+};
+
+function newQuestion(gameType,multipliers){
+    //reset
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
 
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
@@ -92,10 +107,7 @@ function runGame(gameType,multipliers){
 };
 
 // Submit Answer
-$('#btn-submit').click(function(){
-    checkAnswer();
-});
-
+$('#btn-submit').click(checkAnswer);
 $("#answer-box").keydown(function(event) {
     if (event.key === "Enter" && $(this).val().length !=0) {
         $('#btn-submit').attr('disabled', false);  
@@ -140,86 +152,54 @@ function calculateCorrectAnswer(){
 function incrementCorrect(){
     let oldCorrect = parseInt(document.getElementById("correct").innerText);
     document.getElementById("correct").innerText = ++oldCorrect;
+    formatCorrectAnswer();
+    ninjaShoots();
+};
+function formatCorrectAnswer(){
     $('#answer-box').css("background-color","green");
     setTimeout(function() {
         $('#answer-box').css("background-color","white");
-  }, 250);
-    ninjaShoots();
-    let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
-    if(dragonHealth>10){
-        $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
-        dragonHealth -= 10;
-        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
-        runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
-    } else {
-        dragonHealth -= 10;
-        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
-        $('#dragon-progress').removeClass("bg-warning").addClass("bg-danger");
-        beltNumber==maxBeltNumber ? setTimeout(win(), 1000) : setTimeout(nextLevel, 1000);
-    }
+    }, 250);
 };
 
 function incrementIncorrect(){
     let oldIncorrect = parseInt(document.getElementById("incorrect").innerText);
     document.getElementById("incorrect").innerText = ++oldIncorrect;
+    formatIncorrectAnswer()
+    dragonShoots();
+};
+
+function formatIncorrectAnswer(){
     $('#answer-box').css("background-color","red");
     setTimeout(function() {
         $('#answer-box').css("background-color","white");
-  }, 500);
-    let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
-    dragonShoots();
-    if(ninjaHealth>10){
-        $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
-        ninjaHealth -= 10;
-        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-        runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
-    } else {
-        ninjaHealth -= 10;
-        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-        $('#ninja-progress').removeClass("bg-warning").addClass("bg-danger");
-        setTimeout(replayLevel, 1000);
-    }
+    }, 500);
 };
 
 // Replay
 function replayLevel(){
     //reset
-    $(".game-intro").show();
-    document.getElementById("dragon-progress").style.width=100+"%";
-    document.getElementById("ninja-progress").style.width=100+"%";
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("incorrect").innerHTML = 0;
+    resetGame();
     // modal
     $('#replayModal').modal('toggle');
     // run game
-    runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
+    startGame();
 };
 
 // Next Level
 function nextLevel(){
-    //reset
-    document.getElementById("dragon-progress").style.width=100+"%";
-    document.getElementById("ninja-progress").style.width=100+"%"; 
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("incorrect").innerHTML = 0;
+    resetGame();
+    // modal
+    $('#nextModal').modal('toggle');
+    document.getElementById('belt-modal').innerHTML = currentBelt;
+    document.getElementById('gwregys-modal').innerHTML = gwregysPresennol;
     beltNumber++;
+    $(".ninja-img-modal").attr('src', `assets/images/ninja${beltNumber}.png`);
     currentBelt = difficulty[beltNumber].colour;
     gwregysPresennol = difficulty[beltNumber].lliw;
     document.getElementById('current-belt').innerHTML = currentBelt;
     document.getElementById('gwregys-presennol').innerHTML = gwregysPresennol;
-    // modal
-    $('#nextModal').modal('toggle');
-    beltModal = difficulty[beltNumber-1].colour;
-    gwregysModal = difficulty[beltNumber-1].lliw;
-    document.getElementById('belt-modal').innerHTML = beltModal;
-    document.getElementById('gwregys-modal').innerHTML = gwregysModal;
-    $(".ninja-img-modal").attr('src', `assets/images/ninja${beltNumber}.png`);
-    // next
-    runGame(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables);
+    startGame();
 }
 
 // Display Questions
@@ -246,7 +226,19 @@ function dragonShoots() {
     if ($('#btn-sound').is(':checked')){
     }else{
         dragonNoise.play();
-    }                     
+    }     
+    let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
+    if(ninjaHealth>10){
+        $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
+        ninjaHealth -= 10;
+        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+        newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
+    } else {
+        ninjaHealth -= 10;
+        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+        $('#ninja-progress').removeClass("bg-warning").addClass("bg-danger");
+        setTimeout(replayLevel, 1000);
+    }                
 };
 
 function ninjaShoots() {
@@ -256,7 +248,19 @@ function ninjaShoots() {
     if ($('#btn-sound').is(':checked')){
     }else{
         ninjaNoise.play();
-    }         
+    }   
+    let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
+    if(dragonHealth>10){
+        $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
+        dragonHealth -= 10;
+        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
+        newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
+    } else {
+        dragonHealth -= 10;
+        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
+        $('#dragon-progress').removeClass("bg-warning").addClass("bg-danger");
+        beltNumber==maxBeltNumber ? setTimeout(win(), 1000) : setTimeout(nextLevel, 1000);
+    }      
 };
 
 // Win
