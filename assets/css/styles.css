@@ -5,7 +5,7 @@ body {
 /* Background Img */
 @media (min-width: 1025px) {
     body{
-        background: white url('../images/background-light.jpg') no-repeat center top;
+        background: white url('../images/bg_sunset.jpg') no-repeat center top;
         background-size: cover;
         display: block;
         height: 100vh;
@@ -15,7 +15,7 @@ body {
 
 @media (min-width: 481px) and (max-width: 1024px) {
     body{
-        background: white url('../images/background-light.jpg') no-repeat center top;
+        background: white url('../images/bg_sunset.jpg') no-repeat center top;
         background-size: cover;
         display: block;
         height: 100vh;
@@ -25,13 +25,18 @@ body {
 
 @media screen and (max-width: 480px) {
     body{
-        background: white url('../images/background-mobile.jpg') no-repeat center top;
+        background: white url('../images/bg_sunset.jpg') no-repeat center top;
         background-size: cover;
         display: block;
         height: 100vh;
         width: 100vw;
     }
   }
+
+.fight-scene{
+    position: fixed;
+    bottom:0px;
+}
 
 h1{
     font-family: 'Bangers', cursive;
@@ -62,14 +67,8 @@ h1{
     font-size: 1.2rem
 }
 
-.incorrect-container{
-    color: red;
-    font-size: 4vw;
-}
-
-.correct-container{
-    color: green;
-    font-size: 4vw;
+.scores{
+    color: white;
 }
 
 #ninja-img{
@@ -169,54 +168,6 @@ h1{
     border: black 1px solid;
 }
 
-.btn--white{
-    color: black;
-    background-color: white;
-    border-color: black;
-}
-
-.btn--yellow{
-    color: black;
-    background-color: yellow;
-    border-color: black;
-}
-
-.btn--orange{
-    color: black;
-    background-color: orange;
-    border-color: black;
-}
-
-.btn--green{
-    color: white;
-    background-color: green;
-    border-color: black;
-}
-
-.btn--purple{
-    color: white;
-    background-color: purple;
-    border-color: black;
-}
-
-.btn--blue{
-    color: white;
-    background-color: blue;
-    border-color: black;
-}
-
-.btn--brown{
-    color: white;
-    background-color: brown;
-    border-color: black;
-}
-
-.btn--red{
-    color: white;
-    background-color: red;
-    border-color: black;
-}
-
 .btn--black{
     color: white;
     background-color: black;
@@ -244,3 +195,33 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
+
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + img {
+    cursor: pointer;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    background-color: #000;
+    border-radius: 5px;
+  }
+
+  .belt-image{
+      width:100px;
+      height: 100px;
+  }
+
+  .game-intro{
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 50px;
+      border: #000 solid 3px;
+  }

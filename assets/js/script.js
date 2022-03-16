@@ -53,7 +53,8 @@ function resetGame(){
 
 // Run Game
 $(".btn-start").click(function(){
-    beltNumber = parseInt(this.getAttribute("data-value")); // retrieve index of button pressed
+    console.log("Level selected:"+$("input:radio[name ='level']:checked").val());
+    beltNumber=parseInt($("input:radio[name ='level']:checked").val());
     startGame();
 });
     
