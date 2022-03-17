@@ -226,7 +226,7 @@ input[type=number] {
   
   /* CHECKED STYLES */
   [type=radio]:checked + img {
-    background-color: var(--black);
+    background-color: var(--fontColor);
     border-radius: 5px;
   }
 
