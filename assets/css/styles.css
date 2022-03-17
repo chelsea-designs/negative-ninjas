@@ -23,6 +23,8 @@
 body {
     font-family: 'Indie Flower', cursive;
     color: var(--fontColor);
+    margin: 0;
+    padding: 0;
 }
 
 /* Background Img */
@@ -68,6 +70,7 @@ body {
 .fight-scene{
     position: fixed;
     bottom:10%;
+    left:0px;
 }
 
 h1{
@@ -93,13 +96,24 @@ h1{
     background-color: var(--modalBg);
 }
 
-.scores{
+.footer{
+    color: var(--white);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width:100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer a{
+    text-decoration: none;
     color: var(--white);
 }
 
 #ninja-img{
-    height: auto;
-    width:100%;
+    height: 100%;
+    width:auto;
 }
 
 .ninja-img-modal{
@@ -118,8 +132,8 @@ h1{
 }
 
 #dragon-img{
-    height: auto;
-    width:100%;
+    height: 100%;
+    width:auto;
 }
 
 .fight-container {
@@ -228,14 +242,9 @@ input[type=number] {
 }
 
 #btn-home{
-    position: fixed;
-    bottom:0px;
-    right: 10px;
-    margin: 20px;
     background-color: var(--mainBg);
     color: var(--fontColor);
     height: 50px;
-    width: 50px;
     font-size: 1rem;
     background-color: var(--mainBg);
     color: var(--fontColor);

@@ -131,9 +131,9 @@
                 <input class="col-2 display-4" id="answer-box" type="number" autofocus required data-intro="Submit your answer here" data-step="2">
                 <button id="btn-submit" class="btn display-4"><i class="fas fa-arrow-right"></i></button>
             </div>
-            <div class="game-area fight-scene container mx-2 my-5">
-                <div class="row">
-                    <div class="ninja col-md-3 col-4" data-intro="Answer a question correctly and you will throw a ninja star at the dragon. Keep answering questions correctly to win" data-step="6">
+            <div class="game-area container">
+                <div class="row fight-scene">
+                    <div class="ninja col-md-3 col-sm-4 col-5" data-intro="Answer a question correctly and you will throw a ninja star at the dragon. Keep answering questions correctly to win" data-step="6">
                         <div class="row p-0 progress">
                             <div id="ninja-progress" class="progress-bar bg-success p-0"
                                 role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0"
@@ -143,11 +143,11 @@
                             <img id="ninja-img" src="assets/images/ninja0.png">
                         </div>
                     </div>
-                    <div class="col-md-6 col-4 fight-container my-auto">
+                    <div class="col-md-6 col-sm-4 col-2 fight-container my-auto">
                         <img id="ninja-star" src="assets/images/ninja-star.png">
                         <img id="fire-ball" src="assets/images/fire-ball.png">
                     </div>
-                    <div class="dragon col-md-3 col-4">
+                    <div class="dragon col-md-3 col-sm-4 col-5">
                         <div class="row progress">
                             <div id="dragon-progress" class="progress-bar bg-success p-0"
                                 role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0"
@@ -158,11 +158,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="fight-scene scores row">
-                    <p class="lead">Score:
+            </div>
+            <div class="row footer py-2">
+                <div class="col-4 my-auto">
+                    <p class="lead float-start my-auto">Score:
                         <i class="fas fa-check" data-intro="View how many correct answers you have made" data-step="4"></i> <span id="correct">0</span>
                         <i class="fas fa-times" data-intro="View how many incorrect answers you have made" data-step="5"></i> <span id="incorrect">0</span>
                     </p>
+                </div>
+                <div class="col-4 my-auto">
+                    <a href="https://github.com/chelsea-designs"><i class="fab fa-github"></i> Contact Developer</a>
+                </div>
+                <div class="col-4 my-auto">
+                    <button type="button" class="btn float-end my-auto" id="btn-home" data-intro="Return to home screen and choose your level" data-step="3">
+                        <i class='fas fa-home'></i> Return to home
+                    </button>
                 </div>
             </div>
         </div>
@@ -231,10 +241,6 @@
                 </div>
             </div>
         </div>
-        <!-- How to Play -->
-        <button type="button" class="btn btn-header" id="btn-home" data-intro="Return to home screen and choose your level" data-step="3">
-            <i class='fas fa-home'></i>
-        </button>
     </div>
 </body>
 
