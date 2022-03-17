@@ -166,6 +166,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 ### Code
 
 -   [Bootstrap5](https://getbootstrap.com/docs/5.1/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System. Also, code was used from the Bootstrap Components Library for dropdown menu, buttons and accordions etc.
+-   [Academind](https://academind.com/tutorials/adding-dark-mode): Dark mode.
 
 
 ### Content

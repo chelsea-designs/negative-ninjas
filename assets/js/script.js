@@ -40,6 +40,11 @@ $('#btn-lang').click(function() {
     $(".en").toggle();
 });
 
+// Dark Mode
+$('#btn-dark').change(function() {
+    $('body').toggleClass("dark-theme");
+});
+
 function resetGame(){
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
@@ -53,7 +58,6 @@ function resetGame(){
 
 // Run Game
 $(".btn-start").click(function(){
-    console.log("Level selected:"+$("input:radio[name ='level']:checked").val());
     beltNumber=parseInt($("input:radio[name ='level']:checked").val());
     startGame();
 });
@@ -225,8 +229,8 @@ function dragonShoots() {
         'right' : '110%'    
     });
     if ($('#btn-sound').is(':checked')){
-    }else{
         dragonNoise.play();
+    }else{
     }     
     let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
     if(ninjaHealth>10){
@@ -247,8 +251,8 @@ function ninjaShoots() {
         'left' : '110%'
     });        
     if ($('#btn-sound').is(':checked')){
-    }else{
         ninjaNoise.play();
+    }else{
     }   
     let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
     if(dragonHealth>10){
@@ -268,21 +272,12 @@ function ninjaShoots() {
 function win(){
     if ($('#btn-sound').is(':checked')){
         $('#winModal').modal('toggle');
-    }else{
-        $('#winModal').modal('toggle');
         let themeSong = new Audio("assets/audio/theme-song.wav");
         themeSong.play();
+    }else{
+        $('#winModal').modal('toggle');
     }
 };
-
-// Mute button icon
-$("#btn-sound").click(function(){
-    if ($('#btn-sound').is(':checked')){
-        document.getElementById("btn-sound-label").innerHTML="<i class='fas fa-volume-up'></i>";
-    } else{
-        document.getElementById("btn-sound-label").innerHTML="<i class='fas fa-volume-mute'></i>";
-    }
-});
 
 $("#btn-home").click(function(){
     $(".game-area").hide();
