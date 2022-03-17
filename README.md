@@ -125,6 +125,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     What I did to fix it: ...
     ![...](assets/images/testing/ "...")
 
+    center submit button - added "  display: flex;
+  justify-content: center;
+  align-items: center;"
+
 
 ### Known Bugs
 

@@ -241,6 +241,16 @@ input[type=number] {
       border: var(--fontColor) solid 3px;
 }
 
+.question-area{
+    background-color: var(--modalBg);
+    border-radius: 50px;
+    border: var(--fontColor) solid 3px;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #btn-home{
     background-color: var(--mainBg);
     color: var(--fontColor);
