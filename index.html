@@ -19,13 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
         defer></script>
-    <script src="assets/js/script.js" type="text/javascript" defer></script>
-    <script src="node_modules/intro.js/intro.js" type="text/javascript" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="node_modules/intro.js/intro.js" defer></script>
 </head>
 
 <body class="light-theme">
     <div class="layer">
-        <div class="header row mx-2 my-3">
+        <header class="row mx-2 my-3">
             <div class="col-2 p-0 text-center my-auto">
                 <button id="btn-help" type="button" class="btn btn-header">
                     <i class="fas fa-question"></i>
@@ -35,13 +35,13 @@
                 <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negyddol</span><span class="en">Negative
                         Ninjas</span></h1>
             </div>
-            <div class="col-2 p-0 text-center my-auto">
-                <button type="button" class="btn btn-header my-auto" id="btn-home" data-intro="Return to home screen and choose your level" data-step="3">
+            <div class="col-2 p-0 text-center my-auto" data-intro="Return to menu to choose level, toggle dark mode, sound or change the language." data-step="1">
+                <button type="button" class="btn btn-header my-auto" id="btn-home">
                     <i class='fas fa-cog'></i>
                 </button>
             </div>
-        </div>
-        <div class="question-area container my-auto text-center">
+        </header>
+        <div class="question-area container my-auto text-center" data-intro="Answer times table questions correctly to progress to the next level" data-step="2">
             <div class="row">
                 <h2><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r draig
                         i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span
@@ -49,133 +49,131 @@
             </div>
             <div class="question-row row">
                 <div class="display-4 col-2" id="operand1">0</div>
-                <div class="display-4 col-1" id="operator">x</div>
-                <div class="display-4 col-2" id="operand2">0</div>
+                <div class="display-4 col-1" id="operator" data-intro="Depending on your level you may answer times, divide or mixture questions" data-step="3">x</div>
+                <div class="display-4 col-2" id="operand2" data-intro="The higher the belt the harder the times tables" data-step="4">0</div>
                 <div class="display-4 col-1">=</div>
-                <input class="display-4 col-4" id="answer-box" type="number" autofocus required data-intro="Submit your answer here" data-step="2">
+                <input class="display-4 col-4" id="answer-box" type="number" autofocus required data-intro="Type your answers here then press the button or press enter on your keyboard to submit." data-step="5">
                 <button id="btn-submit" class="btn display-4 my-auto m-2 col-1"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="fight-scene container">
             <div class="row">
-                <div class="ninja col-lg-3 col-md-4 col-5" data-intro="Answer a question correctly and you will throw a ninja star at the dragon. Keep answering questions correctly to win" data-step="6">
-                    <div class="row p-0 progress">
+                <div class="ninja col-lg-3 col-md-4 col-5">
+                    <div class="row p-0 progress" data-intro="Keep an eye on your health bar, if you answer too many wrong, the dragon will defeat you" data-step="9">
                         <div id="ninja-progress" class="progress-bar bg-success p-0"
                             role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-                            aria-valuemax="100"></div>
+                            aria-valuemax="100">
+                        </div>
                     </div>
-                    <div class="row">
-                        <img id="ninja-img" src="assets/images/ninja0.png">
+                    <div class="row" data-intro="You are the negative ninja! If you answer correctly you will attack the dragon" data-step="6">
+                        <img id="ninja-img" src="assets/images/ninja0.png" alt="ninja wearing correct colour belt">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-4 col-2 fight-container my-auto">
-                    <img id="ninja-star" src="assets/images/ninja-star.png">
-                    <img id="fire-ball" src="assets/images/fire-ball.png">
+                    <img id="ninja-star" src="assets/images/ninja-star.png" alt="ninja throwing star">
+                    <img id="fire-ball" src="assets/images/fire-ball.png" alt="dragon fire ball">
                 </div>
                 <div class="dragon col-lg-3 col-md-4 col-5">
                     <div class="row progress">
                         <div id="dragon-progress" class="progress-bar bg-success p-0"
                             role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-                            aria-valuemax="100"></div>
+                            aria-valuemax="100" data-intro="But, if you answer lots of correct answers you will drain the dragons health and complete the level for your belt." data-step="10">
+                        </div>
                     </div>
-                    <div class="row">
-                        <img id="dragon-img" src="assets/images/dragon0.png">
+                    <div class="row" data-intro="If you answer incorrectly, the dragon will attach you!" data-step="7">
+                        <img id="dragon-img" src="assets/images/dragon0.png" alt="dragon wearing next colour belt">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row footer py-2">
+        <footer class="row py-2">
             <div class="col-6 my-auto">
-                <span class="cy lead float-start my-auto">
-                    <p>Sgor: </p>
-                </span>
-                <span class="en lead float-start my-auto">
-                    <p>Score: </p>
-                </span>
                 <p class="lead float-start my-auto"> 
-                    <i class="fas fa-check" data-intro="View how many correct answers you have made" data-step="4"></i><span id="correct">0</span>
-                    <i class="fas fa-times" data-intro="View how many incorrect answers you have made" data-step="5"></i><span id="incorrect">0</span>
+                    <span class="cy lead float-start my-auto">Sgor: </span>
+                    <span class="en lead float-start my-auto">Score: </span>
+                    <i class="fas fa-check"></i><span id="correct">0</span>
+                    <i class="fas fa-times"></i><span id="incorrect">0</span>
                 </p>
             </div>
             <div class="col-6 my-auto">
                 <a id="btn-contact" class="float-end" href="https://github.com/chelsea-designs"><i class="fab fa-github"></i><span class="cy"> Cyswllt</span><span class="en"> Contact</span></a>
             </div>
-        </div>
+        </footer>
         <!-- Settings Modal -->
-        <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModal" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="level-selector" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <div class="home-info text-center smaller col-10 mx-auto p-2">
-                            <span class="cy lead">
-                                <p>Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i drechu'r ddreigiau.
-                                    <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></p>
-                            </span>
-                            <span class="en lead">
-                                <p>Answer times tables questions including negative numbers to defeat the dragons.
-                                    <br><strong>Can you become a black belt negative ninja?</strong></p>
-                            </span>
+                            <p>
+                                <span class="cy lead">Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i drechu'r ddreigiau.
+                                <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></span>
+                                <span class="en lead">Answer times tables questions including negative numbers to defeat the dragons.
+                                <br><strong>Can you become a black belt negative ninja?</strong></span>
+                            </p>
                         </div>
                         <div class="row">
                             <div class="col-4 form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="btn-sound" data-intro="Toggle sound on and off here" data-step="1">
-                                <label class="form-check-label" for="btn-sound"><i
-                                    class="fas fa-volume-up"></i></label>
+                                <input class="form-check-input" type="checkbox" role="switch" id="btn-sound">
+                                <label class="form-check-label" for="btn-sound"><i class="fas fa-volume-up"></i></label>
                             </div>
                             <div class="col-4 form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="btn-lang" data-intro="Change between Welsh and English here" data-step="2">
-                                <label class="form-check-label" for="btn-lang"><i
-                                    class="fas fa-language"></i>
+                                <input class="form-check-input" type="checkbox" role="switch" id="btn-lang">
+                                <label class="form-check-label" for="btn-lang"><i class="fas fa-language"></i></label>
                             </div>
                             <div class="col-4 form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="btn-dark" data-intro="Toggle dark mode" data-step="3">
-                                <label class="form-check-label" for="btn-dark"><i
-                                    class="fas fa-moon"></i>
+                                <input class="form-check-input" type="checkbox" role="switch" id="btn-dark">
+                                <label class="form-check-label" for="btn-dark"><i class="fas fa-moon"></i></label>
                             </div>
                         </div>
-                        <h2 class="text-center"><span class="cy">
-                                Dewiswch eich lefel i ennill eich gwregys:</span><span class="en">Choose your level to earn your
-                                belt:</span>
-                        </h2>
                         <div class="game-settings row">
-                            <div class="row mx-auto">
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="0" checked>
-                                    <img class="belt-image" src="assets/images/white.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="1">
-                                    <img class="belt-image" src="assets/images/yellow.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="2">
-                                    <img class="belt-image" src="assets/images/orange.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="3">
-                                    <img class="belt-image" src="assets/images/green.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="4">
-                                    <img class="belt-image" src="assets/images/purple.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="5">
-                                    <img class="belt-image" src="assets/images/blue.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="6">
-                                    <img class="belt-image" src="assets/images/brown.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="7">
-                                    <img class="belt-image" src="assets/images/red.png">
-                                </label>
-                                <label class="col-4 text-center">
-                                    <input type="radio" name="level" value="8">
-                                    <img class="belt-image" src="assets/images/black.png">
-                                </label>
-                            </div>
+                            <fieldset>
+                                <legend>
+                                    <h2 id="level-selector" class="text-center">
+                                        <span class="cy">Dewiswch eich lefel i ennill eich gwregys:</span>
+                                        <span class="en">Choose your level to earn your belt:</span>
+                                    </h2>
+                                </legend>
+                                <div class="row mx-auto">
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="0" checked>
+                                        <img class="belt-image" src="assets/images/white.png" alt="white martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="1">
+                                        <img class="belt-image" src="assets/images/yellow.png" alt="yellow martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="2">
+                                        <img class="belt-image" src="assets/images/orange.png" alt="orange martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="3">
+                                        <img class="belt-image" src="assets/images/green.png" alt="green martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="4">
+                                        <img class="belt-image" src="assets/images/purple.png" alt="purple martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="5">
+                                        <img class="belt-image" src="assets/images/blue.png" alt="blue martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="6">
+                                        <img class="belt-image" src="assets/images/brown.png" alt="brown martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="7">
+                                        <img class="belt-image" src="assets/images/red.png" alt="red martial arts belt">
+                                    </label>
+                                    <label class="col-4 text-center">
+                                        <input type="radio" name="level" value="8">
+                                        <img class="belt-image" src="assets/images/black.png"  alt="black martial arts belt">
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn--black btn-start col-3 mx-auto m-2"><span class="cy">Chwarae</span><span
@@ -192,7 +190,7 @@
                         <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys <span
                                 id="gwregys-modal">BLANK</span>!</span><span class="en">You defeated the dragon and
                             earned your <span id="belt-modal">BLANK</span> belt!</span>
-                        <img class="ninja-img-modal" src="assets/images/ninja0.png">
+                        <img class="ninja-img-modal" src="assets/images/ninja0.png" alt="ninja wearing correct colour belt">
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn--black mx-auto" type="button" data-bs-dismiss="modal"
@@ -208,21 +206,21 @@
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <span class="en">
-                            <p>Oh no!</p>
-                            <p>The dragon beat you.</p>
-                            <p>Try again!</p>
+                            Oh no!
+                            <br>The dragon beat you.
+                            <br>Try again!
                         </span>
                         <span class="cy">
-                            <p>Dratia!</p>
-                            <p>Mae'r draig wedi ennill.</p>
-                            <p>Rhoi gynnig arall arni!</p>
+                            Dratia!
+                            <br>Mae'r draig wedi ennill.
+                            <br>Rhoi gynnig arall arni!
                         </span>
-                        <img id="ninja-sad" src="assets/images/ninja-sad.png">
+                        <img id="ninja-sad" src="assets/images/ninja-sad.png" alt="ninja crying">
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn--black mx-auto" type="button" data-bs-dismiss="modal"
                             aria-label="Close"><span class="cy">Trio'r lefel eto</span><span class="en">Replay
-                                Level</button>
+                                Level</span></button>
                     </div>
                 </div>
             </div>
@@ -233,14 +231,14 @@
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <span class="cy">
-                            <p>Rydych wedi trechu'r draig ac rydych chi wedi ennill gwregys du!</p>
-                            <p>Chi yw'r Ninja Negyddol Gorau yn y Byd!</p>
+                            Rydych wedi trechu'r draig ac rydych chi wedi ennill gwregys du!
+                            <br>Chi yw'r Ninja Negyddol Gorau yn y Byd!
                         </span>
                         <span class="en">
-                            <p>You defeated the dragon and earned your black belt!</p>
-                            <p>You are the Ultimate Negative Ninja!</p>
+                            You defeated the dragon and earned your black belt!
+                            <br>You are the Ultimate Negative Ninja!
                         </span>
-                        <img class="ninja-win-modal" src="assets/images/ninja10.png">
+                        <img class="ninja-win-modal" src="assets/images/ninja10.png" alt="ninja wearing black belt">
                     </div>
                     <div class="modal-footer">
                         <button id="btn-end" class="btn btn--black mx-auto" type="button" data-bs-dismiss="modal"
