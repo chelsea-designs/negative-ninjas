@@ -28,6 +28,8 @@ body {
     color: var(--fontColor);
     margin: 0;
     padding: 0;
+    background: var(--white) url('../images/bg_sunset.jpg') no-repeat right center fixed;
+    background-size: cover;
 }
 
 /* Background Img */
@@ -38,42 +40,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-@media (min-width: 1025px) {
-    body{
-        background: var(--white) url('../images/bg_sunset.jpg') no-repeat center top;
-        background-size: cover;
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 1024px) {
-    body{
-        background: var(--white) url('../images/bg_sunset.jpg') no-repeat center top;
-        background-size: cover;
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    body{
-        background: var(--white) url('../images/bg_sunset.jpg') no-repeat center top;
-        background-size: cover;
-        display: block;
-        height: 100vh;
-        width: 100vw;
-    }
-  }
-
-.fight-scene{
-    position: fixed;
-    bottom:10%;
-    left:0px;
 }
 
 h1{
@@ -87,6 +53,15 @@ h1{
         1px -1px 0 var(--black),
         -1px 1px 0 var(--black),
         1px 1px 0 var(--black);
+}
+
+h2{
+    color: var(--black);
+    text-shadow:
+        -1px -1px 0 var(--white),  
+        1px -1px 0 var(--white),
+        -1px 1px 0 var(--white),
+        1px 1px 0 var(--white);
 }
 
 .modal{
@@ -107,6 +82,7 @@ h1{
     width:100vw;
     margin: 0px;
     padding: 0px;
+    height: 75px;
 }
 
 .footer a{
@@ -143,6 +119,13 @@ h1{
     height: 50px;
     position: relative;
     overflow-x: hidden;
+}
+
+.fight-scene {
+    position: fixed;
+    top: 50%;
+    left:0;
+    right:0;
 }
   
 #ninja-star {
@@ -241,7 +224,7 @@ input[type=number] {
 
 .form-check-input:checked {
     background-color: var(--midOrange);
-    border-color: var(--midOrange);
+    border: solid 1px var(--white);
 }
 
 .form-switch .form-check-input:focus {
@@ -254,32 +237,27 @@ input[type=number] {
       height: 100px;
 }
 
-.game-intro{
-      background-color: var(--modalBg);
-      border-radius: 50px;
-      border: var(--fontColor) solid 3px;
-}
-
 .question-area{
     background-color: var(--modalBg);
-    border-radius: 50px;
+    border-radius: 25px;
     border: var(--fontColor) solid 3px;
     padding: 1%;
+    position: fixed;
+    top: 25%;
+    bottom: 55%;
+    left:0;
+    right:0;
+}
+
+.question-row{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#btn-home{
-    background-color: var(--black);
-    color: var(--darkOrange);
-    height: 50px;
-    font-size: 1rem;
-    border: var(--black) 1px solid;
-}
-
-#btn-home:hover{
+#btn-contact:hover{
     background-color: var(--darkOrange);
     color: var(--black);
     border: var(--black) 1px solid;
+    border-radius: 5px;
 }

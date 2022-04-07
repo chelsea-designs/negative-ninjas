@@ -299,7 +299,9 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 -   Images of ninjas and background created by myself.
 
--   Dragon, ninja star and fireball copyright-free images from ![Pixabay](https://pixabay.com/).
+-   Dragon, ninja star and fireball copyright-free images from [Pixabay](https://pixabay.com/).
+
+-   Images compressed using [TinyJPG](https://tinyjpg.com/) or [TinyPNG](https://tinypng.com/).
 
 ### Acknowledgements
 

@@ -73,7 +73,7 @@ function startGame(){
     $("#btn-help").show();
     $("#btn-home").show();
     $(".game-intro").hide();
-    $("h1").hide();
+    $('#settingsModal').modal('hide');
     // change image
     $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
     $("#dragon-img").attr('src', `assets/images/dragon${beltNumber}.png`);
@@ -282,9 +282,9 @@ function win(){
 $("#btn-home").click(function(){
     $(".game-area").hide();
     $(".game-intro").show();
+    $('#settingsModal').modal('show');
     $("#btn-help").hide();
     $("#btn-home").hide();
-    $("h1").show();
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
     $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
@@ -297,6 +297,7 @@ $("#btn-end").click(function(){
     $('#winModal').modal('toggle');
     $(".game-area").hide();
     $(".game-intro").show();
+    $('#settingsModal').modal('show');
     $("#btn-help").hide();
     $("#btn-home").hide();
     document.getElementById("dragon-progress").style.width=100+"%";
@@ -309,6 +310,7 @@ $("#btn-end").click(function(){
 
 /* Empty Input */
 $(document).ready(function(){
+    $('#settingsModal').modal('show');
     $('#btn-submit').attr('disabled',true);
     $('#answer-box').keyup(function(){
         if($(this).val().length !=0)
