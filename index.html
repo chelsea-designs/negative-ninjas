@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="An engaging mathematics game to improve arithmetic with negative numbers">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/80f956ebd0.js" crossorigin="anonymous"></script>
@@ -27,7 +28,7 @@
     <div class="layer">
         <header class="row mx-2 my-3">
             <div class="col-2 p-0 text-center my-auto">
-                <button id="btn-help" type="button" class="btn btn-header">
+                <button id="btn-help" type="button" class="btn btn-header" aria-label="How to play">
                     <i class="fas fa-question"></i>
                 </button>
             </div>
@@ -36,7 +37,7 @@
                         Ninjas</span></h1>
             </div>
             <div class="col-2 p-0 text-center my-auto" data-intro="Return to menu to choose level, toggle dark mode, sound or change the language." data-step="1">
-                <button type="button" class="btn btn-header my-auto" id="btn-home">
+                <button type="button" class="btn btn-header my-auto" id="btn-home" aria-label="Return to menu">
                     <i class='fas fa-cog'></i>
                 </button>
             </div>
@@ -53,7 +54,7 @@
                 <div class="display-4 col-2" id="operand2" data-intro="The higher the belt the harder the times tables" data-step="4">0</div>
                 <div class="display-4 col-1">=</div>
                 <input class="display-4 col-4" id="answer-box" type="number" autofocus required data-intro="Type your answers here then press the button or press enter on your keyboard to submit." data-step="5">
-                <button id="btn-submit" class="btn display-4 my-auto m-2 col-1"><i class="fas fa-arrow-right"></i></button>
+                <button id="btn-submit" class="btn display-4 my-auto m-2 col-1" aria-label="Submit answer"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="fight-scene container">
@@ -91,12 +92,12 @@
                 <p class="lead float-start my-auto"> 
                     <span class="cy lead float-start my-auto">Sgor: </span>
                     <span class="en lead float-start my-auto">Score: </span>
-                    <i class="fas fa-check"></i><span id="correct">0</span>
-                    <i class="fas fa-times"></i><span id="incorrect">0</span>
+                    <i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Correct</span><span id="correct">0</span>
+                    <i class="fas fa-times" aria-hidden="true"></i><span class="visually-hidden">Incorrect</span><span id="incorrect">0</span>
                 </p>
             </div>
             <div class="col-6 my-auto">
-                <a id="btn-contact" class="float-end" href="https://github.com/chelsea-designs"><i class="fab fa-github"></i><span class="cy"> Cyswllt</span><span class="en"> Contact</span></a>
+                <a id="btn-contact" class="float-end" href="https://github.com/chelsea-designs"><i class="fab fa-github" aria-hidden="true"></i><span class="cy"> Cyswllt</span><span class="en"> Contact</span></a>
             </div>
         </footer>
         <!-- Settings Modal -->
@@ -115,15 +116,15 @@
                         <div class="row">
                             <div class="col-4 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="btn-sound">
-                                <label class="form-check-label" for="btn-sound"><i class="fas fa-volume-up"></i></label>
+                                <label class="form-check-label" for="btn-sound"><i class="fas fa-volume-up" aria-hidden="true"></i><span class="visually-hidden">Volume</span></label>
                             </div>
                             <div class="col-4 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="btn-lang">
-                                <label class="form-check-label" for="btn-lang"><i class="fas fa-language"></i></label>
+                                <label class="form-check-label" for="btn-lang"><i class="fas fa-language" aria-hidden="true"></i><span class="visually-hidden">Language</span></label>
                             </div>
                             <div class="col-4 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="btn-dark">
-                                <label class="form-check-label" for="btn-dark"><i class="fas fa-moon"></i></label>
+                                <label class="form-check-label" for="btn-dark"><i class="fas fa-moon" aria-hidden="true"></i><span class="visually-hidden">Dark Mode</span></label>
                             </div>
                         </div>
                         <div class="game-settings row">
@@ -176,7 +177,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn--black btn-start col-3 mx-auto m-2"><span class="cy">Chwarae</span><span
+                        <button type="button" class="btn btn--black btn-start col-3 mx-auto m-2" aria-label="Start game"><span class="cy">Chwarae</span><span
                             class="en">Play</span></button>
                     </div>
                 </div>
@@ -205,16 +206,16 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <span class="en">
+                        <div class="en">
                             Oh no!
                             <br>The dragon beat you.
                             <br>Try again!
-                        </span>
-                        <span class="cy">
+                        </div>
+                        <div class="cy">
                             Dratia!
                             <br>Mae'r draig wedi ennill.
                             <br>Rhoi gynnig arall arni!
-                        </span>
+                        </div>
                         <img id="ninja-sad" src="assets/images/ninja-sad.png" alt="ninja crying">
                     </div>
                     <div class="modal-footer">
@@ -230,14 +231,14 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <span class="cy">
+                        <div class="cy">
                             Rydych wedi trechu'r draig ac rydych chi wedi ennill gwregys du!
                             <br>Chi yw'r Ninja Negyddol Gorau yn y Byd!
-                        </span>
-                        <span class="en">
+                        </div>
+                        <div class="en">
                             You defeated the dragon and earned your black belt!
                             <br>You are the Ultimate Negative Ninja!
-                        </span>
+                        </div>
                         <img class="ninja-win-modal" src="assets/images/ninja10.png" alt="ninja wearing black belt">
                     </div>
                     <div class="modal-footer">

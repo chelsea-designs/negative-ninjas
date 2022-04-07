@@ -39,6 +39,8 @@ $('#btn-dark').change(function() {
 function resetGame(){
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
+    $("#ninja-progress").attr("aria-valuenow",100);
+    $("#dragon-progress").attr("aria-valuenow",100);
     $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
@@ -211,10 +213,12 @@ function dragonShoots() {
         $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+        $("#ninja-progress").attr("aria-valuenow",ninjaHealth);
         newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         ninjaHealth -= 10;
         document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
+        $("#ninja-progress").attr("aria-valuenow",ninjaHealth);
         $('#ninja-progress').removeClass("bg-warning").addClass("bg-danger");
         setTimeout(replayLevel, 1000);
     }                
@@ -233,10 +237,12 @@ function ninjaShoots() {
         $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
         dragonHealth -= 10;
         document.getElementById("dragon-progress").style.width=dragonHealth+"%";
+        $("#dragon-progress").attr("aria-valuenow",dragonHealth);
         newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         dragonHealth -= 10;
         document.getElementById("dragon-progress").style.width=dragonHealth+"%";
+        $("#dragon-progress").attr("aria-valuenow",dragonHealth);
         $('#dragon-progress').removeClass("bg-warning").addClass("bg-danger");
         beltNumber==maxBeltNumber ? setTimeout(win, 1000) : setTimeout(nextLevel, 1000);
     }      
@@ -256,6 +262,8 @@ $("#btn-home").click(function(){
     $('#settingsModal').modal('show');
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
+    $("#ninja-progress").attr("aria-valuenow",100);
+    $("#dragon-progress").attr("aria-valuenow",100);
     $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
@@ -267,6 +275,8 @@ $("#btn-end").click(function(){
     $('#settingsModal').modal('show');
     document.getElementById("dragon-progress").style.width=100+"%";
     document.getElementById("ninja-progress").style.width=100+"%";
+    $("#ninja-progress").attr("aria-valuenow",100);
+    $("#dragon-progress").attr("aria-valuenow",100);
     $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
