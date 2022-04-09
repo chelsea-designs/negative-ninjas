@@ -67,11 +67,15 @@ h2{
 .modal{
     font-size:1.2rem;
     color: var(--fontColor);
-    border: var(--fontColor) 3px solid;
 }
 
 .modal-content{
     background-color: var(--modalBg);
+    border: var(--fontColor) 3px solid;
+}
+
+.modal-footer{
+    border-top: none;
 }
 
 footer{
@@ -79,10 +83,7 @@ footer{
     position: fixed;
     bottom: 0px;
     left: 0px;
-    width:100vw;
     margin: 0px;
-    padding: 0px;
-    height: 75px;
 }
 
 footer a{
@@ -102,7 +103,6 @@ footer a{
 .ninja-win-modal{
     height: auto;
     width:75%;
-    font-size:1.2rem;
 }
 
 #ninja-sad{
@@ -123,7 +123,7 @@ footer a{
 
 .fight-scene {
     position: fixed;
-    top: 50%;
+    bottom: 10%;
     left:0;
     right:0;
 }
@@ -233,18 +233,16 @@ input[type=number] {
 }
 
 .belt-image{
-      width:100px;
-      height: 100px;
+      width: 75px;
+      height: 75px;
 }
 
 .question-area{
     background-color: var(--modalBg);
     border-radius: 25px;
     border: var(--fontColor) solid 3px;
-    padding: 1%;
     position: fixed;
     top: 25%;
-    bottom: 55%;
     left:0;
     right:0;
 }
