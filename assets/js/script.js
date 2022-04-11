@@ -16,38 +16,34 @@ let gwregysPresennol;
 let ninjaNoise = new Audio("assets/audio/ninja-noise.wav");
 let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 
-$("#ninja-star").hide();
-$("#fire-ball").hide();
-$('#btn-return').hide();
+$(".weapon").hide();
+$('#modal_btn--return').hide();
 
 //Run tour
-$("#btn-help").click(function(){
+$("#header_btn--help").click(function(){
     introJs().start();
 });
 
 // Language Switcher
 $(".cy").hide();
-$('#btn-lang').click(function() {
+$('#modal_btn--lang').click(function() {
     $(".cy").toggle();
     $(".en").toggle();
 });
 
 // Dark Mode
-$('#btn-dark').change(function() {
-    $('body').toggleClass("dark-theme");
+$('#modal_btn--dark').change(function() {
+    $('body').toggleClass("theme--dark");
 });
 
 function resetGame(){
-    document.getElementById("dragon-progress").style.width=100+"%";
-    document.getElementById("ninja-progress").style.width=100+"%";
-    $("#ninja-progress").attr("aria-valuenow",100);
-    $("#dragon-progress").attr("aria-valuenow",100);
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    $(".progress-bar").css('width', '100%');
+    $(".progress-bar").attr("aria-valuenow",100);
+    $('.progress-bar').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
-    document.getElementById("answer-box").value = "";
-    document.getElementById("answer-box").focus();
+    document.getElementById("questions_input").value = "";
+    document.getElementById("questions_input").focus();
 }
 
 $(".btn-start").click(function(){
@@ -62,16 +58,16 @@ function startGame(){
     let gameType = difficulty[beltNumber].gameOperator; 
     document.getElementById('current-belt').innerHTML = currentBelt; 
     document.getElementById('gwregys-presennol').innerHTML = gwregysPresennol;
-    $('#settingsModal').modal('hide');
-    $("#ninja-img").attr('src', `assets/images/ninja${beltNumber}.png`);
-    $("#dragon-img").attr('src', `assets/images/dragon${beltNumber}.png`);
+    $('#modal--settings').modal('hide');
+    $("#battle_img--ninja").attr('src', `assets/images/ninja${beltNumber}.png`);
+    $("#battle_img--dragon").attr('src', `assets/images/dragon${beltNumber}.png`);
     resetGame();
     newQuestion(gameType,multipliers);
 }
 
 function newQuestion(gameType,multipliers){
-    document.getElementById("answer-box").value = "";
-    document.getElementById("answer-box").focus();
+    document.getElementById("questions_input").value = "";
+    document.getElementById("questions_input").focus();
 
     //generate questions
     let num1 = Math.ceil(Math.random() * 12) * (Math.round(Math.random()) ? 1 : -1); // random number between -12 and 12 exc zero.
@@ -98,20 +94,20 @@ function newQuestion(gameType,multipliers){
     }
 }
 
-$('#btn-submit').click(checkAnswer);
-$("#answer-box").keydown(function(event) {
+$('.questions_submit').click(checkAnswer);
+$("#questions_input").keydown(function(event) {
     if (event.key === "Enter" && $(this).val().length !=0) {
-        $('#btn-submit').attr('disabled', false);  
+        $('.questions_submit').attr('disabled', false);  
         checkAnswer();
     }else{
-        $('#btn-submit').attr('disabled', false);  
+        $('.questions_submit').attr('disabled', false);  
     }
 });
 
 
 function checkAnswer() {
 
-    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let userAnswer = parseInt(document.getElementById("questions_input").value);
     let calculatedAnswer = calculateCorrectAnswer();
     let isCorrect = userAnswer === calculatedAnswer;
     
@@ -123,9 +119,9 @@ function checkAnswer() {
 }
 
 function calculateCorrectAnswer(){
-    let operand1 = parseInt(document.getElementById('operand1').innerText);
-    let operand2 = parseInt(document.getElementById('operand2').innerText);
-    let operator = document.getElementById("operator").innerText;
+    let operand1 = parseInt(document.getElementById('questions_operand--one').innerText);
+    let operand2 = parseInt(document.getElementById('questions_operand--two').innerText);
+    let operator = document.getElementById("questions_operator").innerText;
 
     switch (operator){
         case "x":
@@ -146,9 +142,9 @@ function incrementCorrect(){
 }
 
 function formatCorrectAnswer(){
-    $('#answer-box').css("background-color","green");
+    $('#questions_input').css("background-color","green");
     setTimeout(function() {
-        $('#answer-box').css("background-color","white");
+        $('#questions_input').css("background-color","white");
     }, 250);
 }
 
@@ -160,25 +156,25 @@ function incrementIncorrect(){
 }
 
 function formatIncorrectAnswer(){
-    $('#answer-box').css("background-color","red");
+    $('#questions_input').css("background-color","red");
     setTimeout(function() {
-        $('#answer-box').css("background-color","white");
+        $('#questions_input').css("background-color","white");
     }, 500);
 }
 
 function replayLevel(){
     resetGame();
-    $('#replayModal').modal('toggle');
+    $('#modal--replay').modal('toggle');
     startGame();
 }
 
 function nextLevel(){
     resetGame();
-    $('#nextModal').modal('toggle');
+    $('#modal--next').modal('toggle');
     document.getElementById('belt-modal').innerHTML = currentBelt;
     document.getElementById('gwregys-modal').innerHTML = gwregysPresennol;
     beltNumber++;
-    $(".ninja-img-modal").attr('src', `assets/images/ninja${beltNumber}.png`);
+    $("#ninja-win").attr('src', `assets/images/ninja${beltNumber}.png`);
     currentBelt = difficulty[beltNumber].colour;
     gwregysPresennol = difficulty[beltNumber].lliw;
     document.getElementById('current-belt').innerHTML = currentBelt;
@@ -188,108 +184,108 @@ function nextLevel(){
 
 function displayMultiplyQuestion(operand1, operand2) {
 
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "x";
+    document.getElementById('questions_operand--one').textContent = operand1;
+    document.getElementById('questions_operand--two').textContent = operand2;
+    document.getElementById('questions_operator').textContent = "x";
 }
 
 function displayDivisionQuestion(operand1, operand2) {
 
-    document.getElementById("operand1").textContent = operand2 * Math.floor(Math.random() * 25 -12);
-    document.getElementById("operand2").textContent = operand2;
-	document.getElementById("operator").textContent = "\u00F7";
+    document.getElementById("questions_operand--one").textContent = operand2 * Math.floor(Math.random() * 25 -12);
+    document.getElementById("questions_operand--two").textContent = operand2;
+	document.getElementById("questions_operator").textContent = "\u00F7";
 
 }
 
 function dragonShoots() {
-    $('#fire-ball').show().css({ 'right': '0px', 'left': '' }).animate({
+    $('#battle_weapon--fire').show().css({ 'right': '0px', 'left': '' }).animate({
         'right' : '110%'    
     });
-    if ($('#btn-sound').is(':checked')){
+    if ($('#modal_btn--sound').is(':checked')){
         dragonNoise.play();
     }else{
     }     
-    let ninjaHealth = parseInt(document.getElementById("ninja-progress").style.width);
+    let ninjaHealth = parseInt(document.getElementById("battle_progress--ninja").style.width);
     if(ninjaHealth>10){
-        $('#ninja-progress').removeClass("bg-success").addClass("bg-warning");
+        $('#battle_progress--ninja').removeClass("bg-success").addClass("bg-warning");
         ninjaHealth -= 10;
-        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-        $("#ninja-progress").attr("aria-valuenow",ninjaHealth);
+        document.getElementById("battle_progress--ninja").style.width=ninjaHealth+"%";
+        $("#battle_progress--ninja").attr("aria-valuenow",ninjaHealth);
         newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         ninjaHealth -= 10;
-        document.getElementById("ninja-progress").style.width=ninjaHealth+"%";
-        $("#ninja-progress").attr("aria-valuenow",ninjaHealth);
-        $('#ninja-progress').removeClass("bg-warning").addClass("bg-danger");
+        document.getElementById("battle_progress--ninja").style.width=ninjaHealth+"%";
+        $("#battle_progress--ninja").attr("aria-valuenow",ninjaHealth);
+        $('#battle_progress--ninja').removeClass("bg-warning").addClass("bg-danger");
         setTimeout(replayLevel, 1000);
     }                
 }
 
 function ninjaShoots() {
-    $('#ninja-star').show().css({ 'right': '', 'left': '0px' }).animate({
+    $('#battle_weapon--star').show().css({ 'right': '', 'left': '0px' }).animate({
         'left' : '110%'
     });        
-    if ($('#btn-sound').is(':checked')){
+    if ($('#modal_btn--sound').is(':checked')){
         ninjaNoise.play();
     }else{
     }   
-    let dragonHealth = parseInt(document.getElementById("dragon-progress").style.width);
+    let dragonHealth = parseInt(document.getElementById("battle_progress--dragon").style.width);
     if(dragonHealth>10){
-        $('#dragon-progress').removeClass("bg-success").addClass("bg-warning");
+        $('#battle_progress--dragon').removeClass("bg-success").addClass("bg-warning");
         dragonHealth -= 10;
-        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
-        $("#dragon-progress").attr("aria-valuenow",dragonHealth);
+        document.getElementById("battle_progress--dragon").style.width=dragonHealth+"%";
+        $("#battle_progress--dragon").attr("aria-valuenow",dragonHealth);
         newQuestion(difficulty[beltNumber].gameOperator,difficulty[beltNumber].timesTables); 
     } else {
         dragonHealth -= 10;
-        document.getElementById("dragon-progress").style.width=dragonHealth+"%";
-        $("#dragon-progress").attr("aria-valuenow",dragonHealth);
-        $('#dragon-progress').removeClass("bg-warning").addClass("bg-danger");
+        document.getElementById("battle_progress--dragon").style.width=dragonHealth+"%";
+        $("#battle_progress--dragon").attr("aria-valuenow",dragonHealth);
+        $('#battle_progress--dragon').removeClass("bg-warning").addClass("bg-danger");
         beltNumber==maxBeltNumber ? setTimeout(win, 1000) : setTimeout(nextLevel, 1000);
     }      
 }
 
 function win(){
-    if ($('#btn-sound').is(':checked')){
-        $('#winModal').modal('toggle');
+    if ($('#modal_btn--sound').is(':checked')){
+        $('#modal--win').modal('toggle');
         let themeSong = new Audio("assets/audio/theme-song.wav");
         themeSong.play();
     }else{
-        $('#winModal').modal('toggle');
+        $('#modal--win').modal('toggle');
     }
 }
 
-$("#btn-home").click(function(){
-    $('#settingsModal').modal('show');
-    $('#btn-return').show();
+$(".header_btn--home").click(function(){
+    $('#modal--settings').modal('show');
+    $('#modal_btn--return').show();
 });
 
-$("#btn-return").click(function(){
-    $('#settingsModal').modal('hide');
-    $('#btn-return').hide();
+$("#modal_btn--return").click(function(){
+    $('#modal--settings').modal('hide');
+    $('#modal_btn--return').hide();
 });
 
-$("#btn-end").click(function(){
-    $('#winModal').modal('toggle');
-    $('#settingsModal').modal('show');
-    document.getElementById("dragon-progress").style.width=100+"%";
-    document.getElementById("ninja-progress").style.width=100+"%";
-    $("#ninja-progress").attr("aria-valuenow",100);
-    $("#dragon-progress").attr("aria-valuenow",100);
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+$("#modal_btn--end").click(function(){
+    $('#modal--win').modal('toggle');
+    $('#modal--settings').modal('show');
+    document.getElementById("battle_progress--dragon").style.width=100+"%";
+    document.getElementById("battle_progress--ninja").style.width=100+"%";
+    $("#battle_progress--ninja").attr("aria-valuenow",100);
+    $("#battle_progress--dragon").attr("aria-valuenow",100);
+    $('#battle_progress--ninja').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
+    $('#battle_progress--dragon').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     document.getElementById("correct").innerHTML = 0;
     document.getElementById("incorrect").innerHTML = 0;
 });
 
 /* Empty Input */
 $(document).ready(function(){
-    $('#settingsModal').modal('show');
-    $('#btn-submit').attr('disabled',true);
-    $('#answer-box').keyup(function(){
+    $('#modal--settings').modal('show');
+    $('.questions_submit').attr('disabled',true);
+    $('#questions_input').keyup(function(){
         if($(this).val().length !=0)
-            $('#btn-submit').attr('disabled', false);            
+            $('.questions_submit').attr('disabled', false);            
         else
-            $('#btn-submit').attr('disabled',true);
+            $('.questions_submit').attr('disabled',true);
     });
 });
