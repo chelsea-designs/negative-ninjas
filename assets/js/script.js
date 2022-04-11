@@ -16,7 +16,7 @@ let gwregysPresennol;
 let ninjaNoise = new Audio("assets/audio/ninja-noise.wav");
 let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 
-$(".weapon").hide();
+$(".battle_img--weapon").hide();
 $('#modal_btn--return').hide();
 
 //Run tour
