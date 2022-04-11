@@ -33,6 +33,9 @@
                 </button>
             </div>
             <div class="col-8 p-0 my-auto">
+                <noscript class="no-js">
+                    <p>This game requires JavaScript in order to work. Your browser either does not support JavaScript or you have it disabled. Try enabling JavaScript in your settings to play the game.</p>
+                </noscript>
                 <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negyddol</span><span class="en">Negative
                         Ninjas</span></h1>
             </div>
@@ -44,7 +47,8 @@
         </header>
         <div class="questions container my-auto text-center pb-2" data-intro="Answer times table questions correctly to progress to the next level" data-step="2">
             <div class="row">
-                <h2><span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r draig
+                <h2>
+                    <span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r draig
                         i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span
                         class="en"><span id="current-belt">Blank</span> belt</span></h2>
             </div>
@@ -53,9 +57,11 @@
                 <div class="display-4 col-2 col-sm-1" id="questions_operator" data-intro="Depending on your level you may answer times, divide or mixture questions" data-step="3">x</div>
                 <div class="display-4 col-2 col-sm-2" id="questions_operand--two" data-intro="The higher the belt the harder the times tables" data-step="4">0</div>
                 <div class="display-4 col-2 col-sm-1">=</div>
-                <label><span class="visually-hidden">Answer Box:</span>
-                    <input class="display-4 col-7 col-sm-4" id="questions_input" type="number" autofocus required data-intro="Type your answers here then press the button or press enter on your keyboard to submit." data-step="5">
-                </label>
+                <div class="display-4 col-7 col-sm-4">
+                    <label><span class="visually-hidden">Answer Box:</span>
+                        <input class="w-100" id="questions_input" type="number" autofocus required data-intro="Type your answers here then press the button or press enter on your keyboard to submit." data-step="5">
+                    </label>
+                </div>
                 <button class="btn questions_submit display-4 my-auto m-2 col-2 col-sm-1" aria-label="Submit answer"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
