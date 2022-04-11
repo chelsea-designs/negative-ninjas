@@ -18,6 +18,7 @@ let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 
 $("#ninja-star").hide();
 $("#fire-ball").hide();
+$('#btn-return').hide();
 
 //Run tour
 $("#btn-help").click(function(){
@@ -260,14 +261,12 @@ function win(){
 
 $("#btn-home").click(function(){
     $('#settingsModal').modal('show');
-    document.getElementById("dragon-progress").style.width=100+"%";
-    document.getElementById("ninja-progress").style.width=100+"%";
-    $("#ninja-progress").attr("aria-valuenow",100);
-    $("#dragon-progress").attr("aria-valuenow",100);
-    $('#ninja-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    $('#dragon-progress').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("incorrect").innerHTML = 0;
+    $('#btn-return').show();
+});
+
+$("#btn-return").click(function(){
+    $('#settingsModal').modal('hide');
+    $('#btn-return').hide();
 });
 
 $("#btn-end").click(function(){

@@ -176,6 +176,24 @@ footer a{
     border: var(--fontColor) 3px solid;
 }
 
+.btn--black:hover{
+    color: var(--mainBg);
+    background-color: var(--fontColor);
+    border: var(--fontColor) 3px solid;
+}
+
+.btn--white{
+    color: var(--mainBg);
+    background-color: var(--fontColor);
+    border: var(--fontColor) 3px solid;
+}
+
+.btn--white:hover{
+    color: var(--fontColor);
+    background-color: var(--mainBg);
+    border: var(--fontColor) 3px solid;
+}
+
 /* Progress Bar */
 #dragon-progress{
     width: 0;
