@@ -182,14 +182,7 @@ Dark Colour Scheme
 
 * Game Screens
 There are two versions of the game and therefore two different game screens, however they follow the same layout and format.
-Classic Game
-![Classic Game Screen](/assets/readme-images/classic-game.png)
-
-Spock Game
-![Spock Game Screen](/assets/readme-images/spock-game.png)
-
-Dark Spock Game Screen
-![Spock Game Screen Dark](/assets/readme-images/dark-spock-game.png)
+![ Game Screen](assets/readme-images/game-screen.png)
 
 * End Screens
 There are three modals available from the main game, one for the next level, one of the replay level and one for the end of game. 
@@ -225,28 +218,6 @@ I took a two stage approach to testing the site. The first stage was continuous 
 For the second stage of testing, I utilised a more formal structured approach and created a test schedule for the site and each logical cycle. I then proceeded to run through the tests individually making a note of any errors or changes to the designed behaviour. Any errors were corrected and then the tests repeated.
 
 A full detailed breakdown of the testing proceedures and methodology can be found in the testing.md file [here](TESTING.md)
-
-The full testing excel file can be accessed [here](/assets/documents/testing-schedule.xlsx). A Pdf version of the completed file can be accessed [here](/assets/documents/ufoduel-site-testing-report.pdf).
-
-#### Testing Overview
-Testing was divided into different sections to ensure everything was tested individually with test cases developed for each area.
-![Test Overview](/assets/readme-images/test-report-headings.png)
-
-#### Validator Testing
-* HTML
-  * No errors were returned when passing through the official W3C Validator. [View Report](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmattbcoding.github.io%2Fufoduel%2F)
-
-* CSS
-  * No errors were returned when passing through the official W3C CSS Validation Service - Jigsaw. [View Report](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmattbcoding.github.io%2Fufoduel%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-
-* JavaScript
-  * No errors were returned when passing through the validator service at JSHint.com. ![View Image of Report](/assets/readme-images/jshint-report.png)
-
-* WAVE Web Accessibility
-  * Three errors were returned in the WAVE web accessibility report which are detailed in the TESTING.md file along with the resolution. [View Report](https://wave.webaim.org/report#/mattbcoding.github.io/ufoduel/)
-
-* Lighthouse 
-  * The lighthouse report gave an almost perfect score of 99, 100, 100, 100. ![View Image of Report](/assets/readme-images/lighthouse-report.png)
 
 #### Notable Bugs
 Only one bug of note was discovered during the development or testing of the site, which involved the game resetting if the user visited the settings screen. This was rectified by removing the start game function from the settings button. However, multiple small visual errors were encountered during testing across different devices, browsers or browser versions which needed additional CSS style rules to overcome. For example, the submit button was not horizontally centered on the input but this was fixed with display flex. 

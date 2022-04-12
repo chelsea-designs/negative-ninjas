@@ -103,6 +103,14 @@ footer a{
     right:0;
 }
 
+.progress{
+    max-width: 25vh;
+}
+
+.battle_img--character{
+    max-height: 25vh;
+}
+
 /* IMAGES */
 .modal_img--ninja{
     height: auto;
