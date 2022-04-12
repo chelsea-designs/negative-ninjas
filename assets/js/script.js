@@ -19,6 +19,19 @@ let dragonNoise = new Audio("assets/audio/fire-noise.wav");
 $(".battle_img--weapon").hide();
 $('#modal_btn--return').hide();
 
+//Orientation Alert
+$(document).ready(function(){
+    if(screen.availHeight < screen.availWidth){
+        alert("Please use Portrait!");
+    }
+});
+
+window.addEventListener("orientationchange", function(){
+    if(screen.availHeight < screen.availWidth){
+        alert("Please use Portrait!");
+    }
+});
+
 //Run tour
 $("#header_btn--help").click(function(){
     introJs().start();

@@ -22,14 +22,14 @@ The site accessibility was also checked through the use of a screen reader. By i
 
 The site was checked for responsiveness and behaviour of animations across Google Chrome, Firefox and Safari. I also tested the site on an iPhoneSE, an iPad Mini and an Redmi Note 9 Pro. Within the developer tools of each browser, or by resizing the browser window manually, the site was checked for the following devices: iPhone SE, iPhone XR, iPhone 12 Pro, Pixel 5, Samsung Galaxy S8+, Samsung Galaxy S20 Ultra, iPad Air, iPad Mini and Surface Duo. This site was checked for conformity to design in both portrait and landscape orientations. Whilst the site is designed for a portrait orientation on handheld devices it was important that it did not break the site design if the user prefers a landscape orientation.
 
-One issue identified was the overlapping of the battle scene with the question area on landscape handheld devices. I added a max-height of 25vh to the ninja and dragon images and a max-width of 25vh to the progress bars to match. I also removed the padding on the h2 heading to avoid wrapping to next line.
+One issue identified was the overlapping of the battle scene with the question area on landscape handheld devices. I added a max-height of 25vh to the ninja and dragon images and a max-width of 25vh to the progress bars to match. I also removed the padding on the h2 heading to avoid wrapping to next line. I have also added an alert for the user to choose portrait mode for a better experience.
 
 
 ## In game testing
 * The site was checked for users who have JavaScript disabled within their browsers. It successfully displays a warning message along with instructions on how to access the site to the user.
 No issues were discovered.
 
-* The user has the option to change the difficulty level. The changes made within the settings modal were checked through out the site to ensure that the desired changes occured correctly. 
+* The user has the option to change the difficulty level. The changes made within the level selector were checked through out the site to ensure that the desired changes occured correctly. 
 No issues were discovered.
 
 * The in game modals were checked to ensure the game operated correctly with the final resolution to the level successfully being accessed at the appropriate times.
@@ -38,7 +38,7 @@ No issues were discovered.
 * The ability for the user to change the colour scheme was extensively tested across multiple browsers to ensure full compatibility. All elements of the game were checked to ensure that the appropriate colour changes occured.
 No issues were discovered.
 
-* The ability for the user to access a How to Play tutorial  was extensively tested across multiple browsers to ensure full compatibility. 
+* The ability for the user to access a How to Play tutorial was extensively tested across multiple browsers to ensure full compatibility. 
 No issues were discovered.
 
 * The ability for the user to toggle sound for the game was extensively tested across multiple browsers to ensure full compatibility. 

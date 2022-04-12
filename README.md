@@ -129,11 +129,17 @@ Arising from user stories
 #### Wireframe mockups
 I initially utilised Balsamiq to produce low fidelity wireframes of how the game would appear across different devices. Although the game was intended to be contained within one page, wireframes were produced for the different content that would appear on the page. Utilising Balsamiq enabled me to consider multiple layouts for the game elements before settling on the final design.
 
-#### Main Menu
-![Main Menu Wireframe](https://share.balsamiq.com/c/q4H1zmWkQVuHqEKbwTs8vA.png)
+##### Main Menu
+[Main Menu Wireframe](https://share.balsamiq.com/c/q4H1zmWkQVuHqEKbwTs8vA.png)
 
-#### Main Game Screen
-![Main Game Screen Wireframe](https://share.balsamiq.com/c/td46TLzsk156JSuJhg3RtP.png)
+##### Main Game Screen
+[Main Game Screen Wireframe](https://share.balsamiq.com/c/td46TLzsk156JSuJhg3RtP.png)
+
+#### Wireframe changes
+During the development process I decided to make a few changes from the initial wireframes. I decided to change the three settings toggles in the top corner to become part of the level/settings modal, this decision was made to clear up the look of the main game screen. This settings modal was now accessed via a settings button in the top right, which provided symmetry with the how to play button, this button then made the return to home button in the footer redundant.
+
+Additionally, I decided to include the text inside the question area, insteaad of above it, as it made the text more readable against the background image.
+
 
 ### The Surface Plane
 
@@ -145,13 +151,13 @@ Once happy with the overall structure for the site, and the layout of each secti
 
 The background image provided the inspiration for the site and the overall theme. I designed it on Affinity Photo.
 
-![Background Image](assets/readme-images/bg_sunset.jpg)
+![Background Image](assets/images/bg_sunset.jpg)
 
 ##### Colour Scheme
 
 To ensure that the colours used for different elements provided the required contrast ratio the colour codes were loaded into a contrast checker available at [Contrast Grid](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%23fffff%2C%20White%0D%0A%23E7E2DB%2C%20White%0D%0A%23f8f8f8%2C%20White%0D%0A%23b3b3b3%2C%20%20Light%20Grey%0D%0A%23F8BA50%2C%20%20Light%20Orange%0D%0A%23FB940A%2C%20%20Mid%20Orange%0D%0A%23EA7607%2C%20%20Dark%20Orange%0D%0A%23020101%2C%20Black%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
 
-Default Colour Scheme
+Colour Scheme
 ![Default colour scheme](assets/readme-images/colourScheme.png)
 
 ##### Typography
@@ -164,7 +170,7 @@ I also added a thick white border to the Bangers font to add to the game/graphic
 
 I drew the ninja image to enforce the ninja/fight theme for the game. I also included the mathematics operators on the ninjas clothing to embrace the numeracy aspect of the game. 
 
-The dragon image was taken from ![Pixabay](https://pixabay.com/vectors/dragon-green-chinese-winged-animal-29761/) and then manipulated in Affinity Photo to add belts and recolour. 
+The dragon image was taken from [Pixabay](https://pixabay.com/vectors/dragon-green-chinese-winged-animal-29761/) and then manipulated in Affinity Photo to add belts and recolour. 
 
 I also added a thick white border to the images to add to the game/graphic/comic style and the complement the font styling.
 
@@ -181,20 +187,22 @@ Dark Colour Scheme
 ![Main Menu Dark](assets/readme-images/mainMenuDark.png)
 
 * Game Screens
-There are two versions of the game and therefore two different game screens, however they follow the same layout and format.
-![ Game Screen](assets/readme-images/game-screen.png)
+![ Game Screen](assets/readme-images/game-screen-light.png)
+
+Dark Colour Scheme
+![Main Menu Dark](assets/readme-images/game-screen-dark.png)
 
 * End Screens
 There are three modals available from the main game, one for the next level, one of the replay level and one for the end of game. 
 
 Replay Level
-![Replay Level](assets/readme-images/replayLevel.png)
+![Replay Level](assets/readme-images/replay-screen.png)
 
 Next Level
-![Next Level](assets/readme-images/nextLevel.png)
+![Next Level](assets/readme-images/next-screen.png)
 
 Win Modal
-![Win Modal](assets/readme-images/winModal.png)
+![Win Modal](assets/readme-images/win-screen.png)
 
 ## Future Enhancements
 
