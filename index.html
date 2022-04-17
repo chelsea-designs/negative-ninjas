@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/80f956ebd0.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&display=swap" rel="stylesheet">
@@ -34,63 +35,83 @@
             </div>
             <div class="col-8 p-0 my-auto">
                 <noscript class="no-js">
-                    <p>This game requires JavaScript in order to work. Your browser either does not support JavaScript or you have it disabled. Try enabling JavaScript in your settings to play the game.</p>
+                    <div>This game requires JavaScript in order to work. Your browser either does not support JavaScript
+                        or you have it disabled. Try enabling JavaScript in your settings to play the game.</div>
                 </noscript>
                 <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negyddol</span><span class="en">Negative
                         Ninjas</span></h1>
             </div>
-            <div class="col-2 p-0 text-center my-auto" data-intro="Return to menu to choose level, toggle dark mode, sound or change the language." data-step="1">
+            <div class="col-2 p-0 text-center my-auto"
+                data-intro="Return to menu to choose level, toggle dark mode, sound or change the language."
+                data-step="1">
                 <button type="button" class="btn header_btn--home header_btn my-auto" aria-label="Return to menu">
                     <i class='fas fa-cog'></i>
                 </button>
             </div>
         </header>
-        <div class="questions container my-auto text-center pb-2" data-intro="Answer times table questions correctly to progress to the next level" data-step="2">
+        <div class="questions container my-auto text-center pb-2"
+            data-intro="Answer times table questions correctly to progress to the next level" data-step="2">
             <div class="row">
                 <h2 class="px-0">
                     <span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r draig
-                        i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span
-                        class="en"><span id="current-belt">Blank</span> belt</span></h2>
+                        i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span class="en"><span
+                            id="current-belt">Blank</span> belt</span></h2>
             </div>
             <div class="questions_row row">
                 <div class="display-4 col-2 col-sm-2" id="questions_operand--one">0</div>
-                <div class="display-4 col-2 col-sm-1" id="questions_operator" data-intro="Depending on your level you may answer times, divide or mixture questions" data-step="3">x</div>
-                <div class="display-4 col-2 col-sm-2" id="questions_operand--two" data-intro="The higher the belt the harder the times tables" data-step="4">0</div>
+                <div class="display-4 col-2 col-sm-1" id="questions_operator"
+                    data-intro="Depending on your level you may answer times, divide or mixture questions"
+                    data-step="3">x</div>
+                <div class="display-4 col-2 col-sm-2" id="questions_operand--two"
+                    data-intro="The higher the belt the harder the times tables" data-step="4">0</div>
                 <div class="display-4 col-2 col-sm-1">=</div>
                 <div class="display-4 col-7 col-sm-4">
                     <label><span class="visually-hidden">Answer Box:</span>
-                        <input class="w-100" id="questions_input" type="number" autofocus required data-intro="Type your answers here then press the button or press enter on your keyboard to submit." data-step="5">
+                        <input class="w-100" id="questions_input" type="number" pattern="\d*" autofocus required
+                            data-intro="Type your answers here then press the button or press enter on your keyboard to submit."
+                            data-step="5">
                     </label>
                 </div>
-                <button class="btn questions_submit display-4 my-auto m-2 col-2 col-sm-1" aria-label="Submit answer"><i class="fas fa-arrow-right"></i></button>
+                <button class="btn questions_submit display-4 my-auto m-2 col-2 col-sm-1" aria-label="Submit answer"><i
+                        class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         <div class="battle container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-5">
-                    <div class="row p-0 progress mx-auto" data-intro="Keep an eye on your health bar, if you answer too many wrong, the dragon will defeat you" data-step="9">
-                        <div id="battle_progress--ninja" class="progress-bar bg-success p-0"
-                            role="progressbar" aria-label="ninja health bar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+                    <div class="row p-0 progress mx-auto"
+                        data-intro="Keep an eye on your health bar, if you answer too many wrong, the dragon will defeat you"
+                        data-step="9">
+                        <div id="battle_progress--ninja" class="progress-bar bg-success p-0" role="progressbar"
+                            aria-label="ninja health bar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
                             aria-valuemax="100">
                         </div>
                     </div>
-                    <div class="row" data-intro="You are the negative ninja! If you answer correctly you will attack the dragon" data-step="6">
-                        <img id="battle_img--ninja" class="battle_img--character mx-auto" src="assets/images/ninja0.png" alt="ninja wearing correct colour belt">
+                    <div class="row"
+                        data-intro="You are the negative ninja! If you answer correctly you will attack the dragon"
+                        data-step="6">
+                        <img id="battle_img--ninja" class="battle_img--character mx-auto" src="assets/images/ninja0.png"
+                            alt="ninja wearing correct colour belt">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-4 col-2 weapon_container my-auto">
-                    <img id="battle_weapon--star" class="battle_img--weapon" src="assets/images/ninja-star.png" alt="ninja throwing star">
-                    <img id="battle_weapon--fire" class="battle_img--weapon" src="assets/images/fire-ball.png" alt="dragon fire ball">
+                    <img id="battle_weapon--star" class="battle_img--weapon" src="assets/images/ninja-star.png"
+                        alt="ninja throwing star">
+                    <img id="battle_weapon--fire" class="battle_img--weapon" src="assets/images/fire-ball.png"
+                        alt="dragon fire ball">
                 </div>
                 <div class="col-lg-3 col-md-4 col-5">
                     <div class="row progress mx-auto">
-                        <div id="battle_progress--dragon" class="progress-bar bg-success p-0"
-                            role="progressbar" style="width: 100%" aria-label="dragon health bar" aria-valuenow="100" aria-valuemin="0"
-                            aria-valuemax="100" data-intro="But, if you answer lots of correct answers you will drain the dragons health and complete the level for your belt." data-step="10">
+                        <div id="battle_progress--dragon" class="progress-bar bg-success p-0" role="progressbar"
+                            style="width: 100%" aria-label="dragon health bar" aria-valuenow="100" aria-valuemin="0"
+                            aria-valuemax="100"
+                            data-intro="But, if you answer lots of correct answers you will drain the dragons health and complete the level for your belt."
+                            data-step="10">
                         </div>
                     </div>
                     <div class="row" data-intro="If you answer incorrectly, the dragon will attach you!" data-step="7">
-                        <img id="battle_img--dragon" class="battle_img--character  mx-auto" src="assets/images/dragon0.png" alt="dragon wearing next colour belt">
+                        <img id="battle_img--dragon" class="battle_img--character  mx-auto"
+                            src="assets/images/dragon0.png" alt="dragon wearing next colour belt">
                     </div>
                 </div>
             </div>
@@ -98,43 +119,53 @@
         <footer class="container-fluid">
             <div class="row p-2">
                 <div class="col-6 my-auto">
-                    <p class="lead float-start my-auto"> 
+                    <p class="lead float-start my-auto">
                         <span class="cy lead float-start my-auto">Sgor: </span>
                         <span class="en lead float-start my-auto">Score: </span>
-                        <i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Correct</span><span id="correct">0</span>
-                        <i class="fas fa-times" aria-hidden="true"></i><span class="visually-hidden">Incorrect</span><span id="incorrect">0</span>
+                        <i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Correct</span><span
+                            id="correct">0</span>
+                        <i class="fas fa-times" aria-hidden="true"></i><span
+                            class="visually-hidden">Incorrect</span><span id="incorrect">0</span>
                     </p>
                 </div>
                 <div class="col-6 my-auto">
-                    <a class="footer_btn--contact float-end" href="https://github.com/chelsea-designs"><i class="fab fa-github" aria-hidden="true"></i><span class="cy"> Cyswllt</span><span class="en"> Contact</span></a>
+                    <a class="footer_btn--contact float-end" href="https://github.com/chelsea-designs"
+                        target="_blank"><i class="fab fa-github" aria-hidden="true"></i><span class="cy">
+                            Datblygwr</span><span class="en"> Developer</span></a>
                 </div>
             </div>
         </footer>
         <!-- Settings Modal -->
-        <div class="modal fade" id="modal--settings" tabindex="-1" aria-labelledby="modal_title--settings" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal fade" id="modal--settings" tabindex="-1" aria-labelledby="modal_title--settings"
+            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center pb-0">
                         <div class="text-center smaller mx-auto p-1">
                             <p>
-                                <span class="cy lead">Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i drechu'r ddreigiau.
-                                <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></span>
-                                <span class="en lead">Answer times tables questions including negative numbers to defeat the dragons.
-                                <br><strong>Can you become a black belt negative ninja?</strong></span>
+                                <span class="cy lead">Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i
+                                    drechu'r ddreigiau.
+                                    <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></span>
+                                <span class="en lead">Answer times tables questions including negative numbers to defeat
+                                    the dragons.
+                                    <br><strong>Can you become a black belt negative ninja?</strong></span>
                             </p>
                         </div>
                         <div class="row">
                             <div class="col-sm-2 col-4 offset-0 offset-sm-3 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="modal_btn--sound">
-                                <label class="form-check-label" for="modal_btn--sound"><i class="fas fa-volume-up" aria-hidden="true"></i><span class="visually-hidden">Volume</span></label>
+                                <label class="form-check-label" for="modal_btn--sound"><i class="fas fa-volume-up"
+                                        aria-hidden="true"></i><span class="visually-hidden">Volume</span></label>
                             </div>
                             <div class="col-sm-2 col-4 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="modal_btn--lang">
-                                <label class="form-check-label" for="modal_btn--lang"><i class="fas fa-language" aria-hidden="true"></i><span class="visually-hidden">Language</span></label>
+                                <label class="form-check-label" for="modal_btn--lang"><i class="fa fa-comments"
+                                        aria-hidden="true"></i><span class="visually-hidden">Language</span></label>
                             </div>
                             <div class="col-sm-2 col-4 form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" id="modal_btn--dark">
-                                <label class="form-check-label" for="modal_btn--dark"><i class="fas fa-moon" aria-hidden="true"></i><span class="visually-hidden">Dark Mode</span></label>
+                                <label class="form-check-label" for="modal_btn--dark"><i class="fas fa-moon"
+                                        aria-hidden="true"></i><span class="visually-hidden">Dark Mode</span></label>
                             </div>
                         </div>
                         <div class="row">
@@ -142,29 +173,35 @@
                                 <legend>
                                     <h2 class="text-center">
                                         <span class="cy">Dewiswch eich lefel i ennill eich gwregys:</span>
-                                        <span class="en" id="modal_title--settings">Choose your level to earn your belt:</span>
+                                        <span class="en" id="modal_title--settings">Choose your level to earn your
+                                            belt:</span>
                                     </h2>
                                 </legend>
                                 <div class="row mx-auto">
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="0" checked>
-                                        <img class="img_belt" src="assets/images/white.png" alt="white martial arts belt">
+                                        <img class="img_belt" src="assets/images/white.png"
+                                            alt="white martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="1">
-                                        <img class="img_belt" src="assets/images/yellow.png" alt="yellow martial arts belt">
+                                        <img class="img_belt" src="assets/images/yellow.png"
+                                            alt="yellow martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="2">
-                                        <img class="img_belt" src="assets/images/orange.png" alt="orange martial arts belt">
+                                        <img class="img_belt" src="assets/images/orange.png"
+                                            alt="orange martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="3">
-                                        <img class="img_belt" src="assets/images/green.png" alt="green martial arts belt">
+                                        <img class="img_belt" src="assets/images/green.png"
+                                            alt="green martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="4">
-                                        <img class="img_belt" src="assets/images/purple.png" alt="purple martial arts belt">
+                                        <img class="img_belt" src="assets/images/purple.png"
+                                            alt="purple martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="5">
@@ -172,7 +209,8 @@
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="6">
-                                        <img class="img_belt" src="assets/images/brown.png" alt="brown martial arts belt">
+                                        <img class="img_belt" src="assets/images/brown.png"
+                                            alt="brown martial arts belt">
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="7">
@@ -180,31 +218,36 @@
                                     </label>
                                     <label class="col-4 text-center p-0">
                                         <input type="radio" name="level" value="8">
-                                        <img class="img_belt" src="assets/images/black.png"  alt="black martial arts belt">
+                                        <img class="img_belt" src="assets/images/black.png"
+                                            alt="black martial arts belt">
                                     </label>
                                 </div>
                             </fieldset>
                         </div>
                     </div>
                     <div class="modal-footer pt-0">
-                        <button type="button" class="btn modal_btn--black btn-start col-4 mx-auto" aria-label="Start game"><span class="cy">Chwarae</span><span
-                            class="en">Play</span>
+                        <button type="button" class="btn modal_btn--black btn-start col-4 mx-auto"
+                            aria-label="Start game"><span class="cy">Chwarae</span><span class="en">Play</span>
                         </button>
-                        <button type="button" id="modal_btn--return" class="btn modal_btn--white col-4 mx-auto" aria-label="Return to game"><span class="cy">Yn ôl</span><span
-                            class="en">Return to game</span></button>
+                        <button type="button" id="modal_btn--return" class="btn modal_btn--white col-4 mx-auto"
+                            aria-label="Return to game"><span class="cy">Yn ôl</span><span class="en">Return to
+                                game</span></button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Next Level Modal -->
-        <div class="modal fade" id="modal--next" tabindex="-1" aria-labelledby="modal_title--next" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal fade" id="modal--next" tabindex="-1" aria-labelledby="modal_title--next" aria-hidden="true"
+            data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys <span
-                                id="gwregys-modal">BLANK</span>!</span><span class="en" id="modal_title--next">You defeated the dragon and
+                                id="gwregys-modal">BLANK</span>!</span><span class="en" id="modal_title--next">You
+                            defeated the dragon and
                             earned your <span id="belt-modal">BLANK</span> belt!</span>
-                        <img id="ninja-win" class="modal_img--ninja" src="assets/images/ninja0.png" alt="ninja wearing correct colour belt">
+                        <img id="ninja-win" class="modal_img--ninja" src="assets/images/ninja0.png"
+                            alt="ninja wearing correct colour belt">
                     </div>
                     <div class="modal-footer">
                         <button class="btn modal_btn--black mx-auto" type="button" data-bs-dismiss="modal"
@@ -215,7 +258,8 @@
             </div>
         </div>
         <!-- Replay Level Modal -->
-        <div class="modal fade" id="modal--replay" tabindex="-1" aria-labelledby="modal_title--replay" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal fade" id="modal--replay" tabindex="-1" aria-labelledby="modal_title--replay"
+            aria-hidden="true" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -240,7 +284,8 @@
             </div>
         </div>
         <!-- Win Modal -->
-        <div class="modal fade" id="modal--win" tabindex="-1" aria-labelledby="modal_title--win" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal fade" id="modal--win" tabindex="-1" aria-labelledby="modal_title--win" aria-hidden="true"
+            data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -255,8 +300,9 @@
                         <img class="modal_img--ninja" src="assets/images/ninja10.png" alt="ninja wearing black belt">
                     </div>
                     <div class="modal-footer">
-                        <button id="modal_btn--end" class="btn modal_btn--black mx-auto" type="button" data-bs-dismiss="modal"
-                            aria-label="Close"><span class="cy">Cartref</span><span class="en">Home</span></button>
+                        <button id="modal_btn--end" class="btn modal_btn--black mx-auto" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"><span class="cy">Cartref</span><span
+                                class="en">Home</span></button>
                     </div>
                 </div>
             </div>
