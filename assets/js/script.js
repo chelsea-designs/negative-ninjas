@@ -84,8 +84,8 @@ function resetGame() {
     $(".progress-bar").css('width', '100%');
     $(".progress-bar").attr("aria-valuenow", 100);
     $('.progress-bar').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("incorrect").innerHTML = 0;
+    document.getElementById("battle_progress--ninja").innerHTML = 100;
+    document.getElementById("battle_progress--dragon").innerHTML = 100;
     document.getElementById("questions_input").value = "";
     document.getElementById("questions_input").focus();
 }
@@ -118,17 +118,17 @@ function newQuestion(gameType, multipliers) {
 
     switch (gameType) {
         case "multiply":
-            displayMultiplyQuestion(num1, num2);
+            displayQuestion(num1, num2, "x");
             break;
         case "division":
-            displayDivisionQuestion(num1, num2);
+            displayQuestion(num1 * num2, num2, "\u00F7");
             break;
         case "mixture":
             let chosenOperator = Math.random();
             if (chosenOperator < 0.5) {
-                displayMultiplyQuestion(num1, num2);
+                displayQuestion(num1, num2, "x");
             } else {
-                displayDivisionQuestion(num1, num2);
+                displayQuestion(num1 * num2, num2, "\u00F7");
             }
             break;
         default:
@@ -176,18 +176,11 @@ function calculateCorrectAnswer() {
     }
 }
 
-function formatCorrectAnswer() {
-    $('#questions_input').css("background-color", "green");
+function formatBox(highlightColour) {
+    $('#questions_input').css("background-color", highlightColour);
     setTimeout(function () {
         $('#questions_input').css("background-color", "white");
     }, 250);
-}
-
-function formatIncorrectAnswer() {
-    $('#questions_input').css("background-color", "red");
-    setTimeout(function () {
-        $('#questions_input').css("background-color", "white");
-    }, 500);
 }
 
 function replayLevel() {
@@ -210,17 +203,10 @@ function nextLevel() {
     startGame();
 }
 
-function displayMultiplyQuestion(operand1, operand2) {
+function displayQuestion(operand1, operand2, operation) {
     document.getElementById('questions_operand--one').textContent = operand1;
     document.getElementById('questions_operand--two').textContent = operand2;
-    document.getElementById('questions_operator').textContent = "x";
-}
-
-function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById("questions_operand--one").textContent = operand2 * Math.floor(Math.random() * 25 - 12);
-    document.getElementById("questions_operand--two").textContent = operand2;
-    document.getElementById("questions_operator").textContent = "\u00F7";
-
+    document.getElementById('questions_operator').textContent = operation;
 }
 
 function dragonShoots() {
@@ -228,7 +214,7 @@ function dragonShoots() {
     oldIncorrect -= 10;
     document.getElementById("battle_progress--ninja").innerText = oldIncorrect;
 
-    formatIncorrectAnswer();
+    formatBox("red");
 
     $('#battle_weapon--fire').show().css({
         'right': '0px',
@@ -260,7 +246,7 @@ function ninjaShoots() {
     oldCorrect -= 10;
     document.getElementById("battle_progress--dragon").innerText = oldCorrect;
 
-    formatCorrectAnswer();
+    formatBox("green");
 
     $('#battle_weapon--star').show().css({
         'right': '',
@@ -316,8 +302,8 @@ $("#modal_btn--end").click(function () {
     $("#battle_progress--dragon").attr("aria-valuenow", 100);
     $('#battle_progress--ninja').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
     $('#battle_progress--dragon').removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");
-    document.getElementById("correct").innerHTML = 0;
-    document.getElementById("incorrect").innerHTML = 0;
+    document.getElementById("battle_progress--ninja").innerHTML = 100;
+    document.getElementById("battle_progress--dragon").innerHTML = 100;
 });
 
 /* Empty Input */

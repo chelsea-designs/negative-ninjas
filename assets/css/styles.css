@@ -110,6 +110,7 @@ footer a {
 
 .progress-bar {
     font-size: larger;
+    color: var(--black);
 }
 
 .battle_img--character {
