@@ -108,6 +108,10 @@ footer a {
     max-width: 25vh;
 }
 
+.progress-bar {
+    font-size: larger;
+}
+
 .battle_img--character {
     max-height: 25vh;
 }

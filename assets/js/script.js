@@ -154,9 +154,9 @@ function checkAnswer() {
     let isCorrect = userAnswer === calculatedAnswer;
 
     if (isCorrect) {
-        incrementCorrect();
+        ninjaShoots();
     } else {
-        incrementIncorrect();
+        dragonShoots();
     }
 }
 
@@ -176,25 +176,11 @@ function calculateCorrectAnswer() {
     }
 }
 
-function incrementCorrect() {
-    let oldCorrect = parseInt(document.getElementById("correct").innerText);
-    document.getElementById("correct").innerText = ++oldCorrect;
-    formatCorrectAnswer();
-    ninjaShoots();
-}
-
 function formatCorrectAnswer() {
     $('#questions_input').css("background-color", "green");
     setTimeout(function () {
         $('#questions_input').css("background-color", "white");
     }, 250);
-}
-
-function incrementIncorrect() {
-    let oldIncorrect = parseInt(document.getElementById("incorrect").innerText);
-    document.getElementById("incorrect").innerText = ++oldIncorrect;
-    formatIncorrectAnswer();
-    dragonShoots();
 }
 
 function formatIncorrectAnswer() {
@@ -238,6 +224,12 @@ function displayDivisionQuestion(operand1, operand2) {
 }
 
 function dragonShoots() {
+    let oldIncorrect = parseInt(document.getElementById("battle_progress--ninja").innerText);
+    oldIncorrect -= 10;
+    document.getElementById("battle_progress--ninja").innerText = oldIncorrect;
+
+    formatIncorrectAnswer();
+
     $('#battle_weapon--fire').show().css({
         'right': '0px',
         'left': ''
@@ -264,6 +256,12 @@ function dragonShoots() {
 }
 
 function ninjaShoots() {
+    let oldCorrect = parseInt(document.getElementById("battle_progress--dragon").innerText);
+    oldCorrect -= 10;
+    document.getElementById("battle_progress--dragon").innerText = oldCorrect;
+
+    formatCorrectAnswer();
+
     $('#battle_weapon--star').show().css({
         'right': '',
         'left': '0px'
