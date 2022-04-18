@@ -59,3 +59,6 @@ No issues were discovered.
 No issues were discovered.
 
 * Accessibility was one of the main goals for the project. Being able to navigate the site, access all elements and control the game with a keyboard was important. Therefore all elements were tested to be fully compliant. One issue was discovered during the testing process in that users were unable to navigate all elements with the tab button. This issue was rectified by adding a tabindex to the modal content which allows a keyboard user to navigate the content.
+
+## Automated Testing
+Comprehensive automated test coverage is not required for the scope of this project, just enough to demonstrate knowledge of how automated software testing works. Real-world scenarios may include a wider scope of test cases.

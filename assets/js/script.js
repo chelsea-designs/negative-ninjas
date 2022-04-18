@@ -268,7 +268,7 @@ function ninjaShoots() {
         document.getElementById("battle_progress--dragon").style.width = dragonHealth + "%";
         $("#battle_progress--dragon").attr("aria-valuenow", dragonHealth);
         $('#battle_progress--dragon').removeClass("bg-warning").addClass("bg-danger");
-        beltNumber == maxBeltNumber ? setTimeout(win, 1000) : setTimeout(nextLevel, 1000);
+        beltNumber == maxBeltNumber ? setTimeout(win, 500) : setTimeout(nextLevel, 500);
     }
 }
 
@@ -312,3 +312,7 @@ $(document).ready(function () {
             $('.questions_submit').attr('disabled', true);
     });
 });
+
+module.exports = {
+    difficulty
+};

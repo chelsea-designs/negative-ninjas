@@ -1,1 +1,22 @@
-{}
+{
+  "name": "jest",
+  "description": "Negative Ninjas is a web based game built in JavaScript, HTML and CSS. It is a maths based game similar to classic timestables practice but with a focus on multiplication and division with directed numbers. It is targetted towards key stage 3 pupils who would like a fun learning activity.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chelsea-designs/negative-ninjas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chelsea-designs/negative-ninjas/issues"
+  },
+  "homepage": "https://github.com/chelsea-designs/negative-ninjas#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}

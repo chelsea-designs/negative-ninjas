@@ -69,7 +69,6 @@ Acceptance Criteria:
 Implementation:
 * The layout, colour scheme font choice and graphic choices will all convey a sense of fun and make it clear to the user that this is a game site. There will be a help button on the main game page so the user can easily learn how to play and access information about the game.
 
-
 User Story:
 > As a user, I want to be able to play a more challenging version of the game
 
@@ -223,12 +222,15 @@ Win Modal
 
 I took a two stage approach to testing the site. The first stage was continuous testing as the site was being developed. This was especially important to do during development of the JavaScript logic to ensure that the different functions and variables contained or returned the correct data type or values. During the styling of the site I would check the visual appearence within a live server window to preview the changes before they were committed.
 
-For the second stage of testing, I utilised a more formal structured approach and created a test schedule for the site and each logical cycle. I then proceeded to run through the tests individually making a note of any errors or changes to the designed behaviour. Any errors were corrected and then the tests repeated.
+For the second stage of testing, I utilised a more formal structured approach for the site and each logical cycle. I then proceeded to run through the tests individually making a note of any errors or changes to the designed behaviour. Any errors were corrected and then the tests repeated.
 
 A full detailed breakdown of the testing proceedures and methodology can be found in the testing.md file [here](TESTING.md)
 
 #### Notable Bugs
-Only one bug of note was discovered during the development or testing of the site, which involved the game resetting if the user visited the settings screen. This was rectified by removing the start game function from the settings button. However, multiple small visual errors were encountered during testing across different devices, browsers or browser versions which needed additional CSS style rules to overcome. For example, the submit button was not horizontally centered on the input but this was fixed with display flex. 
+Only two bugs of note were discovered during the development or testing of the site.
+* The first involved the game resetting if the user visited the settings screen. This was rectified by removing the start game function from the settings button. 
+* The second was layout issues on landscape orientation on mobile, when the keyboard is displayed. This was rectified using media queries.
+* Additionally, multiple small visual errors were encountered during testing across different devices, browsers or browser versions which needed additional CSS style rules to overcome. For example, the submit button was not horizontally centered on the input but this was fixed with display flex. 
 
 ## Deployment
 
