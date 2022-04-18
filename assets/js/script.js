@@ -57,8 +57,8 @@ let beltNumber = 0;
 const maxBeltNumber = 8;
 let currentBelt;
 let gwregysPresennol;
-let ninjaNoise = new Audio("assets/audio/ninja-noise.wav");
-let dragonNoise = new Audio("assets/audio/fire-noise.wav");
+let ninjaNoise = new Audio("assets/audio/ninjaNoise.wav");
+let dragonNoise = new Audio("assets/audio/fireNoise.wav");
 
 $(".battle_img--weapon").hide();
 $('#modal_btn--return').hide();
@@ -275,7 +275,7 @@ function ninjaShoots() {
 function win() {
     if ($('#modal_btn--sound').is(':checked')) {
         $('#modal--win').modal('toggle');
-        let themeSong = new Audio("assets/audio/theme-song.wav");
+        let themeSong = new Audio("assets/audio/themeSong.wav");
         themeSong.play();
     } else {
         $('#modal--win').modal('toggle');

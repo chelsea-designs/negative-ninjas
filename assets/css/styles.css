@@ -28,7 +28,7 @@ body {
     color: var(--fontColor);
     margin: 0;
     padding: 0;
-    background: var(--white) url('../images/bg_sunset.jpg') no-repeat right center fixed;
+    background: var(--white) url('../images/bgSunset.jpg') no-repeat right center fixed;
     background-size: cover;
 }
 

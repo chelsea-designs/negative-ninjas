@@ -151,7 +151,7 @@ Once happy with the overall structure for the site, and the layout of each secti
 
 The background image provided the inspiration for the site and the overall theme. I designed it on Affinity Photo.
 
-![Background Image](assets/images/bg_sunset.jpg)
+![Background Image](assets/images/bgSunset.jpg)
 
 ##### Colour Scheme
 
@@ -187,22 +187,22 @@ Dark Colour Scheme
 ![Main Menu Dark](assets/readme-images/mainMenuDark.png)
 
 * Game Screens
-![ Game Screen](assets/readme-images/game-screen-light.png)
+![ Game Screen](assets/readme-images/gameScreenLight.png)
 
 Dark Colour Scheme
-![Main Menu Dark](assets/readme-images/game-screen-dark.png)
+![Main Menu Dark](assets/readme-images/gameScreenDark.png)
 
 * End Screens
 There are three modals available from the main game, one for the next level, one of the replay level and one for the end of game. 
 
 Replay Level
-![Replay Level](assets/readme-images/replay-screen.png)
+![Replay Level](assets/readme-images/replayScreen.png)
 
 Next Level
-![Next Level](assets/readme-images/next-screen.png)
+![Next Level](assets/readme-images/nextScreen.png)
 
 Win Modal
-![Win Modal](assets/readme-images/win-screen.png)
+![Win Modal](assets/readme-images/winScreen.png)
 
 ## Future Enhancements
 
