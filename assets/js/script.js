@@ -184,13 +184,21 @@ function formatBox(highlightColour) {
 
 function replayLevel() {
     resetGame();
-    $('#modal--replay').modal('toggle');
-    startGame();
+    $('#modal--replay').modal('show');
+    $("#modal--replay").on('shown.bs.modal', function () {
+        $('#btn--replay').focus();
+    });
+    $('#btn--replay').click(function () {
+        startGame();
+    })
 }
 
 function nextLevel() {
     resetGame();
-    $('#modal--next').modal('toggle');
+    $('#modal--next').modal('show');
+    $("#modal--next").on('shown.bs.modal', function () {
+        $('#btn--next').focus();
+    });
     $('#belt-modal').html(currentBelt);
     $('#gwregys-modal').html(gwregysPresennol);
     beltNumber++;
@@ -199,7 +207,9 @@ function nextLevel() {
     gwregysPresennol = difficulty[beltNumber].lliw;
     $('#current-belt').html(currentBelt);
     $('#gwregys-presennol').html(gwregysPresennol);
-    startGame();
+    $('#btn--next').click(function () {
+        startGame();
+    })
 }
 
 function displayQuestion(operand1, operand2, operation) {
@@ -274,27 +284,42 @@ function ninjaShoots() {
 
 function win() {
     if ($('#modal_btn--sound').is(':checked')) {
-        $('#modal--win').modal('toggle');
+        $('#modal--win').modal('show');
+        $("#modal--win").on('shown.bs.modal', function () {
+            $('#modal_btn--end').focus();
+        });
         let themeSong = new Audio("assets/audio/themeSong.wav");
         themeSong.play();
     } else {
-        $('#modal--win').modal('toggle');
+        $('#modal--win').modal('show');
+        $("#modal--win").on('shown.bs.modal', function () {
+            $('#modal_btn--end').focus();
+        });
     }
 }
 
 $(".header_btn--home").click(function () {
     $('#modal--settings').modal('show');
     $('#modal_btn--return').show();
+    $("#modal--settings").on('shown.bs.modal', function () {
+        $('#modal_btn--return').focus();
+        $("input:radio[name='level']:checked").val(beltNumber);
+    });
 });
 
 $("#modal_btn--return").click(function () {
     $('#modal--settings').modal('hide');
     $('#modal_btn--return').hide();
+    $("#questions_input").focus();
 });
 
 $("#modal_btn--end").click(function () {
-    $('#modal--win').modal('toggle');
+    $('#modal--win').modal('hide');
     $('#modal--settings').modal('show');
+    $("#modal--settings").on('shown.bs.modal', function () {
+        $('#modal_btn--end').modal('hide');
+        $("input:radio[name='level']:checked").val(0);
+    });
     $(".progress-bar").width(100 + "%");
     $(".progress-bar").attr("aria-valuenow", 100);
     $(".progress-bar").removeClass("bg-warning").removeClass("bg-danger").addClass("bg-success");

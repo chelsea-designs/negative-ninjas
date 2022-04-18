@@ -1,6 +1,6 @@
 const {
     difficulty
-} = require("../script");
+} = require("assets/js/script.js");
 
 
 beforeAll(() => {

@@ -67,8 +67,7 @@
                 <div class="display-4 col-2 col-sm-1">=</div>
                 <div class="display-4 col-7 col-sm-4">
                     <label><span class="visually-hidden">Answer Box:</span>
-                        <input class="w-100" id="questions_input" type="number" pattern="\d*" step="1" autofocus
-                            required
+                        <input class="w-100" id="questions_input" type="number" pattern="\d*" step="1" required
                             data-intro="Type your answers here then press the button or press enter on your keyboard to submit."
                             data-step="5">
                     </label>
@@ -241,8 +240,9 @@
                             alt="ninja wearing correct colour belt">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn modal_btn--black mx-auto" type="button" data-bs-dismiss="modal"
-                            aria-label="Close"><span class="cy">Lefel Nesaf</span><span class="en">Next
+                        <button id="btn--next" class="btn modal_btn--black mx-auto" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"><span class="cy">Lefel
+                                Nesaf</span><span class="en">Next
                                 Level</span></button>
                     </div>
                 </div>
@@ -267,8 +267,9 @@
                         <img class="modal_img--ninja" src="assets/images/ninjaSad.png" alt="ninja crying">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn modal_btn--black mx-auto" type="button" data-bs-dismiss="modal"
-                            aria-label="Close"><span class="cy">Trio'r lefel eto</span><span class="en">Replay
+                        <button id="btn--replay" class="btn modal_btn--black mx-auto" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"><span class="cy">Trio'r lefel eto</span><span
+                                class="en">Replay
                                 Level</span></button>
                     </div>
                 </div>
