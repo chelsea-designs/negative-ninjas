@@ -52,10 +52,13 @@
         <div class="questions container my-auto text-center pb-2"
             data-intro="Answer times table questions correctly to progress to the next level" data-step="2">
             <div class="row">
-                <h2 class="px-0">
+                <h2 class="col-10 px-0">
                     <span class="en">Defeat the dragon to achieve your </span><span class="cy">Trechu'r draig
                         i gyflawni eich gwregys <span id="gwregys-presennol">Blank</span></span><span class="en"><span
                             id="current-belt">Blank</span> belt</span></h2>
+                <h2 class="col-2 stopwatch">
+                    <i class="fas fa-stopwatch" aria-hidden="true"></i><span id="timer">0</span>s
+                </h2>
             </div>
             <div class="questions_row row">
                 <div class="display-4 col-2 col-sm-2" id="questions_operand--one">0</div>
@@ -273,6 +276,33 @@
                     </div>
                     <div class="modal-footer">
                         <button id="btn--replay" class="btn modal_btn--black mx-auto" type="button"
+                            data-bs-dismiss="modal" aria-label="Close"><span class="cy">Trio'r lefel eto</span><span
+                                class="en">Replay
+                                Level</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TimesUp Modal -->
+        <div class="modal fade" id="modal--timesUp" tabindex="-1" aria-labelledby="modal_title--timesUp"
+            aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="en" id="modal_title--timesUp">
+                            Oh no!
+                            <br>You ran out of time.
+                            <br>Try again!
+                        </div>
+                        <div class="cy">
+                            Dratia!
+                            <br>Mae'r amser wedi darfod.
+                            <br>Rhoi gynnig arall arni!
+                        </div>
+                        <img class="modal_img--ninja" src="assets/images/ninjaSad.png" alt="ninja crying">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn--timesUp" class="btn modal_btn--black mx-auto" type="button"
                             data-bs-dismiss="modal" aria-label="Close"><span class="cy">Trio'r lefel eto</span><span
                                 class="en">Replay
                                 Level</span></button>

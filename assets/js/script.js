@@ -87,6 +87,9 @@
      $(".progress-bar").html(100);
      $("#questions_input").val("");
      $("#questions_input").focus();
+     window.timeLeft = 60;
+     $('.stopwatch').css("color", "var(--fontColor)");
+     clearInterval(timer);
  }
 
  $(".btn-start").click(function () {
@@ -106,6 +109,7 @@
      $("#battle_img--dragon").attr('src', `assets/images/dragon${beltNumber}.png`);
      resetGame();
      newQuestion(gameType, multipliers);
+     startTimer();
  }
 
  function newQuestion(gameType, multipliers) {
@@ -343,6 +347,47 @@
              $('.questions_submit').attr('disabled', true);
      });
  });
+
+ /*  TIMER */
+ var timer;
+ var timeLeft = 60;
+
+ function timesUp() {
+     document.getElementById("battle_progress--ninja").style.width = "0%"
+     $("#battle_progress--ninja").attr("aria-valuenow", 0);
+     $('#battle_progress--ninja').removeClass("bg-warning").removeClass("bg-success").addClass("bg-danger");
+     setTimeout(function () {
+         resetGame();
+         $('#modal--timesUp').modal('show');
+         $("#modal--timesUp").on('shown.bs.modal', function () {
+             $('#btn--timesUp').focus();
+         });
+     }, 500);
+ }
+
+ $('#btn--timesUp').click(function () {
+     window.timeLeft = 60;
+     startGame();
+ })
+
+ function updateTimer() {
+     timeLeft--;
+     if (timeLeft >= 10) {
+         $('#timer').html(timeLeft);
+     } else if (timeLeft >= 0) {
+         $('#timer').html(timeLeft);
+         $('.stopwatch').css("color", "red");
+     } else {
+         timesUp();
+     }
+ }
+
+ function startTimer() {
+     timer = setInterval(updateTimer, 1000);
+     updateTimer();
+ }
+
+
 
  module.exports = {
      difficulty
