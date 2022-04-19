@@ -207,8 +207,8 @@ Win Modal
 
 * Leaderboard
   * It would be nice to include a leaderboard so that users can compare their score or results with other players, or with themselves over a period of time. This could increase the challenge for users to try and beat other players or their previous scores. The leaderboard would display their speed to achieve black belt.
-* Timed Levels
-  * The game could be extended through the implementation of timed levels as a way to measure their success in the game and also to add time-pressure to the game could make it more engaging.
+* Variable-Timed Levels
+  * The game could be extended through the implementation of variable timed levels, this could add an extra level of difficulty to the game and could help differentiate for learners of all abilities.
 * Locked Levels
   * The game could be extended through the implementation of a level structure which would require the player to work their way through the levels to reach the final belt rather than choosing their entry-level.
 * Multiplayer

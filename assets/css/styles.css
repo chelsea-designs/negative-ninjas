@@ -289,3 +289,23 @@ input[type=number] {
     height: auto;
     width: 30vw;
 }
+
+.message {
+    display: none;
+}
+
+@media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    .layer {
+        display: none;
+    }
+
+    .message {
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .modal-backdrop {
+        visibility: hidden;
+    }
+}
