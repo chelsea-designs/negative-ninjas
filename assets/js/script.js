@@ -349,6 +349,10 @@
          else
              $('.questions_submit').attr('disabled', true);
      });
+
+     function fixios() {
+         var element = document.getElementById('negativeinput1').setAttribute("inputmode", "url");
+     };
  });
 
  /*  TIMER */
