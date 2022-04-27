@@ -37,6 +37,8 @@ One issue identified was the overlapping of the battle scene with the question a
 
 
 ## In game testing
+* The site was tested by a class of 30 students ages 13-14 to ask for their feedback. They wanted a timer adding so I implemented this.
+
 * The site was checked for users who have JavaScript disabled within their browsers. It successfully displays a warning message along with instructions on how to access the site to the user.
 No issues were discovered.
 
@@ -61,4 +63,4 @@ No issues were discovered.
 * Accessibility was one of the main goals for the project. Being able to navigate the site, access all elements and control the game with a keyboard was important. Therefore all elements were tested to be fully compliant. One issue was discovered during the testing process in that users were unable to navigate all elements with the tab button. This issue was rectified by adding a tabindex to the modal content which allows a keyboard user to navigate the content.
 
 ## Automated Testing
-Comprehensive automated test coverage is not required for the scope of this project, just enough to demonstrate knowledge of how automated software testing works. Real-world scenarios may include a wider scope of test cases.
+Comprehensive automated test coverage is not required for the scope of this project, just enough to demonstrate knowledge of how automated software testing works. Real-world scenarios may include a wider scope of test cases. In future releases of this game I would like to set-up automated testing for all functions, for the purpose of this submission, I have included minimal testing on DOM elements to demonstrate understanding of Jest.

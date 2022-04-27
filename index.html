@@ -22,7 +22,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
         defer></script>
     <script src="https://unpkg.com/intro.js/minified/intro.min.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
+    <script type="module" src="assets/js/script.js" defer></script>
 </head>
 
 <body class="theme--light">
@@ -38,7 +38,7 @@
                     <div>This game requires JavaScript in order to work. Your browser either does not support JavaScript
                         or you have it disabled. Try enabling JavaScript in your settings to play the game.</div>
                 </noscript>
-                <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negyddol</span><span class="en">Negative
+                <h1 class="text-center text-nowrap m-0"><span class="cy">Ninjas Negatif</span><span class="en">Negative
                         Ninjas</span></h1>
             </div>
             <div class="col-2 p-0 text-center my-auto"
@@ -158,7 +158,7 @@
                             <p>
                                 <span class="cy lead">Atebwch cwestiynau tablau lluosi sy'n cynnwys rhifau negyddol i
                                     drechu'r ddreigiau.
-                                    <br><strong>Gallwch chi ennill y teitl Ninja Negyddol Gwregys Du?</strong></span>
+                                    <br><strong>Gallwch chi ennill y teitl Ninja Negatif Gwregys Du?</strong></span>
                                 <span class="en lead">Answer times tables questions including negative numbers to defeat
                                     the dragons.
                                     <br><strong>Can you become a black belt negative ninja?</strong></span>
@@ -240,10 +240,15 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
-                        <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys <span
-                                id="gwregys-modal">BLANK</span>!</span><span class="en" id="modal_title--next">You
-                            defeated the dragon and
-                            earned your <span id="belt-modal">BLANK</span> belt!</span>
+                        <span class="cy">Rydych chi wedi trechu'r draig ac wedi ennill gwregys
+                            <span id="gwregys-modal">BLANK
+                            </span>!
+                        </span>
+                        <span class="en" id="modal_title--next">You defeated the dragon and earned your
+                            <span id="belt-modal">BLANK
+                            </span> belt!
+                        </span>
+                        <br>
                         <img id="ninja-win" class="modal_img--ninja" src="assets/images/ninja0.png"
                             alt="ninja wearing correct colour belt">
                     </div>
@@ -318,7 +323,7 @@
                     <div class="modal-body text-center">
                         <div class="cy">
                             Rydych wedi trechu'r draig ac rydych chi wedi ennill gwregys du!
-                            <br>Chi yw'r Ninja Negyddol Gorau yn y Byd!
+                            <br>Chi yw'r Ninja Negatif Gorau yn y Byd!
                         </div>
                         <div class="en" id="modal_title--win">
                             You defeated the dragon and earned your black belt!

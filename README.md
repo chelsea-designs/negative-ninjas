@@ -214,7 +214,7 @@ Win Modal
 * Multiplayer
   * Network play mode. It would be nice to include an online multiplayer option to the game to enable users to play the game against another person rather than the dragon.
 * More languages
-  * My method for including Welsh and English language works fine for two languages but would use dictionaries if I implemented more than two languages.
+  * My method for including Welsh and English language works fine for two languages but would use dictionaries if I implemented more than two languages, I came across the dictionary method quite far into the project and decided I would change method when I decide to add additional languages.
 
 ## Testing
 
@@ -229,7 +229,7 @@ A full detailed breakdown of the testing proceedures and methodology can be foun
 #### Notable Bugs
 Only two bugs of note were discovered during the development or testing of the site.
 * The first involved the game resetting if the user visited the settings screen. This was rectified by removing the start game function from the settings button. 
-* The second was layout issues on landscape orientation on mobile, when the keyboard is displayed. This was rectified using media queries.
+* The second was layout issues on landscape orientation on mobile, when the keyboard is displayed. This was rectified using media queries to display a message to play in portrait view.
 * Additionally, multiple small visual errors were encountered during testing across different devices, browsers or browser versions which needed additional CSS style rules to overcome. For example, the submit button was not horizontally centered on the input but this was fixed with display flex. 
 
 ## Deployment
@@ -292,4 +292,4 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 -   Tutor support at Code Institute for their support.
 
--   My peers for their support through Stack.
+-   My peers for their support through Stack, in particular, thanks to Matt Boden for his helpful and detailed feedback.

@@ -87,7 +87,7 @@
      $(".progress-bar").html(100);
      $("#questions_input").val("");
      $("#questions_input").focus();
-     window.timeLeft = 60;
+     timeLeft = 60;
      $('.stopwatch').css("color", "var(--fontColor)");
      clearInterval(timer);
  }
@@ -366,7 +366,7 @@
  }
 
  $('#btn--timesUp').click(function () {
-     window.timeLeft = 60;
+     timeLeft = 60;
      startGame();
  })
 
@@ -387,8 +387,6 @@
      updateTimer();
  }
 
-
-
  module.exports = {
-     difficulty
+     resetGame
  };
