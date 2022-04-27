@@ -227,9 +227,10 @@ For the second stage of testing, I utilised a more formal structured approach fo
 A full detailed breakdown of the testing proceedures and methodology can be found in the testing.md file [here](TESTING.md)
 
 #### Notable Bugs
-Only two bugs of note were discovered during the development or testing of the site.
+Only three bugs of note were discovered during the development or testing of the site.
 * The first involved the game resetting if the user visited the settings screen. This was rectified by removing the start game function from the settings button. 
 * The second was layout issues on landscape orientation on mobile, when the keyboard is displayed. This was rectified using media queries to display a message to play in portrait view.
+* A major bug, for the answer input, the input type was number, this meant on IOS there was no "minus" button on the keyboard. As a work around I followed this [tutorial](https://forum.bubble.io/t/negative-numbers-on-ios-keyboard/107662). It's not an ideal solution as there is still alphabet keyboard on iPhone, which isn't great for user experience.
 * Additionally, multiple small visual errors were encountered during testing across different devices, browsers or browser versions which needed additional CSS style rules to overcome. For example, the submit button was not horizontally centered on the input but this was fixed with display flex. 
 
 ## Deployment

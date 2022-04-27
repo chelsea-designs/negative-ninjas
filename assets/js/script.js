@@ -311,7 +311,6 @@
      $('#modal_btn--return').show();
      $("#modal--settings").on('shown.bs.modal', function () {
          $('#modal_btn--return').focus();
-         $("input:radio[name='level']:checked").val(beltNumber);
      });
      $("input:radio[name='level']:not(:checked)").click(function () {
          $('#modal_btn--return').hide();
@@ -331,7 +330,6 @@
      $('#modal--settings').modal('show');
      $("#modal--settings").on('shown.bs.modal', function () {
          $('#modal_btn--end').modal('hide');
-         $("input:radio[name='level']:checked").val(0);
      });
      $(".progress-bar").width(100 + "%");
      $(".progress-bar").attr("aria-valuenow", 100);
