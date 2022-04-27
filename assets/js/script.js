@@ -200,6 +200,7 @@
  function nextLevel() {
      resetGame();
      $('#modal--next').modal('show');
+     $('#speed-next').html((60 - parseInt($('#timer').html())) / 10);
      $("#modal--next").on('shown.bs.modal', function () {
          $('#btn--next').focus();
      });
@@ -287,6 +288,8 @@
  }
 
  function win() {
+     resetGame();
+     $('#speed-win').html((60 - parseInt($('#timer').html())) / 10);
      if ($('#modal_btn--sound').is(':checked')) {
          $('#modal--win').modal('show');
          $("#modal--win").on('shown.bs.modal', function () {
