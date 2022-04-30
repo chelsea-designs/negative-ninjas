@@ -391,7 +391,3 @@
      timer = setInterval(updateTimer, 1000);
      updateTimer();
  }
-
- module.exports = {
-     resetGame
- };
